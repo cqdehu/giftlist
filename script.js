@@ -2,7 +2,7 @@ $(document).ready(function(){
     $("#logoutBtn").click(function(){
         $.ajax({
             type: "POST",
-            url: "delete_jwt_token.php",
+            url: "logout.php",
             success: function() {
                 console.log("A jwt_token cookie sikeresen törölve lett!");
             },
