@@ -4,7 +4,7 @@ function auth() {
   
     // If token does not exist, redirect to login page
     if (!jwtToken) {
-      console.log(":C")
+      console.log(":C "+jwtToken)
       return;
     }
   
