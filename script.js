@@ -3,6 +3,8 @@ console.log(document.cookie)
 function auth() {
     // Check if JWT token exists in cookies
     const jwtToken = getCookie('jwt_token');
+    console.log(jwtToken);
+
 
     // If token does not exist, redirect to login page
     if (!jwtToken) {
