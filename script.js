@@ -18,9 +18,11 @@ $(document).ready(function(){
             url: "logout.php",
             success: function() {
                 console.log("A jwt_token cookie sikeresen törölve lett!");
+                console.log($decoded)
             },
             error: function() {
                 console.log("Hiba történt a jwt_token cookie törlésekor!");
+                console.log($decoded)
             }
         });
         auth()
