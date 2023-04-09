@@ -12,6 +12,12 @@ if (!$conn) {
     die("Kapcsolódási hiba: " . mysqli_connect_error());
 }
 
+if(isset($_POST['submit'])){
+    if($_POST['username'] == ""){
+        $_SESSION['MASSAGE'] = "Name and password required!";
+    }
+}
+
 // Ellenőrizzük, hogy a felhasználónév létezik-e
 $sql = "SELECT * FROM `users` WHERE username = '" . $_POST['username'] . "'";
 $result = mysqli_query($conn, $sql);
@@ -22,20 +28,16 @@ if (mysqli_num_rows($result) > 0) {
     if (password_verify($_POST['password'], $user['password'])) {
         // Ha a jelszó helyes, akkor sikeres bejelentkezés
         echo "Sikeres bejelentkezés!";
-        // JWT generálása
-        $payload = array(
-            "sub" => $_POST['username'],
-            "iat" => time(),
-            "exp" => time() + (60 * 60) // 1 óra lejárati idő
-        );
+        
+        //JWT???
 
-        // JWT kódolása
-        $jwt = JWT::encode($payload, "kodolt_jelszo", "HS256");
-
-        // Cookie létrehozása és beállítása
         setcookie('jwt_token', $jwt, time() + (60 * 60), '/', '', true, true);
 
-        header("Location:/home.html");
+        header("Location: /home.html");
+        exit(); // fontos, hogy kilépjünk a programból az átirányítás után
+
+        
+
     } else {
         echo "Hibás jelszó! ";
     }
@@ -43,10 +45,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "A felhasználónév nem létezik!";
 }
 
-
 // Kapcsolat lezárása
 mysqli_close($conn);
-//
-//
-//
-//
+
+?>
