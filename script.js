@@ -10,9 +10,7 @@ function auth() {
         }
     })
 }
-
-
-
+    
 $(document).ready(function(){
     $("#logoutBtn").click(function(){
         $.ajax({
