@@ -26,16 +26,16 @@ if (mysqli_num_rows($result) > 0) {
         $payload = array(
             "sub" => $_POST['username'],
             "iat" => time(),
-            "exp" => time() + (60 * 60)
+            "exp" => time() + (60 * 60) // 1 óra lejárati idő
         );
-        $jwt = JWT::encode($payload, $secretKey, "HS256");
-        // A JWT-t eltárolhatjuk a felhasználó számára, vagy visszaküldhetjük a kliensnek
-        // pl. egy HTTP válaszban
 
+        // JWT kódolása
+        $jwt = JWT::encode($payload, "kodolt_jelszo", "HS256");
+
+        // Cookie létrehozása és beállítása
         setcookie('jwt_token', $jwt, time() + (60 * 60), '/', '', true, true);
 
         header("Location:/home.html");
-
     } else {
         echo "Hibás jelszó! ";
     }
