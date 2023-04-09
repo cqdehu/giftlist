@@ -35,7 +35,7 @@ console.log(document.cookie)
 // Helper function to get cookie value by name
 function getCookie(name) {
     const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
+    const parts = value.split(`; ${'jwt_token'}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
     console.log(value)
 }
