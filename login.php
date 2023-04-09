@@ -28,7 +28,7 @@ if (mysqli_num_rows($result) > 0) {
             "iat" => time(),
             "exp" => time() + (60 * 60)
         );
-        $jwt = JWT::encode($payload, "kodolt_jelszo", "HS256");
+        $jwt = JWT::encode($payload, $secretKey, "HS256");
         // A JWT-t eltárolhatjuk a felhasználó számára, vagy visszaküldhetjük a kliensnek
         // pl. egy HTTP válaszban
 
