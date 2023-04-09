@@ -1,11 +1,10 @@
 <?php
-
 require_once 'vendor/autoload.php';
 
 use \Firebase\JWT\JWT;
 
 // Kapcsolódás az adatbázishoz
-$conn = mysqli_connect("localhost", "u142909563_admin", "kcRN[bK7", "u142909563_database");
+$conn = mysqli_connect("localhost", "username", "password", "dbname");
 
 // Ellenőrizzük a kapcsolatot
 if (!$conn) {
@@ -16,7 +15,7 @@ if (!$conn) {
 if (isset($_COOKIE['jwt_token'])) {
     try {
         $decoded = JWT::decode($_COOKIE['jwt_token'], "kodolt_jelszo", array('HS256'));
-        echo $decoded;
+
         // Ellenőrizzük, hogy a felhasználónév létezik az adatbázisban
         $sql = "SELECT * FROM `users` WHERE username = '" . $decoded->sub . "'";
         $result = mysqli_query($conn, $sql);
@@ -29,7 +28,6 @@ if (isset($_COOKIE['jwt_token'])) {
             header("Location:/login.html");
             exit;
         }
-
     } catch (Exception $e) {
         // Ha a JWT érvénytelen, akkor visszairányítjuk a felhasználót a bejelentkezési oldalra
         header("Location:/login.html");
@@ -41,9 +39,6 @@ if (isset($_COOKIE['jwt_token'])) {
     exit;
 }
 
-
 // Kapcsolat lezárása
 mysqli_close($conn);
-
-
 ?>
