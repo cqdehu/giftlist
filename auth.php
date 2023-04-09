@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 use \Firebase\JWT\JWT;
 
 // Kapcsolódás az adatbázishoz
-$conn = mysqli_connect("localhost", "username", "password", "dbname");
+$conn = mysqli_connect("localhost", "u142909563_admin", "kcRN[bK7", "u142909563_database");
 
 // Ellenőrizzük a kapcsolatot
 if (!$conn) {
