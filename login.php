@@ -46,3 +46,7 @@ if (mysqli_num_rows($result) > 0) {
 
 // Kapcsolat lezárása
 mysqli_close($conn);
+//
+//
+//
+//
