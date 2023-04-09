@@ -1,3 +1,5 @@
+
+console.log(document.cookie)
 function auth() {
     // Check if JWT token exists in cookies
     const jwtToken = getCookie('jwt_token');
