@@ -1,4 +1,5 @@
 <?php
+
 require_once 'vendor/autoload.php';
 
 use \Firebase\JWT\JWT;
@@ -41,4 +42,6 @@ if (isset($_COOKIE['jwt_token'])) {
 
 // Kapcsolat lezárása
 mysqli_close($conn);
+
+
 ?>
