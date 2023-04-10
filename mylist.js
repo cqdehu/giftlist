@@ -12,6 +12,7 @@ $(document).ready(function () {
                 // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
                 console.log("A felhasználó nincs bejelentkezve!")
                 window.location.replace("login.html");
+                console.log(data)
             }
         },
         error: function () {
