@@ -33,7 +33,7 @@ $(document).ready(function () {
                 console.log(response);
                 if (response == "success") {
                     // sikeres bejelentkezés, átirányítás a welcome.html oldalra
-                    window.location.replace("home.html");
+                    window.location.replace("mylist.html");
                 } else {
                     // hibaüzenet megjelenítése
                     toastText.innerHTML = response;
