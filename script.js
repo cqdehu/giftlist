@@ -1,5 +1,6 @@
+//login
 $(document).ready(function () {
-    $("#login-form").submit(function (e) {
+    $("#loginBtn").click(function (e) {
         e.preventDefault(); // megakadályozza az alapértelmezett űrlap beküldését
 
         var username = $("#username").val();
