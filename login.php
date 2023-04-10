@@ -1,34 +1,44 @@
 <?php
-// Adatbázis kapcsolat beállítása
-$db_hostname = 'localhost';
-$db_username = 'u142909563_admin';
-$db_password = 'kcRN[bK7';
-$db_database = 'u142909563_database';
+session_start();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Ellenőrizzük, hogy a felhasználónév és a jelszó mezők nem üresek
+  if (!empty($_POST['username']) && !empty($_POST['password'])) {
+    // Kapcsolódás az adatbázishoz
+    $servername = "localhost";
+    $dbusername = "username";
+    $dbpassword = "password";
+    $dbname = "database_name";
 
-$db_server = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
-if (!$db_server) die("Nem sikerült kapcsolódni az adatbázishoz!");
+    $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
 
-// Felhasználói azonosítás ellenőrzése
-$username = $_POST['username'];
-$password = $_POST['password'];
+    // Ellenőrizzük, hogy sikerült-e kapcsolódni az adatbázishoz
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
 
-$query = "SELECT * FROM users WHERE username='$username' AND password=SHA1('$password')";
-$result = mysqli_query($db_server, $query);
+    // Ellenőrizzük, hogy a felhasználónév és a jelszó egyezik-e
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $query = "SELECT * FROM users WHERE username='$username'";
+    $result = mysqli_query($conn, $query);
 
-if (!$result) {
-    die("Hiba az adatbázisban. Próbálkozzon később!");
+    if (mysqli_num_rows($result) > 0) {
+      $row = mysqli_fetch_assoc($result);
+      if (password_verify($password, $row['password'])) {
+        // Sikeres bejelentkezés, átirányítjuk a felhasználót az üdvözlőoldalra
+        $_SESSION['username'] = $username;
+        header("Location: welcome.php");
+        exit();
+      } else {
+        echo "Helytelen jelszó.";
+      }
+    } else {
+      echo "Nincs ilyen felhasználónév.";
+    }
+
+    mysqli_close($conn);
+  } else {
+    echo "Kérjük, töltse ki mindkét mezőt.";
+  }
 }
-
-$rows = mysqli_num_rows($result);
-if ($rows == 1) {
-    // Sikeres bejelentkezés: munkamenet létrehozása
-    session_start();
-    $_SESSION['username'] = $username;
-    header("Location: welcome.php");
-} else {
-    // Sikertelen bejelentkezés: visszatérés a bejelentkezési oldalra
-    header("Location: login.html?error=1");
-}
-
-mysqli_close($db_server);
 ?>
