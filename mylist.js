@@ -5,13 +5,13 @@ $(document).ready(function () {
         url: "mylist.php",
         success: function (data) {
             // Sikeres válasz esetén kezeljük a visszatérő adatot
-            if (data != "failed") {
+            if (data == "failed") {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
-                console.log("A felhasználó be van jelentkezve!")
-            } else {
-                // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
                 console.log("A felhasználó nincs bejelentkezve!")
                 window.location.replace("login.html");
+            } else {
+                // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
+                console.log("A felhasználó be van jelentkezve!")
             }
         },
         error: function () {
