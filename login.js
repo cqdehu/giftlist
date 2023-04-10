@@ -36,7 +36,6 @@ $(document).ready(function () {
                     window.location.replace("home.html");
                 } else {
                     // hibaüzenet megjelenítése
-                    console.log(response)
                     toastText.innerHTML = response;
                     alertToast.show()
                 }
