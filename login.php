@@ -3,7 +3,7 @@
 $db_hostname = 'localhost';
 $db_username = 'u142909563_admin';
 $db_password = 'kcRN[bK7';
-$db_database = 'u142909563_database	';
+$db_database = 'u142909563_database';
 
 $db_server = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
 if (!$db_server) die("Nem sikerült kapcsolódni az adatbázishoz!");
