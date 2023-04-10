@@ -73,6 +73,7 @@ $(document).ready(function() {
         } else {
           // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
           console.log("A felhasználó nincs bejelentkezve!")
+          window.location.replace("login.html");
         }
       },
       error: function() {
