@@ -2,7 +2,7 @@ $(document).ready(function () {
     // AJAX hívás küldése a szervernek
     $.ajax({
         type: "GET",
-        url: "check_session.php",
+        url: "mylist.php",
         success: function (data) {
             // Sikeres válasz esetén kezeljük a visszatérő adatot
             if (data == "success") {
