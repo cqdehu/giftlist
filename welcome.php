@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,3 +20,12 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    echo ":C";
+    header("Location: login.html");
+    exit();
+}
+?>

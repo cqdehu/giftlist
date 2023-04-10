@@ -1,19 +1,25 @@
-function register() {
-    $.ajax({
-        url: 'auth.php', // A kérés URL-je
-        type: 'POST', // A kérés típusa (POST vagy GET)
-        data: {username: "pelda", password: "jelszo"}, // A kéréshez tartozó adatok
-        success: function(response) {
-            // A szerver válaszának kezelése
-            console.log(response);
-        },
-        error: function(xhr, status, error) {
-            // A hiba kezelése, ha a kérés sikertelen
-            console.log(error);
+$(document).ready(function(){
+    $("#login-form").submit(function(e){
+      e.preventDefault(); // megakadályozza az alapértelmezett űrlap beküldését
+  
+      var username = $("#username").val();
+      var password = $("#password").val();
+  
+      $.ajax({
+        type: "POST",
+        url: "login.php",
+        data: {username: username, password: password},
+        success: function(response){
+          console.log(response);
+          if (response == "success") {
+            // sikeres bejelentkezés, átirányítás a welcome.html oldalra
+            window.location.replace("welcome.html");
+          } else {
+            // hibaüzenet megjelenítése
+            $("#error-message").text(response);
+          }
         }
-    });    
-}
-
-register()
-
-
+      });
+    });
+  });
+  
