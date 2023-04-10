@@ -1,16 +1,17 @@
 function register() {
-    $(document).ready(function () {
-        $.ajax({
-            url: 'auth.php', // A PHP fájl URL-je
-            type: 'POST', // A kérés típusa (GET vagy POST)
-            success: function (response) { // Sikeres kérés esetén
-                $('#response').html(response); // A szerver által visszaküldött adatok megjelenítése a "response" div-ben
-            },
-            error: function (xhr, status, error) { // Hiba esetén
-                alert('Hiba történt: ' + error); // Hibaüzenet megjelenítése
-            }
-        });
-    });
+    $.ajax({
+        url: 'auth.php', // A kérés URL-je
+        type: 'POST', // A kérés típusa (POST vagy GET)
+        data: {username: "pelda", password: "jelszo"}, // A kéréshez tartozó adatok
+        success: function(response) {
+            // A szerver válaszának kezelése
+            console.log(response);
+        },
+        error: function(xhr, status, error) {
+            // A hiba kezelése, ha a kérés sikertelen
+            console.log(error);
+        }
+    });    
 }
 
 register()
