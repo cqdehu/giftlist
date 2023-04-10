@@ -24,23 +24,34 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    // Elkapjuk a regisztrációs űrlap küldési eseményét
-    $('#registration-form').on('submit', function (e) {
-        e.preventDefault(); // Megakadályozzuk az alapértelmezett űrlapküldési viselkedést
+    $("#registration-form").click(function () {
+        var username = $("#username").val();
+        var password = $("#password").val();
 
-        // Lekérjük az űrlap adatait
-        var formData = $(this).serialize();
-
-        // Elküldjük az adatokat a szervernek Ajax kéréssel
+        // AJAX hívás küldése a szervernek
         $.ajax({
-            url: 'register.php',
-            type: 'POST',
-            data: formData,
-            success: function (response) {
-                // Megjelenítjük a szerver válaszát
-                $('#response').html(response);
+            type: "POST",
+            url: "register.php",
+            data: {
+                username: username,
+                password: password
+            },
+            success: function (data) {
+                // Sikeres válasz esetén kezeljük a visszatérő adatot
+                if (data == "success") {
+                    // Sikeres regisztráció, átirányítjuk a felhasználót az üdvözlőoldalra
+                    window.location.href = "welcome.php";
+                } else {
+                    // Hibás regisztráció, megjelenítjük az üzenetet
+                    $("#message").html(data);
+                }
+            },
+            error: function () {
+                // Hibás AJAX hívás esetén kezeljük a hibát
+                $("#message").html("Hiba történt az AJAX hívás során.");
             }
         });
     });
 });
+
 
