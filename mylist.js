@@ -5,7 +5,7 @@ $(document).ready(function () {
         url: "mylist.php",
         success: function (data) {
             // Sikeres válasz esetén kezeljük a visszatérő adatot
-            if (data == "success") {
+            if (data != "failed") {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
             } else {
