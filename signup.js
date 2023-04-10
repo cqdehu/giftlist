@@ -3,8 +3,7 @@ var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
 
 $(document).ready(function () {
-    $("#signupBtn").click(function (e) {
-        e.preventDefault(); // megakadályozza az alapértelmezett űrlap beküldését
+    $("#signupBtn").click(function () {
 
         var username = $("#username").val();
         var password = $("#password").val();
