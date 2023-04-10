@@ -1,4 +1,11 @@
-
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    echo ":C";
+    header("Location: login.html");
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -21,11 +28,4 @@
 </body>
 </html>
 
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    echo ":C";
-    header("Location: login.html");
-    exit();
-}
-?>
+
