@@ -13,6 +13,7 @@ $(document).ready(function () {
             } else {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
+                console.log(data)
             }
         },
         error: function () {
