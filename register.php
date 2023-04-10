@@ -32,8 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if ($result) {
         // Sikeres regisztráció, átirányítjuk a felhasználót az üdvözlőoldalra
         $_SESSION['username'] = $username;
-        header("Location: welcome.php");
-        exit();
+        echo "success";
       } else {
         echo "Hiba történt a regisztráció során.";
       }
