@@ -1,9 +1,18 @@
+function preloader() {
+  var loader = document.querySelector('#preloader')
+  loader.style.opacity = "0"
+  setTimeout(delete_preloader, 551)
+  function delete_preloader() {
+    loader.style.display = "none"
+    console.log("deleted")
+  }
+}
 
+setTimeout(preloader, 550)
 
-////
-
+//login
 $(document).ready(function () {
-    $("#registration-form").submit(function (e) {
+    $("#loginBtn").click(function (e) {
         e.preventDefault(); // megakadályozza az alapértelmezett űrlap beküldését
 
         var username = $("#username").val();
@@ -11,7 +20,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "register.php",
+            url: "login.php",
             data: { username: username, password: password },
             success: function (response) {
                 console.log(response);
@@ -30,8 +39,3 @@ $(document).ready(function () {
         });
     });
 });
-
-////
-
-
-
