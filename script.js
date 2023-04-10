@@ -13,7 +13,7 @@ $(document).ready(function () {
                 console.log(response);
                 if (response == "success") {
                     // sikeres bejelentkezés, átirányítás a welcome.html oldalra
-                    window.location.replace("welcome.php");
+                    window.location.replace("home.html");
                 } else {
                     // hibaüzenet megjelenítése
                     $("#error-message").text(response);
@@ -27,7 +27,7 @@ $(document).ready(function () {
     });
 });
 
-//
+////
 
 $(document).ready(function () {
     $("#registration-form").submit(function (e) {
@@ -44,7 +44,7 @@ $(document).ready(function () {
                 console.log(response);
                 if (response == "success") {
                     // sikeres bejelentkezés, átirányítás a welcome.html oldalra
-                    window.location.replace("welcome.php");
+                    window.location.replace("home.html");
                 } else {
                     // hibaüzenet megjelenítése
                     $("#error-message").text(response);
@@ -60,35 +60,25 @@ $(document).ready(function () {
 
 ////
 
-//$(document).ready(function () {
-//    $("#registration-form").click(function () {
-//        var username = $("#username").val();
-//        var password = $("#password").val();
-//
-//        // AJAX hívás küldése a szervernek
-//        $.ajax({
-//            type: "POST",
-//            url: "register.php",
-//            data: {
-//                username: username,
-//                password: password
-//            },
-//            success: function (data) {
-//                // Sikeres válasz esetén kezeljük a visszatérő adatot
-//                if (data == "success") {
-//                    // Sikeres regisztráció, átirányítjuk a felhasználót az üdvözlőoldalra
-//                    window.location.href = "welcome.php";
-//                } else {
-//                    // Hibás regisztráció, megjelenítjük az üzenetet
-//                    $("#message").html(data);
-//                }
-//            },
-//            error: function () {
-//                // Hibás AJAX hívás esetén kezeljük a hibát
-//                $("#message").html("Hiba történt az AJAX hívás során.");
-//            }
-//        });
-//    });
-//});
-
+$(document).ready(function() {
+    // AJAX hívás küldése a szervernek
+    $.ajax({
+      type: "GET",
+      url: "check_session.php",
+      success: function(data) {
+        // Sikeres válasz esetén kezeljük a visszatérő adatot
+        if (data == "success") {
+          // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
+          console.log("A felhasználó be van jelentkezve!")
+        } else {
+          // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
+          console.log("A felhasználó nincs bejelentkezve!")
+        }
+      },
+      error: function() {
+        // Hibás AJAX hívás esetén kezeljük a hibát
+        $("#message").html("Hiba történt az AJAX hívás során.");
+      }
+    });
+  });  
 
