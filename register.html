@@ -1,19 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>Regisztráció</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | GIFTLIST</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="font.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link rel="shortcut icon" href="surce/logogreen.svg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
 </head>
-<body>
-  <h1>Regisztráció</h1>
-  <form id="registration-form">
-    <label for="username">Felhasználónév:</label>
-    <input type="text" id="username" name="username" required><br><br>
-    <label for="password">Jelszó:</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <input type="submit" value="Regisztráció">
-  </form>
+
+<body class="p-0 m-0">
+
+  <!--<div id="preloader"></div>-->
+
+  <div class="toast-container top-0 end-0 p-3">
+    <div class="toast align-items-center text-bg-danger border-0 " role="alert" aria-live="assertive" aria-atomic="true"
+      id="alertToast">
+      <div class="d-flex">
+        <div class="toast-body TiltWrap">
+
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!--Header-->
+  <header class="container-fluid fixed-top">
+    <div class="row justify-content-center">
+      <div class="col-6 text-start">
+        <div class="mx-4 my-4">
+          <img src="surce/logogreen.svg" id="logoBtn"></img>
+        </div>
+      </div>
+      <div class="col-6 text-end">
+        <div class="mx-4 my-4">
+          <h3 class="text-light TiltWrap">Sign Up</h3>
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <main class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="row ">
+      <div class="col">
+        <div class="mb-3 mx-4">
+          <label for="username" class="form-label TiltWrap text-light">Name</label>
+          <input type="text" class="form-control TiltWrap" id="username">
+        </div>
+        <div class="mb-3 mx-4">
+          <label for="password" class="form-label TiltWrap text-light">Password</label>
+          <input type="password" class="form-control TiltWrap" id="password">
+        </div>
+        <div class="mt-4 mx-4 text-end">
+          <button class="btn btn-outline-light TiltWrap" type="button" id="signupBtn">Sign Up</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
   <script src="register.js"></script>
 </body>
+
 </html>

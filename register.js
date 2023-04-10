@@ -1,5 +1,9 @@
+const toast = document.querySelector('#alertToast')
+var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
+var toastText = document.querySelector(".toast-body")
+
 $(document).ready(function () {
-    $("#registration-form").submit(function (e) {
+    $("#signupBtn").click(function (e) {
         e.preventDefault(); // megakadályozza az alapértelmezett űrlap beküldését
 
         var username = $("#username").val();
@@ -16,7 +20,8 @@ $(document).ready(function () {
                     window.location.replace("home.html");
                 } else {
                     // hibaüzenet megjelenítése
-                    $("#error-message").text(response);
+                    toastText.innerHTML = response;
+                    alertToast.show()
                 }
             },
             error: function () {
