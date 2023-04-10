@@ -4,6 +4,6 @@ if (!isset($_SESSION['username'])) {
     echo "failed";
 } else {
   $_SESSION['username'] = $username;
-  echo $username;
+  echo "success";
 }
 ?>
