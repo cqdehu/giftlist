@@ -4,10 +4,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Ellenőrizzük, hogy a felhasználónév és a jelszó mezők nem üresek
   if (!empty($_POST['username']) && !empty($_POST['password'])) {
     // Kapcsolódás az adatbázishoz
-    $servername = "localhost";
-    $dbusername = "username";
-    $dbpassword = "password";
-    $dbname = "database_name";
+    $servername = 'localhost';
+    $dbusername = 'u142909563_admin';
+    $dbpassword = 'kcRN[bK7';
+    $dbname = 'u142909563_database';
 
     $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
 
