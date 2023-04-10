@@ -14,8 +14,8 @@ const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
 
-toastText.innerHTML = `Nincs kiválsztott elem!`
-alertToast.show()
+
+
 
 //login
 $(document).ready(function () {
@@ -36,7 +36,8 @@ $(document).ready(function () {
                     window.location.replace("home.html");
                 } else {
                     // hibaüzenet megjelenítése
-                    $("#error-message").text(response);
+                    toastText.innerHTML = $("#error-message").text(response);
+                    alertToast.show()
                 }
             },
             error: function () {
