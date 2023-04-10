@@ -8,7 +8,7 @@ function preloader() {
   }
 }
 
-setTimeout(preloader, 550)
+setTimeout(preloader, 600)
 
 //login
 $(document).ready(function () {
