@@ -10,6 +10,13 @@ function preloader() {
 
 setTimeout(preloader, 600)
 
+const toast = document.querySelector('#alertToast')
+var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
+var toastText = document.querySelector(".toast-body")
+
+toastText.innerHTML = `Nincs kiválsztott elem!`
+alertToast.show()
+
 //login
 $(document).ready(function () {
     $("#loginBtn").click(function (e) {
