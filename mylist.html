@@ -2,338 +2,347 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My List | GIFTLIST</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My List | GIFTLIST</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="font.css">
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <link rel="shortcut icon" href="surce/logogreen.png" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="font.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="shortcut icon" href="surce/logogreen.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
 <body class="p-0 m-0">
 
-  <!--<div id="preloader"></div>-->
+    <div class="toast-container top-0 end-0 p-3">
+        <div class="toast align-items-center text-bg-danger border-0 " role="alert" aria-live="assertive"
+            aria-atomic="true" id="alertToast">
+            <div class="d-flex">
+                <div class="toast-body TiltWrap">
 
-  <!--Header-->
-  <header class="container-fluid fixed-top">
-    <div class="row justify-content-center">
-      <div class="col-4 text-start">
-        <div class="mx-4 my-4">
-          <img src="surce/logogreen.svg" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button"
-            aria-controls="offcanvasExample" id="logoBtn">
-        </div>
-      </div>
-      <div class="col-4 text-center">
-        <div class="my-4">
-          <h3 class="text-light TiltWrap" id="displayTitle">My List</h3>
-        </div>
-      </div>
-      <div class="col-4 text-end">
-        <div class="mx-4 my-4">
-          <img src="surce/SettingsGreen.svg" data-bs-toggle="offcanvas" href="#offcanvasSettings" role="button"
-            aria-controls="offcanvasExample" id="settingsBtn"></img>
-        </div>
-      </div>
-    </div>
-    </div>
-  </header>
-  <!--**************************************************************************************************-->
-
-  <!--Settings-->
-
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title TiltWrap" id="offcanvasExampleLabel">Settings</h5>
-      <img src="surce/Close.svg" data-bs-dismiss="offcanvas" aria-label="Close" class="icon">
-    </div>
-    <div class="offcanvas-body m-3">
-      <div class="d-grid gap-2">
-        <button class="btn btn-outline-dark border-3 rounded-4 TiltWrap" id="logoutBtn">logout</button>
-      </div>
-      <div class="position-absolute bottom-0 start-50 translate-middle-x">
-        <div class="mb-3">
-          <p class="fs-5 TiltWrap">Version: ?.?.?</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--**************************************************************************************************-->
-
-  <!--Main-->
-  <main class="container-fluid content-scrollable" id="listItems">
-
-  </main>
-
-
-
-  <!--*************************************************************************************************************-->
-
-
-  <!--***************************************************************************************************************-->
-
-  <!--Menu-->
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <img src="surce/Close.svg" type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="closeBtn"></img>
-      <h5 class="offcanvas-title TiltWrap" id="offcanvasExampleLabel">Lists</h5>
-    </div>
-    <div class="offcanvas-body p-0">
-
-      <div class="row mx-2 mb-1 align-items-center">
-        <h5 class="TiltWrap">My List</h5>
-      </div>
-
-      <div class="row border border-3 border-dark mx-3 mb-3 rounded-4 align-items-center">
-        <div class="col p-0">
-          <h6 class="TiltWrap text-dark m-3">Ábel</h6>
-        </div>
-        <div class="col-3 text-end">
-          <div class="me-4">
-
-          </div>
-        </div>
-      </div>
-
-      <div class="row mx-2 mb-1 align-items-center">
-        <h5 class="TiltWrap">Other Lists</h5>
-      </div>
-
-      <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center" id="otherlistDave">
-        <div class="col p-0">
-          <h6 class="TiltWrap text-light m-3">Dávid</h6>
-        </div>
-        <div class="col-2 text-end">
-          <div class="me-2">
-            <img src="surce/Emty_List.svg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
-        <div class="col p-0">
-          <h6 class="TiltWrap text-light m-3">Évi</h6>
-        </div>
-        <div class="col-2 text-end">
-          <div class="me-2">
-
-          </div>
-        </div>
-      </div>
-
-      <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
-        <div class="col p-0">
-          <h6 class="TiltWrap text-light m-3">Kálmán</h6>
-        </div>
-        <div class="col-3 text-end">
-          <div class="me-2">
-            <img src="surce/Time out item.svg" alt="">
-            <img src="surce/Emty_List.svg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
-        <div class="col p-0">
-          <h6 class="TiltWrap text-light m-3">Alex</h6>
-        </div>
-        <div class="col-2 text-end">
-          <div class="me-2">
-            <img src="surce/Emty_List.svg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
-        <div class="col p-0">
-          <h6 class="TiltWrap text-light m-3">Ildi</h6>
-        </div>
-        <div class="col-2 text-end">
-          <div class="me-2">
-            <img src="surce/Emty_List.svg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
-        <div class="col p-0">
-          <h6 class="TiltWrap text-light m-3">Mattias</h6>
-        </div>
-        <div class="col-2 text-end">
-          <div class="me-2">
-            <img src="surce/Emty_List.svg" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="row mx-3 mb-3">
-        <div class="col">
-          <h2>Concept elements.</h2>
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-
-  <!--***************************************************************************************************************-->
-
-  <!-- Add item -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-
-          <div class="row mb-3">
-            <div class="col">
-              <h1 class="modal-title fs-5 TiltWrap" id="staticBackdropLabel">Add Item</h1>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
             </div>
-            <div class="col text-end">
-              <img src="surce/Close.svg" data-bs-dismiss="modal" aria-label="Close" class="icon">
-            </div>
-          </div>
-
-          <div class="row mb-3 mt-5 justify-content-center">
-            <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6">
-              <label for="" class="form-label TiltWrap">Name of item</label>
-              <input type="text" class="form-control TiltWrap" autocomplete="off" id="enterItemName">
-              <p class="text-danger py-1 TiltWrap" id="itemNameInputValidation"></p>
-            </div>
-          </div>
-
-          <div class="row mb-3 justify-content-center">
-            <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6 ">
-              <label for="" class="form-label TiltWrap">Status</label>
-              <select class="form-select TiltWrap" id="enterItemStatus">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row my-5 justify-content-center">
-            <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6 text-center">
-              <div class="d-grid">
-                <a class="btn btn-outline-dark border-1 rounded-2 TiltWrap" id="createNewCard">Add Item</a>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- updateItemModal -->
-  <div class="modal fade" id="updateItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
 
-          <div class="row mb-3">
-            <div class="col">
-              <h1 class="modal-title fs-5 TiltWrap" id="exampleModalLabel">Edit Item</h1>
+    <!--<div id="preloader"></div>-->
+
+    <!--Header-->
+    <header class="container-fluid fixed-top">
+        <div class="row justify-content-center">
+            <div class="col-4 text-start">
+                <div class="mx-4 my-4">
+                    <img src="surce/logogreen.svg" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button"
+                        aria-controls="offcanvasExample" id="logoBtn">
+                </div>
             </div>
-            <div class="col text-end">
-              <img src="surce/Close.svg" data-bs-dismiss="modal" aria-label="Close" class="icon">
+            <div class="col-4 text-center">
+                <div class="my-4">
+                    <h3 class="text-light TiltWrap" id="displayTitle">My List</h3>
+                </div>
             </div>
-          </div>
-
-          <div class="row mb-3 mt-5 justify-content-center">
-            <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6">
-              <label for="" class="form-label TiltWrap">Name of item</label>
-              <input type="text" class="form-control TiltWrap" autocomplete="off" id="enterEditItemName">
-              <p class="text-danger py-1 TiltWrap" id="editItemNameInputValidation"></p>
+            <div class="col-4 text-end">
+                <div class="mx-4 my-4">
+                    <img src="surce/SettingsGreen.svg" data-bs-toggle="offcanvas" href="#offcanvasSettings"
+                        role="button" aria-controls="offcanvasExample" id="settingsBtn"></img>
+                </div>
             </div>
-          </div>
-
-          <div class="row mb-4 justify-content-center">
-            <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6">
-              <label for="" class="form-label TiltWrap">Status</label>
-              <select class="form-select TiltWrap" id="enterNewItemStatus">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row my-5 justify-content-center">
-            <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6 text-center">
-              <div class="d-grid">
-                <button type="button" class="btn btn-outline-dark border-1 rounded-2 TiltWrap" id="updateItemBtn">Save
-                  changes</button>
-              </div>
-            </div>
-          </div>
-
-
         </div>
+        </div>
+    </header>
+    <!--**************************************************************************************************-->
 
-      </div>
+    <!--Settings-->
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title TiltWrap" id="offcanvasExampleLabel">Settings</h5>
+            <img src="surce/Close.svg" data-bs-dismiss="offcanvas" aria-label="Close" class="icon">
+        </div>
+        <div class="offcanvas-body m-3">
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-dark border-3 rounded-4 TiltWrap" id="logoutBtn">logout</button>
+            </div>
+            <div class="position-absolute bottom-0 start-50 translate-middle-x">
+                <div class="mb-3">
+                    <p class="fs-5 TiltWrap">Version: ?.?.?</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!--***************************************************************************************************************-->
+    <!--**************************************************************************************************-->
 
-  <div class="toast-container top-0 end-0 p-3">
-    <div class="toast align-items-center text-bg-danger border-0 " role="alert" aria-live="assertive" aria-atomic="true" id="alertToast">
-      <div class="d-flex">
-        <div class="toast-body TiltWrap">
-          
+    <!--Main-->
+    <main class="container-fluid content-scrollable" id="listItems">
+
+    </main>
+
+
+
+    <!--*************************************************************************************************************-->
+
+
+    <!--***************************************************************************************************************-->
+
+    <!--Menu-->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <img src="surce/Close.svg" type="button" data-bs-dismiss="offcanvas" aria-label="Close"
+                class="closeBtn"></img>
+            <h5 class="offcanvas-title TiltWrap" id="offcanvasExampleLabel">Lists</h5>
         </div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
+        <div class="offcanvas-body p-0">
+
+            <div class="row mx-2 mb-1 align-items-center">
+                <h5 class="TiltWrap">My List</h5>
+            </div>
+
+            <div class="row border border-3 border-dark mx-3 mb-3 rounded-4 align-items-center">
+                <div class="col p-0">
+                    <h6 class="TiltWrap text-dark m-3">Ábel</h6>
+                </div>
+                <div class="col-3 text-end">
+                    <div class="me-4">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mx-2 mb-1 align-items-center">
+                <h5 class="TiltWrap">Other Lists</h5>
+            </div>
+
+            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center" id="otherlistDave">
+                <div class="col p-0">
+                    <h6 class="TiltWrap text-light m-3">Dávid</h6>
+                </div>
+                <div class="col-2 text-end">
+                    <div class="me-2">
+                        <img src="surce/Emty_List.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
+                <div class="col p-0">
+                    <h6 class="TiltWrap text-light m-3">Évi</h6>
+                </div>
+                <div class="col-2 text-end">
+                    <div class="me-2">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
+                <div class="col p-0">
+                    <h6 class="TiltWrap text-light m-3">Kálmán</h6>
+                </div>
+                <div class="col-3 text-end">
+                    <div class="me-2">
+                        <img src="surce/Time out item.svg" alt="">
+                        <img src="surce/Emty_List.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
+                <div class="col p-0">
+                    <h6 class="TiltWrap text-light m-3">Alex</h6>
+                </div>
+                <div class="col-2 text-end">
+                    <div class="me-2">
+                        <img src="surce/Emty_List.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
+                <div class="col p-0">
+                    <h6 class="TiltWrap text-light m-3">Ildi</h6>
+                </div>
+                <div class="col-2 text-end">
+                    <div class="me-2">
+                        <img src="surce/Emty_List.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
+                <div class="col p-0">
+                    <h6 class="TiltWrap text-light m-3">Mattias</h6>
+                </div>
+                <div class="col-2 text-end">
+                    <div class="me-2">
+                        <img src="surce/Emty_List.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mx-3 mb-3">
+                <div class="col">
+                    <h2>Concept elements.</h2>
+                </div>
+            </div>
+
+
+        </div>
     </div>
-  </div>
 
-  
+    <!--***************************************************************************************************************-->
 
+    <!-- Add item -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
 
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h1 class="modal-title fs-5 TiltWrap" id="staticBackdropLabel">Add Item</h1>
+                        </div>
+                        <div class="col text-end">
+                            <img src="surce/Close.svg" data-bs-dismiss="modal" aria-label="Close" class="icon">
+                        </div>
+                    </div>
 
-  <!--Footer-->
-  <footer class="container-fluid fixed-bottom" id="bg-footer">
+                    <div class="row mb-3 mt-5 justify-content-center">
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="" class="form-label TiltWrap">Name of item</label>
+                            <input type="text" class="form-control TiltWrap" autocomplete="off" id="enterItemName">
+                            <p class="text-danger py-1 TiltWrap" id="itemNameInputValidation"></p>
+                        </div>
+                    </div>
 
-    <div class="row justify-content-center text-center rounded rounded-4 m-4 py-1 " id="bg-footer-bar">
+                    <div class="row mb-3 justify-content-center">
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6 ">
+                            <label for="" class="form-label TiltWrap">Status</label>
+                            <select class="form-select TiltWrap" id="enterItemStatus">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
 
-      <div class="col-3">
-        <div class="m-3">
-          <img src="surce/Add.svg" class="footer-icon" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><br>
+                    <div class="row my-5 justify-content-center">
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <div class="d-grid">
+                                <a class="btn btn-outline-dark border-1 rounded-2 TiltWrap" id="createNewCard">Add
+                                    Item</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="col-3">
-        <div class="m-3">
-          <img src="surce/Edit.svg" class="footer-icon" id="updateItemBtn" data-bs-toggle="modal"
-            data-bs-target="#updateItemModal">
-        </div>
-      </div>
-
-      <div class="col-3">
-        <div class="m-3">
-          <img src="surce/Delete.svg" class="footer-icon" id="deleteItemBtn">
-        </div>
-      </div>
-
     </div>
-  </footer>
 
-  <!--***************************************************************************************************************-->
-  <script src="mylist.js"></script>
+    <!-- updateItemModal -->
+    <div class="modal fade" id="updateItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h1 class="modal-title fs-5 TiltWrap" id="exampleModalLabel">Edit Item</h1>
+                        </div>
+                        <div class="col text-end">
+                            <img src="surce/Close.svg" data-bs-dismiss="modal" aria-label="Close" class="icon">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 mt-5 justify-content-center">
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="" class="form-label TiltWrap">Name of item</label>
+                            <input type="text" class="form-control TiltWrap" autocomplete="off" id="enterEditItemName">
+                            <p class="text-danger py-1 TiltWrap" id="editItemNameInputValidation"></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 justify-content-center">
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="" class="form-label TiltWrap">Status</label>
+                            <select class="form-select TiltWrap" id="enterNewItemStatus">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row my-5 justify-content-center">
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-6 text-center">
+                            <div class="d-grid">
+                                <button type="button" class="btn btn-outline-dark border-1 rounded-2 TiltWrap"
+                                    id="updateItemBtn">Save
+                                    changes</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--***************************************************************************************************************-->
+
+
+
+
+
+
+
+    <!--Footer-->
+    <footer class="container-fluid fixed-bottom" id="bg-footer">
+
+        <div class="row justify-content-center text-center rounded rounded-4 m-4 py-1 " id="bg-footer-bar">
+
+            <div class="col-3">
+                <div class="m-3">
+                    <img src="surce/Add.svg" class="footer-icon" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"><br>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="m-3">
+                    <img src="surce/Edit.svg" class="footer-icon" id="updateItemBtn" data-bs-toggle="modal"
+                        data-bs-target="#updateItemModal">
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="m-3">
+                    <img src="surce/Delete.svg" class="footer-icon" id="deleteItemBtn">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!--***************************************************************************************************************-->
+    <script src="mylist.js"></script>
 </body>
 
 </html>

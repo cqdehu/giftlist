@@ -19,4 +19,23 @@ $(document).ready(function () {
             $("#message").html("Hiba történt az AJAX hívás során.");
         }
     });
-});  
+});
+
+//logout
+$(document).ready(function () {
+    $("#logoutBtn").click(function () {
+        // AJAX hívás küldése a szervernek
+        $.ajax({
+            type: "POST",
+            url: "logout.php",
+            success: function (data) {
+                // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
+                window.location.href = "login.html";
+            },
+            error: function () {
+                // Hibás AJAX hívás esetén kezeljük a hibát
+                $("#message").html("Hiba történt az AJAX hívás során.");
+            }
+        });
+    })
+});
