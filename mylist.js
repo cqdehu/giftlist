@@ -101,8 +101,8 @@ function loadItem() {
                 console.log(name+", "+status+", "+user+", "+createDate+", ");
             }
         },
-        error: function (_jqXHR, textStatus, errorThrown) {
-            console.log("Hiba történt: " + textStatus, errorThrown);
+        error: function (response) {
+            console.log(response);
         }
     });
 }
