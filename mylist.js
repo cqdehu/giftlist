@@ -136,7 +136,7 @@ $(document).ready(function () {
                     // sikeres bejelentkezés, átirányítás a welcome.html oldalra
                     console.log("sikeres hozzáadás")
                     $("#listItems").empty();
-                    loadItem()
+                    $("#listItems").load(loadItem())
                 } else {
                     // hibaüzenet megjelenítése
                     toastText.innerHTML = response;
