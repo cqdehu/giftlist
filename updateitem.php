@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($result) == 0) {
       // Az itemet a felhasználói adatbázisban frissítjük
-      $query = "UPDATE `items` SET `name`='$name',`status`='$status',`createDate`='$createDate', WHERE `id`='$id' AND `name` = '$name'";
+      $query = "UPDATE `items` SET `name`='$name',`status`='$status',`createDate`='$createDate' WHERE `id`='$id' AND `name` = '$name' AND `user` = '$user'";
       $result = mysqli_query($conn, $query);
 
       if ($result) {
