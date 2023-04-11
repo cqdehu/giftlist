@@ -6,11 +6,11 @@ var today = new Date();
 var year = today.getFullYear();
 var month = today.getMonth() + 1;
 if (month < 10) {
-  month = "0" + month;
+    month = "0" + month;
 }
 var day = today.getDate();
 if (day < 10) {
-  day = "0" + day;
+    day = "0" + day;
 }
 var createDate = year + "-" + month + "-" + day;
 
@@ -207,13 +207,8 @@ $(document).ready(function () {
 });
 
 //////////////////////////////////////////////////////////////////////////////////
-$("#addItemIcon").click(function(){
-    if(lastClickedCard != null){
-        $("#addItemModal").modal('show')
-    } else {
-        return
-    }
-    
+$("#addItemIcon").click(function () {
+    $("#addItemModal").modal('show')
 })
 
 
@@ -248,47 +243,16 @@ $(document).ready(function () {
 
 //////////////////////////////////////////////////////////////////////////////////
 
-//deleteItem
-$('#deleteItemBtn').on('click', function () {
-
-    if (!auth()) {
-        return
-    }
-
-    if (!lastClickedCard) {
-        return;
-    }
-
-    const itemId = lastClickedCard.attr('id');
-    const username = '<?php echo $_SESSION["username"]; ?>';
-
-    $.ajax({
-        type: "POST",
-        url: "deleteitem.php",
-        data: { itemId: itemId, username: username },
-        success: function (response) {
-            console.log('Sikeresen törölted az adatot az adatbázisból.');
-            lastClickedCard.remove();
-            lastClickedCard = null;
-            loadItem()
-        },
-        error: function (xhr, status, error) {
-            console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
-        }
-    });
-
-
-});
-
-$("#updateItemIcon").click(function(){
-    if(lastClickedCard != null){
+$("#updateItemIcon").click(function () {
+    if (lastClickedCard != null) {
         $("#updateItemModal").modal('show')
         enterEditItemName.value = lastClickedCard.attr("id")
     } else {
-        return
+        toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
+        alertToast.show()
     }
-    
-    
+
+
 })
 
 // updateItem
@@ -324,4 +288,35 @@ $(document).ready(function () {
     });
 });
 
+//deleteItem
+$('#deleteItemBtn').on('click', function () {
+
+    if (!auth()) {
+        return
+    }
+
+    if (!lastClickedCard) {
+        return;
+    }
+
+    const itemId = lastClickedCard.attr('id');
+    const username = '<?php echo $_SESSION["username"]; ?>';
+
+    $.ajax({
+        type: "POST",
+        url: "deleteitem.php",
+        data: { itemId: itemId, username: username },
+        success: function (response) {
+            console.log('Sikeresen törölted az adatot az adatbázisból.');
+            lastClickedCard.remove();
+            lastClickedCard = null;
+            loadItem()
+        },
+        error: function (xhr, status, error) {
+            console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
+        }
+    });
+
+
+});
 
