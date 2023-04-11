@@ -56,26 +56,26 @@ $(document).ready(function () {
         var status = $("#enterItemStatus").text()
         var createDate = formattedDate
 
-            $.ajax({
-                type: "POST",
-                url: "additem.php",
-                data: { name: name, status: status, createDate: createDate, },
-                success: function (response) {
-                    console.log(response);
-                    if (response == "success") {
-                        // sikeres bejelentkezés, átirányítás a welcome.html oldalra
-                        console.log("sikeres hozzáadás")
-                    } else {
-                        // hibaüzenet megjelenítése
-                        toastText.innerHTML = response;
-                        alertToast.show()
-                    }
-                },
-                error: function () {
-                    // Hibás AJAX hívás esetén kezeljük a hibát
-                    $("#message").html("Hiba történt az AJAX hívás során.");
+        $.ajax({
+            type: "POST",
+            url: "additem.php",
+            data: { name: name, status: status, createDate: createDate, },
+            success: function (response) {
+                console.log(response);
+                if (response == "success") {
+                    // sikeres bejelentkezés, átirányítás a welcome.html oldalra
+                    console.log("sikeres hozzáadás")
+                } else {
+                    // hibaüzenet megjelenítése
+                    toastText.innerHTML = response;
+                    alertToast.show()
                 }
-            })
-            
+            },
+            error: function () {
+                // Hibás AJAX hívás esetén kezeljük a hibát
+                $("#message").html("Hiba történt az AJAX hívás során.");
+            }
+        })
+
     })
 })
