@@ -208,8 +208,12 @@ $(document).ready(function () {
 
 //////////////////////////////////////////////////////////////////////////////////
 $("#addItemIcon").click(function(){
-    console.log(lastClickedCard)
-    $("#addItemModal").modal('show')
+    if(lastClickedCard != null){
+        $("#addItemModal").modal('show')
+    } else {
+        return
+    }
+    
 })
 
 
@@ -276,6 +280,17 @@ $('#deleteItemBtn').on('click', function () {
 
 });
 
+$("#updateItemIcon").click(function(){
+    if(lastClickedCard != null){
+        $("#updateItemModal").modal('show')
+        enterEditItemName.value = lastClickedCard.attr("id")
+    } else {
+        return
+    }
+    
+    
+})
+
 // updateItem
 $(document).ready(function () {
     $("#updateItemBtn").click(function () {
@@ -297,7 +312,7 @@ $(document).ready(function () {
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
                     loadItem()
-                    toastText.innerHTML = lastClickedCard.id;
+                    toastText.innerHTML = lastClickedCard.attr("id") + "törölve lett a listárol.";
                     alertToast.show();
                 } else {
                     // Hiba esetén kiírjuk a hibaüzenetet
