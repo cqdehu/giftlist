@@ -13,7 +13,7 @@ $(document).ready(function () {
             } else {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
-                user = data
+                currentuser = data
             }
         },
         error: function () {
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
         var name = $("#enterItemName")
         var status = $("#enterItemStatus").text()
-        var user = user
+        var user = currentuser
         var createDate = formattedDate
 
             $.ajax({
