@@ -2,6 +2,8 @@ const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
 
+
+
 var today = new Date();
 var year = today.getFullYear();
 var month = today.getMonth() + 1;
@@ -188,7 +190,10 @@ function loadItem() {
                 newItemStatusDiv.appendChild(newItemStatus)
 
 
-                $("#listItems").fadeIn("slow")
+                $(document).ready(function(){
+                    $("#listItems").animate({opacity: "0.5"}, 1000);
+                 });
+                 
 
 
 
