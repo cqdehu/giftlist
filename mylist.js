@@ -21,7 +21,7 @@ function auth() {
             } else {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
-                $("#displayTitle").text(data)
+                $("#displayTitle").text(data+" list's")
                 document.title = data + " | " + "GIFTLIST"
             }
         },
