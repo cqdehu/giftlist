@@ -22,13 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $status = $_POST['status'];
     $createDate = $_POST['createDate'];
     $id = $_SESSION['id'];
+    $selectedItem = $_POST['selectedItem'];
 
     $query = "SELECT * FROM `items` WHERE `name` = '$name' AND `user` = '$user' AND `id` != '$id'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 0) {
       // Az itemet a felhasználói adatbázisban frissítjük
-      $query = "UPDATE `items` SET `name`='$name',`status`='$status',`createDate`='$createDate' WHERE `id`='$id' AND `user` = '$user' AND `name` = '$name'";
+      $query = "UPDATE `items` SET `name`='$name',`status`='$status',`createDate`='$createDate' WHERE `id`='$id' AND `user` = '$user' AND `name` = '$selectedItem'";
       $result = mysqli_query($conn, $query);
 
       if ($result) {
