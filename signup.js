@@ -10,7 +10,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "register.php",
+            url: "signup.php",
             data: { username: username, password: password },
             success: function (response) {
                 console.log(response);
