@@ -217,7 +217,7 @@ $(document).ready(function () {
     $("#addItemBtn").click(function () {
         $.ajax({
             type: "POST",
-            url: "additem.php",
+            url: "additem.php?v=1.0.0",
             data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, },
             success: function (response) {
                 console.log(response);
