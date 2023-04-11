@@ -1,4 +1,4 @@
-function preloader() {
+//function preloader() {
   var loader = document.querySelector('#preloader')
   loader.style.opacity = "0"
   setTimeout(delete_preloader, 551)
@@ -6,9 +6,9 @@ function preloader() {
     loader.style.display = "none"
     console.log("deleted")
   }
-}
-
-setTimeout(preloader, 600)
+//}
+//
+//setTimeout(preloader, 600)
 
 const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
