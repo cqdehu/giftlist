@@ -208,6 +208,7 @@ $(document).ready(function () {
 
 //////////////////////////////////////////////////////////////////////////////////
 $("#addItemIcon").click(function(){
+    console.log("dawdawdaw")
     $("#addItemModal").show()
 })
 
