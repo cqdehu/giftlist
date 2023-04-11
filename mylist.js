@@ -89,9 +89,8 @@ function loadItem() {
 
 
             }
-            if (!data) {
+            if (data.length != 0) {
                 console.log("A lista elemei sikeresen betöltődtek!")
-                console.log(data)
             } else {
                 console.log("A lista nem tartalmaz elemeket!")
             }
