@@ -23,6 +23,7 @@ function auth() {
                 console.log("A felhasználó be van jelentkezve!")
                 $("#displayTitle").text(data+" list's")
                 document.title = data + " | " + "GIFTLIST"
+                $("username").text(data)
             }
         },
         error: function () {
