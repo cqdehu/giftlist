@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Nincs eredmény";
     }
 
-    echo json_encode($items);
+    
 
     mysqli_close($conn);
 }
