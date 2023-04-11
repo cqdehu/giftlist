@@ -1,3 +1,7 @@
+const toast = document.querySelector('#alertToast')
+var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
+var toastText = document.querySelector(".toast-body")
+
 $(document).ready(function () {
     // AJAX hívás küldése a szervernek
     $.ajax({
