@@ -100,6 +100,29 @@ function auth() {
     });
 }
 
+// Cookie érték figyelése
+function watchCookie(cookieName, callback) {
+    var lastCookie = document.cookie;
+    setInterval(function() {
+      var cookieValue = document.cookie;
+      if (cookieValue !== lastCookie) {
+        lastCookie = cookieValue;
+        if (cookieValue.indexOf(cookieName) !== -1) {
+          callback();
+        }
+      }
+    }, 100);
+  }
+  
+  // Műveletek a cookie módosítása esetén
+  function handleCookieChange() {
+    console.log('A cookie módosult!');
+    // Itt lehet további műveleteket végezni a cookie módosítása esetén
+  }
+  
+  // Watch the cookie named "myCookie" for changes
+  watchCookie("PHPSESSID", handleCookieChange);
+
 //////////////////////////////////////////////////////////////////////////////////
 
 //loadItem
@@ -289,11 +312,6 @@ $(document).ready(function () {
 
 //deleteItem
 $('#deleteItemBtn').on('click', function () {
-
-    if (!auth()) {
-        return
-    }
-
     if (!lastClickedCard) {
         return;
     }
