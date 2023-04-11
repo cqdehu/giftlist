@@ -242,4 +242,4 @@ $('#deleteItemBtn').on('click', function () {
 });
 
 
-
+console.log(auth())
