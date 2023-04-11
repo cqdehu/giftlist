@@ -121,7 +121,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#addItemBtn").click(function () {
 
-        if (auth()) {
+        if (auth) {
             const currentDate = new Date();
             const year = currentDate.getFullYear();
             const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -160,7 +160,7 @@ $(document).ready(function () {
     })
 })
 
-//deleteItem
+//selectedItem
 let lastClickedCard = null;
 
 function removeCardBorder() {
@@ -206,7 +206,7 @@ $(document).on('dblclick', '.item-card', function (event) {
 });
 
 $('#deleteItemBtn').on('click', function () {
-    if (auth()) {
+    if (auth) {
         if (!lastClickedCard) {
             return;
         }
