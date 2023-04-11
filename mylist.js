@@ -6,20 +6,70 @@ var today = new Date();
 var year = today.getFullYear();
 var month = today.getMonth() + 1;
 if (month < 10) {
-    month = "0" + month;
+  month = "0" + month;
 }
 var day = today.getDate();
 if (day < 10) {
-    day = "0" + day;
+  day = "0" + day;
 }
 var createDate = year + "-" + month + "-" + day;
 
+//selectedItem
+let lastClickedCard = null;
+
+function removeCardBorder() {
+    if (lastClickedCard) {
+        lastClickedCard.removeClass("border border-end-0 border-4 border-danger last-clicked");
+        lastClickedCard = null;
+    }
+}
+
+function addCardBorder(card) {
+    removeCardBorder();
+    card.addClass("border border-end-0 border-4 border-danger last-clicked");
+    lastClickedCard = card;
+    console.log(lastClickedCard.attr("id"));
+}
+
+function handleCardClick(event) {
+    const card = $(event.target).closest('.item-card');
+    if (!card.length) {
+        return;
+    }
+
+    addCardBorder(card);
+}
+
+if (lastClickedCard) {
+    lastClickedCard.on('click', function () {
+        removeCardBorder();
+    });
+}
+
+$(document).on('dblclick', '.item-card', function (event) {
+    const card = $(event.target).closest('.item-card');
+    if (!card.length) {
+        return;
+    }
+
+    if (card.is(lastClickedCard)) {
+        removeCardBorder();
+    } else {
+        addCardBorder(card);
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////////
 
 $(document).ready(function () {
     auth()
     loadItem()
 })
 
+
+//////////////////////////////////////////////////////////////////////////////////
+
+//auth
 function auth() {
     $.ajax({
         type: "GET",
@@ -50,8 +100,9 @@ function auth() {
     });
 }
 
+//////////////////////////////////////////////////////////////////////////////////
 
-
+//loadItem
 function loadItem() {
     $.ajax({
         url: "getitem.php",
@@ -134,6 +185,8 @@ function loadItem() {
     });
 }
 
+//////////////////////////////////////////////////////////////////////////////////
+
 //logout
 $(document).ready(function () {
     $("#logoutBtn").click(function () {
@@ -152,6 +205,8 @@ $(document).ready(function () {
         });
     })
 });
+
+//////////////////////////////////////////////////////////////////////////////////
 
 //addItem
 $(document).ready(function () {
@@ -181,54 +236,10 @@ $(document).ready(function () {
     })
 })
 
-function selectItem() {
-    //selectedItem
-    let lastClickedCard = null;
 
-    function removeCardBorder() {
-        if (lastClickedCard) {
-            lastClickedCard.removeClass("border border-end-0 border-4 border-danger last-clicked");
-            lastClickedCard = null;
-        }
-    }
+//////////////////////////////////////////////////////////////////////////////////
 
-    function addCardBorder(card) {
-        removeCardBorder();
-        card.addClass("border border-end-0 border-4 border-danger last-clicked");
-        lastClickedCard = card;
-        console.log(lastClickedCard.attr("id"));
-    }
-
-    function handleCardClick(event) {
-        const card = $(event.target).closest('.item-card');
-        if (!card.length) {
-            return;
-        }
-
-        addCardBorder(card);
-    }
-
-    if (lastClickedCard) {
-        lastClickedCard.on('click', function () {
-            removeCardBorder();
-        });
-    }
-
-    $(document).on('dblclick', '.item-card', function (event) {
-        const card = $(event.target).closest('.item-card');
-        if (!card.length) {
-            return;
-        }
-
-        if (card.is(lastClickedCard)) {
-            removeCardBorder();
-        } else {
-            addCardBorder(card);
-        }
-    });
-}
-
-
+//deleteItem
 $('#deleteItemBtn').on('click', function () {
 
     if (!auth()) {
