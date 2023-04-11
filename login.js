@@ -14,9 +14,6 @@ const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
 
-
-
-
 //login
 $(document).ready(function () {
     $("#loginBtn").click(function (e) {
