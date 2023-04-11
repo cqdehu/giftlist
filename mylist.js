@@ -130,44 +130,46 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#addItemBtn").click(function () {
 
-        if(!auth()) {
+        if (!auth()) {
             return
-        }
-    
-
-        const currentDate = new Date();
-        const year = currentDate.getFullYear();
-        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-        const day = String(currentDate.getDate()).padStart(2, '0');
-        const formattedDate = `${year}-${month}-${day}`;
+        } else {
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
 
 
-        var name = $("#enterItemName")
-        var status = $("#enterItemStatus")
-        var createDate = formattedDate
+            var name = $("#enterItemName")
+            var status = $("#enterItemStatus")
+            var createDate = formattedDate
 
-        $.ajax({
-            type: "POST",
-            url: "additem.php",
-            data: { name: name.val(), status: status.val(), createDate: createDate, },
-            success: function (response) {
-                console.log(response);
-                if (response == "success") {
-                    // sikeres bejelentkezés, átirányítás a welcome.html oldalra
-                    console.log("sikeres hozzáadás")
-                    $("#listItems").empty();
-                    loadItem()
-                } else {
-                    // hibaüzenet megjelenítése
-                    toastText.innerHTML = response;
-                    alertToast.show()
+            $.ajax({
+                type: "POST",
+                url: "additem.php",
+                data: { name: name.val(), status: status.val(), createDate: createDate, },
+                success: function (response) {
+                    console.log(response);
+                    if (response == "success") {
+                        // sikeres bejelentkezés, átirányítás a welcome.html oldalra
+                        console.log("sikeres hozzáadás")
+                        $("#listItems").empty();
+                        loadItem()
+                    } else {
+                        // hibaüzenet megjelenítése
+                        toastText.innerHTML = response;
+                        alertToast.show()
+                    }
+                },
+                error: function () {
+                    // Hibás AJAX hívás esetén kezeljük a hibát
+                    $("#message").html("Hiba történt az AJAX hívás során.");
                 }
-            },
-            error: function () {
-                // Hibás AJAX hívás esetén kezeljük a hibát
-                $("#message").html("Hiba történt az AJAX hívás során.");
-            }
-        })
+            })
+        }
+
+
+
 
     })
 })
@@ -219,7 +221,7 @@ $(document).on('dblclick', '.item-card', function (event) {
 
 $('#deleteItemBtn').on('click', function () {
 
-    if(!auth()) {
+    if (!auth()) {
         return
     }
 
