@@ -145,10 +145,6 @@ $(document).ready(function () {
 //addItem
 $(document).ready(function () {
     $("#addItemBtn").click(function () {
-
-        if (!auth()) {
-
-
             $.ajax({
                 type: "POST",
                 url: "additem.php",
@@ -171,13 +167,6 @@ $(document).ready(function () {
                     $("#message").html("Hiba történt az AJAX hívás során.");
                 }
             })
-        } else {
-            return
-        }
-
-
-
-
     })
 })
 
