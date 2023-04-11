@@ -89,15 +89,17 @@ function loadItem() {
 
 
             }
-
-        },
-        error: function (response) {
             if (response != "failed") {
                 console.log("Elemek betöltése sikeres!");
             } else {
                 toastText.innerHTML = response;
                 alertToast.show()
             }
+
+        },
+        error: function () {
+            // Hibás AJAX hívás esetén kezeljük a hibát
+            $("#message").html("Hiba történt az AJAX hívás során.");
         }
 
     });
