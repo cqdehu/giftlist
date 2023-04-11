@@ -53,13 +53,13 @@ $(document).ready(function () {
 
 
         var name = $("#enterItemName")
-        var status = $("#enterItemStatus").text()
+        var status = $("#enterItemStatus")
         var createDate = formattedDate
 
         $.ajax({
             type: "POST",
             url: "additem.php",
-            data: { name: name, status: status, createDate: createDate, },
+            data: { name: name.val(), status: status.val(), createDate: createDate, },
             success: function (response) {
                 console.log(response);
                 if (response == "success") {
