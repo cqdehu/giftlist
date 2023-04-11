@@ -243,3 +243,9 @@ $('#deleteItemBtn').on('click', function () {
 
 
 console.log(auth())
+
+if (auth() == "A felhasználó be van jelentkezve!") {
+    console.log(":D")
+} else {
+    console.log(":C")
+}
