@@ -4,6 +4,8 @@ var toastText = document.querySelector(".toast-body")
 
 createDate = new Date()
 
+console.log(createDate)
+
 $(document).ready(function () {
     auth()
     loadItem()
@@ -145,28 +147,29 @@ $(document).ready(function () {
 //addItem
 $(document).ready(function () {
     $("#addItemBtn").click(function () {
-            $.ajax({
-                type: "POST",
-                url: "additem.php",
-                data: { name: name.val(), status: status.val(), createDate: createDate, },
-                success: function (response) {
-                    console.log(response);
-                    if (response == "success") {
-                        // sikeres bejelentkezés, átirányítás a welcome.html oldalra
-                        console.log("sikeres hozzáadás")
-                        $("#listItems").empty();
-                        loadItem()
-                    } else {
-                        // hibaüzenet megjelenítése
-                        toastText.innerHTML = response;
-                        alertToast.show()
-                    }
-                },
-                error: function () {
-                    // Hibás AJAX hívás esetén kezeljük a hibát
-                    $("#message").html("Hiba történt az AJAX hívás során.");
+        $("#")
+        $.ajax({
+            type: "POST",
+            url: "additem.php",
+            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, },
+            success: function (response) {
+                console.log(response);
+                if (response == "success") {
+                    // sikeres bejelentkezés, átirányítás a welcome.html oldalra
+                    console.log("sikeres hozzáadás")
+                    $("#listItems").empty();
+                    loadItem()
+                } else {
+                    // hibaüzenet megjelenítése
+                    toastText.innerHTML = response;
+                    alertToast.show()
                 }
-            })
+            },
+            error: function () {
+                // Hibás AJAX hívás esetén kezeljük a hibát
+                $("#message").html("Hiba történt az AJAX hívás során.");
+            }
+        })
     })
 })
 
