@@ -131,8 +131,6 @@ $(document).ready(function () {
     $("#addItemBtn").click(function () {
 
         if (!auth()) {
-            return
-        } else {
             const currentDate = new Date();
             const year = currentDate.getFullYear();
             const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -166,6 +164,8 @@ $(document).ready(function () {
                     $("#message").html("Hiba történt az AJAX hívás során.");
                 }
             })
+        } else {
+            return
         }
 
 
