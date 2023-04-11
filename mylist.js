@@ -10,7 +10,7 @@ $(document).ready(function () {
 function auth() {
     $.ajax({
         type: "GET",
-        url: "mylist.php",
+        url: "auth.php",
         success: function (data) {
             // Sikeres válasz esetén kezeljük a visszatérő adatot
             if (data == "failed") {
@@ -24,6 +24,7 @@ function auth() {
                 $("#displayTitle").text(data+" list's")
                 document.title = data + " | " + "GIFTLIST"
                 $("#username").text(data)
+                $("#id").text()
             }
         },
         error: function () {
@@ -47,9 +48,7 @@ function loadItem() {
                 var status = data[i].status;
                 var user = data[i].user;
                 var createDate = data[i].createDate;
-                var id = data[i].id;
-
-                $("#id").text(id)
+                
                 //Kiírás
                 console.log(name + ", " + status + ", " + user + ", " + createDate + ", ")
 

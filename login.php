@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (password_verify($password, $row['password'])) {
         // Sikeres bejelentkezés, átirányítjuk a felhasználót az üdvözlőoldalra
         $_SESSION['username'] = $username;
+        $_SESSION['id'] = $id;
         echo "success";
       } else {
         echo "Helytelen jelszó.";
