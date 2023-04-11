@@ -188,7 +188,7 @@ function loadItem() {
                 newItemStatusDiv.appendChild(newItemStatus)
 
 
-                $("#listItems").fadeIn()
+                $("#listItems").fadeIn("slow")
 
 
 
