@@ -27,7 +27,7 @@ function auth() {
                 let username = adatok[0]
                 let id = adatok[1]
                 document.title = username + " | " + "GIFTLIST"
-                $("#displayTitle").text(username+" list's")
+                $("#displayTitle").text(username + " list's")
                 $("#username").text(username)
                 $("#id").text(id)
             }
@@ -53,7 +53,7 @@ function loadItem() {
                 var status = data[i].status;
                 var user = data[i].user;
                 var createDate = data[i].createDate;
-                
+
                 //Kiírás
                 console.log(name + ", " + status + ", " + user + ", " + createDate + ", ")
 
@@ -257,33 +257,34 @@ $('#deleteItemBtn').on('click', function () {
 });
 
 
-$(document).ready(function() {
-    $("#updateItemBtn").click(function() {
-  
-  
-      // Elküldjük az adatokat a PHP szkriptnek Jquery Ajax segítségével
-      $.ajax({
-        type: "POST",
-        url: "updateitem.php",
-        data: {
-          name: enterEditItemName.value,
-          status: enterNewItemStatus.value,
-          user: "<?php echo $_SESSION['username']; ?>",
-          createDate: createDate,
-          id: "<?php echo $lastClickedCard.id; ?>"
-        },
-        success: function(result) {
-          if (result === "success") {
-            // Sikeres esetben frissítjük az oldalt
-            location.reload();
-          } else {
-            // Hiba esetén kiírjuk a hibaüzenetet
-            toastText.innerHTML = result;
-            alertToast.show();
-          }
-        }
-      });
+$(document).ready(function () {
+    $("#updateItemBtn").click(function () {
+
+
+        // Elküldjük az adatokat a PHP szkriptnek Jquery Ajax segítségével
+        $.ajax({
+            type: "POST",
+            url: "updateitem.php",
+            data: {
+                name: enterEditItemName.value,
+                status: enterNewItemStatus.value,
+                user: "<?php echo $_SESSION['username']; ?>",
+                createDate: createDate,
+                id: "<?php echo $lastClickedCard.id; ?>"
+            },
+            success: function (result) {
+                if (result === "success") {
+                    // Sikeres esetben frissítjük az oldalt
+                    $("#listItems").empty();
+                    loadItem()
+                } else {
+                    // Hiba esetén kiírjuk a hibaüzenetet
+                    toastText.innerHTML = result;
+                    alertToast.show();
+                }
+            }
+        });
     });
-  });
-  
+});
+
 
