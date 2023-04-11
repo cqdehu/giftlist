@@ -234,7 +234,7 @@ $('#deleteItemBtn').on('click', function () {
 
 
 
-if (auth() == false) {
+if (!auth() == true) {
     console.log(":D")
 } else {
     console.log(":C")
