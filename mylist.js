@@ -92,7 +92,12 @@ function loadItem() {
 
         },
         error: function (response) {
-            console.log();
+            if (response != "failed") {
+                console.log("Elemek betöltése sikeres!");
+            } else {
+                toastText.innerHTML = response;
+                alertToast.show()
+            }
         }
 
     });

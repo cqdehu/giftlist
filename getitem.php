@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $items[] = $row;
         }
     } else {
-        echo "Nincs eredmény";
+        echo "failed";
     }
 
     echo json_encode($items);
