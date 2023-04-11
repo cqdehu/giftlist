@@ -2,6 +2,8 @@ const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
 
+createDate = new Date()
+
 $(document).ready(function () {
     auth()
     loadItem()
@@ -144,16 +146,7 @@ $(document).ready(function () {
     $("#addItemBtn").click(function () {
 
         if (!auth()) {
-            const currentDate = new Date();
-            const year = currentDate.getFullYear();
-            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-            const day = String(currentDate.getDate()).padStart(2, '0');
-            const formattedDate = `${year}-${month}-${day}`;
 
-
-            var name = $("#enterItemName")
-            var status = $("#enterItemStatus")
-            var createDate = formattedDate
 
             $.ajax({
                 type: "POST",
