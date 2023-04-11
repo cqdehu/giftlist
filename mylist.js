@@ -231,6 +231,7 @@ $('#deleteItemBtn').on('click', function () {
                 console.log('Sikeresen törölted az adatot az adatbázisból.');
                 lastClickedCard.remove();
                 lastClickedCard = null;
+                auth()
             },
             error: function (xhr, status, error) {
                 console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
