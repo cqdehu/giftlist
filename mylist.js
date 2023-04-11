@@ -2,6 +2,10 @@ const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
 
+$(document).ready(function(){
+    auth()
+})
+
 function auth() {
     $.ajax({
         type: "GET",
@@ -27,6 +31,7 @@ function auth() {
         }
     });
 }
+
 
 
 function loadItem() {
