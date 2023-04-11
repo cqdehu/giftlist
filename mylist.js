@@ -102,7 +102,7 @@ function loadItem() {
 
                 const newCardDiv = document.createElement("div")
                 newCardDiv.className = "row bg-white ms-4 mb-4 rounded-start-4 align-items-center item-card ";
-                //newCardDiv.id = index
+                newCardDiv.id = index
 
                 const newItemNameDiv = document.createElement("div")
                 newItemNameDiv.className = "col p-3 "

@@ -47,4 +47,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Kérjük, töltse ki mindkét mezőt.";
   }
 }
+
 ?>
