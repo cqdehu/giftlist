@@ -187,8 +187,8 @@ function loadItem() {
                 newCardDiv.appendChild(newItemStatusDiv)
                 newItemStatusDiv.appendChild(newItemStatus)
 
-                
-                $("#item-card").fadeIn()
+
+                $("#listItems").fadeIn()
 
 
 
