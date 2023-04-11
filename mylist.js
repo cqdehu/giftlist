@@ -277,6 +277,8 @@ $(document).ready(function () {
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
                     loadItem()
+                    toastText.innerHTML = "Sikeresen frissítetted az elemet.";
+                    alertToast.show();
                 } else {
                     // Hiba esetén kiírjuk a hibaüzenetet
                     toastText.innerHTML = result;
