@@ -267,32 +267,6 @@ $('#deleteItemBtn').on('click', function () {
 $(document).ready(function() {
     $("#updateItemBtn").click(function() {
   
-      // Ellenőrizze, hogy van-e kiválasztott elem
-      if (lastClickedCard == null) {
-        toastText.innerHTML = `Nincs kiválsztott elem!`;
-        alertToast.show();
-        return;
-      }
-  
-      // Ellenőrizze, hogy az elem neve ki van-e töltve
-      if (enterEditItemName.value == "") {
-        var editItemNameInputValidation = document.querySelector("#editItemNameInputValidation");
-        editItemNameInputValidation.innerHTML = "Az Item mező kitöltése kötelező!";
-        return;
-      }
-  
-      // Törölje az elem nevére vonatkozó validációs üzenetet, ha van beírva név
-      if (enterEditItemName.value !== "") {
-        var editItemNameInputValidation = document.querySelector("#editItemNameInputValidation");
-        editItemNameInputValidation.innerHTML = "";
-      }
-  
-      // Ellenőrizze, hogy az elem neve még nem szerepel a listában
-      if (items.includes(enterEditItemName.value)) {
-        toastText.innerHTML = `${enterEditItemName.value} elem már szerepel a listádon!`;
-        alertToast.show();
-        return;
-      }
   
       // Elküldjük az adatokat a PHP szkriptnek Jquery Ajax segítségével
       $.ajax({
