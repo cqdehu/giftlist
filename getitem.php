@@ -36,6 +36,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo json_encode($items);
 
     mysqli_close($conn);
-
-    include 'mylist.php';
 }
