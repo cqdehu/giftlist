@@ -98,14 +98,55 @@ function loadItem() {
                 var status = data[i].status;
                 var user = data[i].user;
                 var createDate = data[i].createDate;
-                console.log(name+", "+status+", "+user+", "+createDate+", ");
+                console.log(name + ", " + status + ", " + user + ", " + createDate + ", ")
+
+                const newCardDiv = document.createElement("div")
+                newCardDiv.className = "row bg-white ms-4 mb-4 rounded-start-4 align-items-center item-card ";
+                //newCardDiv.id = index
+
+                const newItemNameDiv = document.createElement("div")
+                newItemNameDiv.className = "col p-3 "
+
+                const newItemName = document.createElement("h5")
+                newItemName.className = "TiltWrap m-0 user-select-none "
+                newItemName.innerHTML = name
+
+                const newItemStatusDiv = document.createElement("div")
+                newItemStatusDiv.className = "col-2 text-end me-4"
+
+
+                const newItemStatus = document.createElement("img")
+                newItemStatus.className = "icon_status"
+
+                if (status == 3) {
+                    newItemStatus.src = "surce/3.svg"
+                }
+                if (status == 2) {
+                    newItemStatus.src = "surce/2.svg"
+                }
+                if (status == 1) {
+                    newItemStatus.src = "surce/1.svg"
+                }
+                if (status == 0) {
+                    newItemStatus.src = ""
+                }
+
+
+                listItems.appendChild(newCardDiv)
+                newCardDiv.appendChild(newItemNameDiv)
+                newItemNameDiv.appendChild(newItemName)
+                newCardDiv.appendChild(newItemStatusDiv)
+                newItemStatusDiv.appendChild(newItemStatus)
+
+
+
             }
-            console.log(name)
+
         },
         error: function (response) {
             console.log(response);
         }
-        
+
     });
 }
 
