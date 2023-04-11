@@ -2,8 +2,7 @@ const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
 
-$(document).ready(function () {
-    // AJAX hívás küldése a szervernek
+function auth() {
     $.ajax({
         type: "GET",
         url: "mylist.php",
@@ -27,7 +26,8 @@ $(document).ready(function () {
             $("#message").html("Hiba történt az AJAX hívás során.");
         }
     });
-});
+}
+
 
 function loadItem() {
     $.ajax({
