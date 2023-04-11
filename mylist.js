@@ -269,7 +269,7 @@ $(document).ready(function () {
                 status: enterNewItemStatus.value,
                 user: "<?php echo $_SESSION['username']; ?>",
                 createDate: createDate,
-                id: "<?php echo $lastClickedCard.id; ?>"
+                id: "<?php echo $_SESSION['id']; ?>"
             },
             success: function (result) {
                 if (result === "success") {
