@@ -100,12 +100,16 @@ function loadItem() {
                 var createDate = data[i].createDate;
                 console.log(name+", "+status+", "+user+", "+createDate+", ");
             }
+            console.log(name)
         },
         error: function (response) {
             console.log(response);
         }
+        
     });
 }
+
+
 
 
 
