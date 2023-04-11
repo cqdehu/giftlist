@@ -21,11 +21,11 @@ function auth() {
             } else {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
-                $("#displayTitle").text(data+" list's")
-                document.title = data + " | " + "GIFTLIST"
                 let adatok = data.split(";")
                 let username = adatok[0]
                 let id = adatok[1]
+                document.title = username + " | " + "GIFTLIST"
+                $("#displayTitle").text(username+" list's")
                 $("#username").text(username)
                 $("#id").text(id)
             }
