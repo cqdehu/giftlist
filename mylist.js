@@ -136,7 +136,7 @@ $(document).ready(function () {
                     // sikeres bejelentkezés, átirányítás a welcome.html oldalra
                     console.log("sikeres hozzáadás")
                     $("#listItems").empty();
-                    $("#listItems").load(loadItem())
+                    loadItem()
                 } else {
                     // hibaüzenet megjelenítése
                     toastText.innerHTML = response;
@@ -152,70 +152,76 @@ $(document).ready(function () {
     })
 })
 
-
+//deleteItem
 let lastClickedCard = null;
 
 function removeCardBorder() {
-  if (lastClickedCard) {
-    lastClickedCard.classList.remove("border", "border-end-0", "border-4", "border-danger", "last-clicked");
-    lastClickedCard = null;
-  }
+    if (lastClickedCard) {
+        lastClickedCard.removeClass("border border-end-0 border-4 border-danger last-clicked");
+        lastClickedCard = null;
+    }
 }
 
 function addCardBorder(card) {
-  removeCardBorder();
-  card.classList.add("border", "border-end-0", "border-4", "border-danger", "last-clicked");
-  lastClickedCard = card;
-  console.log(lastClickedCard.id);
+    removeCardBorder();
+    card.addClass("border border-end-0 border-4 border-danger last-clicked");
+    lastClickedCard = card;
+    console.log(lastClickedCard.attr("id"));
 }
 
 function handleCardClick(event) {
-  const card = event.target.closest('.item-card');
-  if (!card) {
-    return;
-  }
+    const card = $(event.target).closest('.item-card');
+    if (!card.length) {
+        return;
+    }
 
-  addCardBorder(card);
+    addCardBorder(card);
 }
 
 if (lastClickedCard) {
-  lastClickedCard.addEventListener('click', function () {
-    removeCardBorder();
-  });
+    lastClickedCard.on('click', function () {
+        removeCardBorder();
+    });
 }
 
-document.addEventListener('dblclick', function (event) {
-  const card = event.target.closest('.item-card');
-  if (!card) {
-    return;
-  }
+$(document).on('dblclick', '.item-card', function (event) {
+    const card = $(event.target).closest('.item-card');
+    if (!card.length) {
+        return;
+    }
 
-  if (card === lastClickedCard) {
-    removeCardBorder();
-  } else {
-    addCardBorder(card);
-  }
+    if (card.is(lastClickedCard)) {
+        removeCardBorder();
+    } else {
+        addCardBorder(card);
+    }
 });
 
-document.querySelector('#deleteItemBtn').addEventListener('click', function () {
-  if (!lastClickedCard) {
-    return;
-  }
+$('#deleteItemBtn').on('click', function () {
+    if (!lastClickedCard) {
+        return;
+    }
 
-  loadItem()
+    const itemId = lastClickedCard.attr('id');
+    const username = '<?php echo $_SESSION["username"]; ?>';
 
-  const cardRef = firebase.database().ref('users').child(cookies.user).child(`${lastClickedCard.id}`);
-
-  cardRef.remove()
-    .then(() => {
-      console.log('Sikeresen törölted az adatot az adatbázisból.');
-      lastClickedCard.remove();
-      lastClickedCard = null;
-    })
-    .catch(error => {
-      console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
+    $.ajax({
+        type: "POST",
+        url: "deleteitem.php",
+        data: {itemId: itemId, username: username},
+        success: function (response) {
+            console.log('Sikeresen törölted az adatot az adatbázisból.');
+            lastClickedCard.remove();
+            lastClickedCard = null;
+        },
+        error: function (xhr, status, error) {
+            console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
+        }
     });
 });
+
+
+
 
 
 
