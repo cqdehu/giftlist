@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_num_rows($result) == 0) {
       // Hasheljük a jelszót
       $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
+      $id = uniqid();
       // Adjuk hozzá az új felhasználót az adatbázishoz
-      $query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+      $query = "INSERT INTO users (username, password, id) VALUES ('$username', '$password', '$id')";
       $result = mysqli_query($conn, $query);
 
       if ($result) {
