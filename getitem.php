@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Ellenőrizzük, hogy a felhasználónév még nem foglalt-e
     $user = $_SESSION['username'];
 
-    $sql = "SELECT `name`, `status`, `user`, `createDate` FROM `items`";
+    $sql = "SELECT `name`, `status`, `user`, `createDate` FROM `items` WHERE `user` = $user";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
