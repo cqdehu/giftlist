@@ -89,7 +89,7 @@ function loadItem() {
 
 
             }
-            if (data.length === 0) {
+            if (!data.length) {
                 console.log("A lista nem tartalmaz elemeket!")
                 
             } else {
