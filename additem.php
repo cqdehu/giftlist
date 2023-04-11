@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Ellenőrizzük, hogy a felhasználónév még nem foglalt-e
     $name = $_POST['itemname'];
-    $user = $_POST['username'];
+    $user = $_SESSION['username'];
     $status = $_POST['status'];
     $createDate = $_POST['createDate'];
 
