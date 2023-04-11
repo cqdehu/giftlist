@@ -232,8 +232,8 @@ $('#deleteItemBtn').on('click', function () {
 });
 
 
-console.log(auth)
 console.log(auth())
+console.log(!auth())
 
 
 
