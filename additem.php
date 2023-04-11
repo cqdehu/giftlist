@@ -2,7 +2,7 @@
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Ellenőrizzük, hogy a felhasználónév és a jelszó mezők nem üresek
-  if (!empty($_POST['itemname'])) {
+  if (!empty($_POST['name'])) {
     // Kapcsolódás az adatbázishoz
     $servername = 'localhost';
     $dbusername = 'u142909563_admin';
