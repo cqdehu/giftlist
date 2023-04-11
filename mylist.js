@@ -208,8 +208,8 @@ $(document).ready(function () {
 
 //////////////////////////////////////////////////////////////////////////////////
 $("#addItemIcon").click(function(){
-    console.log("dawdawdaw")
-    $("#addItemModal").show()
+    console.log(lastClickedCard)
+    $("#addItemModal").modal('show')
 })
 
 
