@@ -249,6 +249,8 @@ $(document).ready(function () {
                     console.log("sikeres hozzáadás")
                     $("#listItems").empty();
                     loadItem()
+                    toastText.innerHTML =  enterItemName.value+" tétel hozzá lett adva a listához!";
+                    alertToast.show()
                 } else {
                     // hibaüzenet megjelenítése
                     toastText.innerHTML = response;
