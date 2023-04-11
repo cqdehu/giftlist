@@ -2,7 +2,7 @@ const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
 
-$(document).ready(function(){
+$(document).ready(function () {
     auth()
     loadItem()
 })
@@ -121,41 +121,41 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#addItemBtn").click(function () {
 
-        auth()
+        if (auth()) {
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
 
-        const currentDate = new Date();
-        const year = currentDate.getFullYear();
-        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-        const day = String(currentDate.getDate()).padStart(2, '0');
-        const formattedDate = `${year}-${month}-${day}`;
 
+            var name = $("#enterItemName")
+            var status = $("#enterItemStatus")
+            var createDate = formattedDate
 
-        var name = $("#enterItemName")
-        var status = $("#enterItemStatus")
-        var createDate = formattedDate
-
-        $.ajax({
-            type: "POST",
-            url: "additem.php",
-            data: { name: name.val(), status: status.val(), createDate: createDate, },
-            success: function (response) {
-                console.log(response);
-                if (response == "success") {
-                    // sikeres bejelentkezés, átirányítás a welcome.html oldalra
-                    console.log("sikeres hozzáadás")
-                    $("#listItems").empty();
-                    loadItem()
-                } else {
-                    // hibaüzenet megjelenítése
-                    toastText.innerHTML = response;
-                    alertToast.show()
+            $.ajax({
+                type: "POST",
+                url: "additem.php",
+                data: { name: name.val(), status: status.val(), createDate: createDate, },
+                success: function (response) {
+                    console.log(response);
+                    if (response == "success") {
+                        // sikeres bejelentkezés, átirányítás a welcome.html oldalra
+                        console.log("sikeres hozzáadás")
+                        $("#listItems").empty();
+                        loadItem()
+                    } else {
+                        // hibaüzenet megjelenítése
+                        toastText.innerHTML = response;
+                        alertToast.show()
+                    }
+                },
+                error: function () {
+                    // Hibás AJAX hívás esetén kezeljük a hibát
+                    $("#message").html("Hiba történt az AJAX hívás során.");
                 }
-            },
-            error: function () {
-                // Hibás AJAX hívás esetén kezeljük a hibát
-                $("#message").html("Hiba történt az AJAX hívás során.");
-            }
-        })
+            })
+        }
 
     })
 })
@@ -206,28 +206,29 @@ $(document).on('dblclick', '.item-card', function (event) {
 });
 
 $('#deleteItemBtn').on('click', function () {
-    auth()
+    if (auth()) {
+        if (!lastClickedCard) {
+            return;
+        }
 
-    if (!lastClickedCard) {
-        return;
+        const itemId = lastClickedCard.attr('id');
+        const username = '<?php echo $_SESSION["username"]; ?>';
+
+        $.ajax({
+            type: "POST",
+            url: "deleteitem.php",
+            data: { itemId: itemId, username: username },
+            success: function (response) {
+                console.log('Sikeresen törölted az adatot az adatbázisból.');
+                lastClickedCard.remove();
+                lastClickedCard = null;
+            },
+            error: function (xhr, status, error) {
+                console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
+            }
+        });
     }
 
-    const itemId = lastClickedCard.attr('id');
-    const username = '<?php echo $_SESSION["username"]; ?>';
-
-    $.ajax({
-        type: "POST",
-        url: "deleteitem.php",
-        data: {itemId: itemId, username: username},
-        success: function (response) {
-            console.log('Sikeresen törölted az adatot az adatbázisból.');
-            lastClickedCard.remove();
-            lastClickedCard = null;
-        },
-        error: function (xhr, status, error) {
-            console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
-        }
-    });
 });
 
 
