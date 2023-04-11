@@ -207,6 +207,10 @@ $(document).ready(function () {
 });
 
 //////////////////////////////////////////////////////////////////////////////////
+$("#addItemIcon").click(function(){
+    $("#addItemModal").toggle()
+})
+
 
 //addItem
 $(document).ready(function () {
@@ -271,7 +275,7 @@ $('#deleteItemBtn').on('click', function () {
 
 });
 
-
+// updateItem
 $(document).ready(function () {
     $("#updateItemBtn").click(function () {
 
