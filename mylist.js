@@ -23,8 +23,11 @@ function auth() {
                 console.log("A felhasználó be van jelentkezve!")
                 $("#displayTitle").text(data+" list's")
                 document.title = data + " | " + "GIFTLIST"
-                $("#username").text(data)
-                $("#id").text()
+                let adatok = data.split(";")
+                let username = adatok[0]
+                let id = adatok[1]
+                $("#username").text(username)
+                $("#id").text(id)
             }
         },
         error: function () {
