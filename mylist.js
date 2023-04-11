@@ -4,6 +4,7 @@ var toastText = document.querySelector(".toast-body")
 
 $(document).ready(function(){
     auth()
+    loadItem()
 })
 
 function auth() {
@@ -20,7 +21,6 @@ function auth() {
             } else {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
-                loadItem()
                 $("#displayTitle").text(data)
                 document.title = data + " | " + "GIFTLIST"
             }
