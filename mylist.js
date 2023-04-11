@@ -147,7 +147,6 @@ $(document).ready(function () {
 //addItem
 $(document).ready(function () {
     $("#addItemBtn").click(function () {
-        $("#")
         $.ajax({
             type: "POST",
             url: "additem.php",
