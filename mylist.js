@@ -121,6 +121,8 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#addItemBtn").click(function () {
 
+        auth()
+
         const currentDate = new Date();
         const year = currentDate.getFullYear();
         const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -204,6 +206,8 @@ $(document).on('dblclick', '.item-card', function (event) {
 });
 
 $('#deleteItemBtn').on('click', function () {
+    auth()
+
     if (!lastClickedCard) {
         return;
     }
