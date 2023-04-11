@@ -19,7 +19,7 @@ $(document).ready(function () {
                 console.log("A felhasználó be van jelentkezve!")
                 loadItem()
                 $("#displayTitle").text(data)
-                document.title = '<?php echo $_SESSION["username"]; ?>'
+                document.title = data
             }
         },
         error: function () {
