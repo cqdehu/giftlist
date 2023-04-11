@@ -130,7 +130,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#addItemBtn").click(function () {
 
-        if (auth) {
+        if (!auth()) {
             const currentDate = new Date();
             const year = currentDate.getFullYear();
             const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -164,6 +164,8 @@ $(document).ready(function () {
                     $("#message").html("Hiba történt az AJAX hívás során.");
                 }
             })
+        } else {
+            window.location.replace("login.html")
         }
 
     })
@@ -215,7 +217,7 @@ $(document).on('dblclick', '.item-card', function (event) {
 });
 
 $('#deleteItemBtn').on('click', function () {
-    if (auth) {
+    if (!auth()) {
         if (!lastClickedCard) {
             return;
         }
@@ -237,15 +239,9 @@ $('#deleteItemBtn').on('click', function () {
                 console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
             }
         });
+    } else {
+        window.location.replace("login.html")
     }
 
 });
 
-
-console.log(auth())
-
-if (!auth()) {
-    console.log(":D")
-} else {
-    console.log(":C")
-}
