@@ -89,10 +89,11 @@ function loadItem() {
 
 
             }
-            if (data.length != 0) {
-                console.log("A lista elemei sikeresen betöltődtek!")
-            } else {
+            if (data.length === 0) {
                 console.log("A lista nem tartalmaz elemeket!")
+                
+            } else {
+                console.log("A lista elemei sikeresen betöltődtek!")
             }
 
         },
