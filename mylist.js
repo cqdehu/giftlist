@@ -6,11 +6,11 @@ var today = new Date();
 var year = today.getFullYear();
 var month = today.getMonth() + 1;
 if (month < 10) {
-  month = "0" + month;
+    month = "0" + month;
 }
 var day = today.getDate();
 if (day < 10) {
-  day = "0" + day;
+    day = "0" + day;
 }
 var createDate = year + "-" + month + "-" + day;
 
@@ -181,50 +181,53 @@ $(document).ready(function () {
     })
 })
 
-//selectedItem
-let lastClickedCard = null;
+function selectItem() {
+    //selectedItem
+    let lastClickedCard = null;
 
-function removeCardBorder() {
-    if (lastClickedCard) {
-        lastClickedCard.removeClass("border border-end-0 border-4 border-danger last-clicked");
-        lastClickedCard = null;
-    }
-}
-
-function addCardBorder(card) {
-    removeCardBorder();
-    card.addClass("border border-end-0 border-4 border-danger last-clicked");
-    lastClickedCard = card;
-    console.log(lastClickedCard.attr("id"));
-}
-
-function handleCardClick(event) {
-    const card = $(event.target).closest('.item-card');
-    if (!card.length) {
-        return;
+    function removeCardBorder() {
+        if (lastClickedCard) {
+            lastClickedCard.removeClass("border border-end-0 border-4 border-danger last-clicked");
+            lastClickedCard = null;
+        }
     }
 
-    addCardBorder(card);
-}
-
-if (lastClickedCard) {
-    lastClickedCard.on('click', function () {
+    function addCardBorder(card) {
         removeCardBorder();
+        card.addClass("border border-end-0 border-4 border-danger last-clicked");
+        lastClickedCard = card;
+        console.log(lastClickedCard.attr("id"));
+    }
+
+    function handleCardClick(event) {
+        const card = $(event.target).closest('.item-card');
+        if (!card.length) {
+            return;
+        }
+
+        addCardBorder(card);
+    }
+
+    if (lastClickedCard) {
+        lastClickedCard.on('click', function () {
+            removeCardBorder();
+        });
+    }
+
+    $(document).on('dblclick', '.item-card', function (event) {
+        const card = $(event.target).closest('.item-card');
+        if (!card.length) {
+            return;
+        }
+
+        if (card.is(lastClickedCard)) {
+            removeCardBorder();
+        } else {
+            addCardBorder(card);
+        }
     });
 }
 
-$(document).on('dblclick', '.item-card', function (event) {
-    const card = $(event.target).closest('.item-card');
-    if (!card.length) {
-        return;
-    }
-
-    if (card.is(lastClickedCard)) {
-        removeCardBorder();
-    } else {
-        addCardBorder(card);
-    }
-});
 
 $('#deleteItemBtn').on('click', function () {
 
@@ -278,7 +281,7 @@ $(document).ready(function () {
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
                     loadItem()
-                    toastText.innerHTML = "Sikeresen frissítetted az elemet.";
+                    toastText.innerHTML = lastClickedCard.id;
                     alertToast.show();
                 } else {
                     // Hiba esetén kiírjuk a hibaüzenetet
