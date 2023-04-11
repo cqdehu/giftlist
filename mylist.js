@@ -101,7 +101,7 @@ function loadItem() {
                 console.log(name+", "+status+", "+user+", "+createDate+", ");
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function (_jqXHR, textStatus, errorThrown) {
             console.log("Hiba történt: " + textStatus, errorThrown);
         }
     });
