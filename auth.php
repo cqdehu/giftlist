@@ -5,5 +5,5 @@ if (!isset($_SESSION['username'])) {
 } else {
     $id = $_SESSION['id'];
     $username = $_SESSION['username'];
-    echo $username+";"+$id;
+    echo $username.";".$id;
 }
