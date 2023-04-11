@@ -197,3 +197,13 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  a{
+    text-decoration: none;
+    color: #08FFBC;
+    padding: 0em 0em 0em 0.5em;
+  }
+
+  .offcanvas-bg{
+    background:#282828;
+  }
