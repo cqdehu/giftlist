@@ -268,6 +268,7 @@ $(document).ready(function () {
                 name: enterEditItemName.value,
                 status: enterNewItemStatus.value,
                 createDate: createDate,
+                selectedItem: lastClickedCard.attr("id"),
             },
             success: function (result) {
                 if (result === "success") {
