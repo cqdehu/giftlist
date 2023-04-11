@@ -23,7 +23,7 @@ function auth() {
                 console.log("A felhasználó be van jelentkezve!")
                 $("#displayTitle").text(data+" list's")
                 document.title = data + " | " + "GIFTLIST"
-                $("username").text(data)
+                $("#username").text(data)
             }
         },
         error: function () {
@@ -47,6 +47,10 @@ function loadItem() {
                 var status = data[i].status;
                 var user = data[i].user;
                 var createDate = data[i].createDate;
+                var id = data[i].id;
+
+                $("#id").text(id)
+                //Kiírás
                 console.log(name + ", " + status + ", " + user + ", " + createDate + ", ")
 
                 const newCardDiv = document.createElement("div")
