@@ -276,7 +276,7 @@ $(document).ready(function () {
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
                     loadItem()
-                    toastText.innerHTML = lastClickedCard.attr("id") + " törölve lett a listárol.";
+                    toastText.innerHTML = lastClickedCard.attr("id") + " tétel módosítva lett.";
                     alertToast.show();
                 } else {
                     // Hiba esetén kiírjuk a hibaüzenetet
