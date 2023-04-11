@@ -53,9 +53,10 @@ function loadItem() {
                 var status = data[i].status;
                 var user = data[i].user;
                 var createDate = data[i].createDate;
+                var id = data[i].id;
 
                 //Kiírás
-                console.log(name + ", " + status + ", " + user + ", " + createDate + ", ")
+                console.log(name + ", " + status + ", " + user + ", " + createDate + ", " + id)
 
                 const newCardDiv = document.createElement("div")
                 newCardDiv.className = "row bg-white ms-4 mb-4 rounded-start-4 align-items-center item-card ";
