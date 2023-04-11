@@ -116,7 +116,7 @@ function watchCookie(cookieName, callback) {
   
   // Műveletek a cookie módosítása esetén
   function handleCookieChange() {
-    console.log('A cookie módosult!');
+    auth()
     // Itt lehet további műveleteket végezni a cookie módosítása esetén
   }
   
