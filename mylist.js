@@ -46,6 +46,7 @@ $(document).ready(function () {
     })
 });
 
+//addItem
 $(document).ready(function () {
     $("#addItemBtn").click(function () {
 
@@ -83,3 +84,26 @@ $(document).ready(function () {
 
     })
 })
+
+function loadItem() {
+    $.ajax({
+        url: "getitem.php",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+            // Az adatok feldolgozása
+            for (var i = 0; i < data.length; i++) {
+                var name = data[i].name;
+                var status = data[i].status;
+                var user = data[i].user;
+                var createDate = data[i].createDate;
+                console.log(name+", "+status+", "+user+", "+createDate+", ");
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("Hiba történt: " + textStatus, errorThrown);
+        }
+    });
+}
+
+
