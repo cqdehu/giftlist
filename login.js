@@ -1,11 +1,11 @@
 //function preloader() {
-  var loader = document.querySelector('#preloader')
-  loader.style.opacity = "0"
-  setTimeout(delete_preloader, 551)
-  function delete_preloader() {
-    loader.style.display = "none"
-    console.log("deleted")
-  }
+//  var loader = document.querySelector('#preloader')
+//  loader.style.opacity = "0"
+//  setTimeout(delete_preloader, 551)
+//  function delete_preloader() {
+//    loader.style.display = "none"
+//    console.log("deleted")
+//  }
 //}
 //
 //setTimeout(preloader, 600)
