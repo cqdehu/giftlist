@@ -94,6 +94,7 @@ function loadItem() {
                 
             } else {
                 console.log("A lista elemei sikeresen betöltődtek!")
+                console.log(data.length)
             }
 
         },
