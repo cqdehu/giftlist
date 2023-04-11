@@ -275,21 +275,21 @@ $(document).ready(function() {
       }
   
       // Ellenőrizze, hogy az elem neve ki van-e töltve
-      if (newItemName.value == "") {
+      if (enterEditItemName.value == "") {
         var editItemNameInputValidation = document.querySelector("#editItemNameInputValidation");
         editItemNameInputValidation.innerHTML = "Az Item mező kitöltése kötelező!";
         return;
       }
   
       // Törölje az elem nevére vonatkozó validációs üzenetet, ha van beírva név
-      if (newItemName.value !== "") {
+      if (enterEditItemName.value !== "") {
         var editItemNameInputValidation = document.querySelector("#editItemNameInputValidation");
         editItemNameInputValidation.innerHTML = "";
       }
   
       // Ellenőrizze, hogy az elem neve még nem szerepel a listában
-      if (items.includes(newItemName.value)) {
-        toastText.innerHTML = `${newItemName.value} elem már szerepel a listádon!`;
+      if (items.includes(enterEditItemName.value)) {
+        toastText.innerHTML = `${enterEditItemName.value} elem már szerepel a listádon!`;
         alertToast.show();
         return;
       }
@@ -297,10 +297,10 @@ $(document).ready(function() {
       // Elküldjük az adatokat a PHP szkriptnek Jquery Ajax segítségével
       $.ajax({
         type: "POST",
-        url: "update-item.php",
+        url: "updateitem.php",
         data: {
-          name: newItemName.value,
-          status: newStatus.value,
+          name: enterEditItemName.value,
+          status: enterNewItemStatus.value,
           user: "<?php echo $_SESSION['username']; ?>",
           createDate: createDate,
           id: "<?php echo $lastClickedCard.id; ?>"
