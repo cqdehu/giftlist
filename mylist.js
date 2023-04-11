@@ -89,6 +89,7 @@ function loadItem() {
 
 
             }
+            console.log(response)
 
         },
         error: function () {
