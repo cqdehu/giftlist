@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: application/json');
+
 // Ellenőrizzük, hogy a felhasználónév és a jelszó mezők nem üresek
 // Kapcsolódás az adatbázishoz
 $servername = 'localhost';
