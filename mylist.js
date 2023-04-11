@@ -2,9 +2,18 @@ const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
 
-createDate = new Date()
+var today = new Date();
+var year = today.getFullYear();
+var month = today.getMonth() + 1;
+if (month < 10) {
+  month = "0" + month;
+}
+var day = today.getDate();
+if (day < 10) {
+  day = "0" + day;
+}
+var createDate = year + "-" + month + "-" + day;
 
-console.log(createDate)
 
 $(document).ready(function () {
     auth()
