@@ -1,8 +1,6 @@
 /*body*/
 body {
-  background: rgb(20, 20, 20);
-  background: linear-gradient(126deg, rgba(20, 20, 20, 1) 0%, rgba(40, 40, 40, 1) 100%);
-  background-repeat: no-repeat;
+  background: #1c1c1c;
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
