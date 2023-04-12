@@ -1,9 +1,6 @@
 /*body*/
 body {
   background: #1c1c1c;
-  animation: fadeInAnimation ease 1.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -26,16 +23,6 @@ body {
   background-color: #ffffff;
   border-radius: 0px;
   border: 0px solid #ffffff;
-}
-
-@keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 /**************************************************************************************/
