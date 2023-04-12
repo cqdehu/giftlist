@@ -1,209 +1,210 @@
 /*body*/
 body {
-    background: #282828;
-    animation: fadeInAnimation ease 1.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-  }
-  
-  /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: none;
-    scrollbar-color: #ffffff #1c1c1c;
-  }
-  
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 0px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: #1c1c1c;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #ffffff;
-    border-radius: 0px;
-    border: 0px solid #ffffff;
-  }
-  
-  @keyframes fadeInAnimation {
-    0% {
-      opacity: 0;
-    }
-  
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  /**************************************************************************************/
-  
-  /*logo*/
-  #logoBtn {
-    height: 22px;
-  }
-  
-  #logoBtn:hover {
-    transform: scale(1.15)
-  }
-  
-  
-  
-  /**************************************************************************************/
-  
-  /*settingsBtn*/
-  #settingsBtn {
-    height: 22px;
-  }
-  
-  #settingsBtn:hover {
-    transform: scale(1.15) rotate(3deg);
-  }
-  
-  /**************************************************************************************/
-  
-  /*preloader*/
-  #preloader {
-    background: url("surce/logogreen.svg") no-repeat center #1c1c1c;
-  
-    background-size: 18%;
-  
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    z-index: 10001;
-    transition: 1s ease;
-  
-    @media only screen and (min-width: 600px) {
-      background-size: 9%;
-    }
-  }
-  
-  /**************************************************************************************/
-  
-  /*footer*/
-  #bg-footer {
-    background: linear-gradient(180deg, rgba(40, 40, 40, 0) 0%, rgba(40, 40, 40, 0.53) 19.48%, #282828 37.02%);
-  }
-  
-  #bg-footer-bar {
-    background-color: #08FFBC;
-  }
-  
-  .footer-icon {
-    height: 22px;
-    transform: scale(1.15);
-  }
-  
-  /**************************************************************************************/
-  
-  /*icon*/
-  .icon {
-    height: 18px;
-  }
-  
-  .icon:hover {
-    transform: scale(1.15);
-  }
-  
-  /**************************************************************************************/
-  
-  /**************************************************************************************/
-  
-  
-  
-  
-  
-  .item-card {
-    transition: 0.4s;
-  }
-  
-  
-  header {
-    background: linear-gradient(360deg, rgba(40, 40, 40, 0) 0%, rgba(40, 40, 40, 0.53) 5.73%, #282828 13.02%);
-  }
-  
-  .last-clicked {
-    transition: 0.2s;
-  }
-  
-  
-  .setStatusIcon {
-    height: 32px;
-  }
-  
-  .setStatusIcon:hover {
-    height: 32px;
-    transform: scale(1.12);
-  }
-  
-  .setStatusIconDisabled {
-    height: 32px;
-    transform: scale(0.1);
-  }
-  
-  #addItemBar {
-    background: #08FFBC;
-  }
-  
-  .content-scrollable {
-    margin: 5em 0em 7.1em 0em;
-  }
-  
-  #Title {
-    font-family: 'Tilt Warp';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 3em;
-  
-    background: linear-gradient(270deg, #08FFBC 23.26%, #1E1E1E 131.35%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  
-  
-  }
-  
-  #Slogen {
-    font-family: 'Tilt Warp';
-    font-style: normal;
-    display: flex;
-    align-items: center;
-  
-    background: linear-gradient(90.19deg, #FFFFFF 9.73%, #1E1E1E 109.84%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .BG {
-    background: linear-gradient(107.56deg, #141414 0%, #282828 100%);
-    mix-blend-mode: normal;
-    position: relative;
-  }
-  
-  #comingsoon {
-    font-family: 'Tilt Warp';
-    font-style: normal;
-    font-weight: 400;
-  
-    line-height: 88px;
-    text-align: center;
-  
-    background: linear-gradient(278.02deg, #FFFFFF 27.02%, #1E1E1E 118.17%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  background: linear-gradient(107.56deg, #141414 0%, #282828 100%);
+  mix-blend-mode: normal;
+  animation: fadeInAnimation ease 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: none;
+  scrollbar-color: #ffffff #1c1c1c;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 0px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #1c1c1c;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 0px;
+  border: 0px solid #ffffff;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
   }
 
-  a{
-    text-decoration: none;
-    color: #08FFBC;
-    padding: 0em 0em 0em 0.5em;
+  100% {
+    opacity: 1;
   }
+}
 
-  .offcanvas-bg{
-    background:#282828;
+/**************************************************************************************/
+
+/*logo*/
+#logoBtn {
+  height: 22px;
+}
+
+#logoBtn:hover {
+  transform: scale(1.15)
+}
+
+
+
+/**************************************************************************************/
+
+/*settingsBtn*/
+#settingsBtn {
+  height: 22px;
+}
+
+#settingsBtn:hover {
+  transform: scale(1.15) rotate(3deg);
+}
+
+/**************************************************************************************/
+
+/*preloader*/
+#preloader {
+  background: url("surce/logogreen.svg") no-repeat center #1c1c1c;
+
+  background-size: 18%;
+
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 10001;
+  transition: 1s ease;
+
+  @media only screen and (min-width: 600px) {
+    background-size: 9%;
   }
+}
+
+/**************************************************************************************/
+
+/*footer*/
+#bg-footer {
+  background: linear-gradient(180deg, rgba(40, 40, 40, 0) 0%, rgba(40, 40, 40, 0.53) 19.48%, #282828 37.02%);
+}
+
+#bg-footer-bar {
+  background-color: #08FFBC;
+}
+
+.footer-icon {
+  height: 22px;
+  transform: scale(1.15);
+}
+
+/**************************************************************************************/
+
+/*icon*/
+.icon {
+  height: 18px;
+}
+
+.icon:hover {
+  transform: scale(1.15);
+}
+
+/**************************************************************************************/
+
+/**************************************************************************************/
+
+
+
+
+
+.item-card {
+  transition: 0.4s;
+}
+
+
+header {
+  background: linear-gradient(360deg, rgba(40, 40, 40, 0) 0%, rgba(40, 40, 40, 0.53) 5.73%, #282828 13.02%);
+}
+
+.last-clicked {
+  transition: 0.2s;
+}
+
+
+.setStatusIcon {
+  height: 32px;
+}
+
+.setStatusIcon:hover {
+  height: 32px;
+  transform: scale(1.12);
+}
+
+.setStatusIconDisabled {
+  height: 32px;
+  transform: scale(0.1);
+}
+
+#addItemBar {
+  background: #08FFBC;
+}
+
+.content-scrollable {
+  margin: 5em 0em 7.1em 0em;
+}
+
+#Title {
+  font-family: 'Tilt Warp';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3em;
+
+  background: linear-gradient(270deg, #08FFBC 23.26%, #1E1E1E 131.35%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+
+}
+
+#Slogen {
+  font-family: 'Tilt Warp';
+  font-style: normal;
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(90.19deg, #FFFFFF 9.73%, #1E1E1E 109.84%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.BG {
+  background: linear-gradient(107.56deg, #141414 0%, #282828 100%);
+  mix-blend-mode: normal;
+  position: relative;
+}
+
+#comingsoon {
+  font-family: 'Tilt Warp';
+  font-style: normal;
+  font-weight: 400;
+
+  line-height: 88px;
+  text-align: center;
+
+  background: linear-gradient(278.02deg, #FFFFFF 27.02%, #1E1E1E 118.17%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+a {
+  text-decoration: none;
+  color: #08FFBC;
+  padding: 0em 0em 0em 0.5em;
+}
+
+.offcanvas-bg {
+  background: #282828;
+}
