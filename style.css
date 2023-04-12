@@ -1,7 +1,7 @@
 /*body*/
 body {
-  background: linear-gradient(107.56deg, #141414 0%, #282828 100%);
-  mix-blend-mode: normal;
+  background: rgb(20, 20, 20);
+  background: linear-gradient(126deg, rgba(20, 20, 20, 1) 0%, rgba(40, 40, 40, 1) 100%);
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
