@@ -85,7 +85,7 @@ body {
 
 /*footer*/
 #bg-footer {
-  background: linear-gradient(180deg, rgba(40, 40, 40, 0) 0%, rgba(40, 40, 40, 0.53) 19.48%, #282828 37.02%);
+  background: linear-gradient(180deg, rgba(40, 40, 40, 0) 0%, rgba(40, 40, 40, 0.53) 19.48%, #1c1c1c 37.02%);
 }
 
 #bg-footer-bar {
@@ -122,7 +122,7 @@ body {
 
 
 header {
-  background: linear-gradient(360deg, rgba(40, 40, 40, 0) 0%, rgba(40, 40, 40, 0.53) 5.73%, #282828 13.02%);
+  background: linear-gradient(360deg, rgba(40, 40, 40, 0) 0%, rgba(40, 40, 40, 0.53) 5.73%, #1c1c1c 13.02%);
 }
 
 .last-clicked {
