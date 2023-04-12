@@ -189,10 +189,6 @@ function loadItem() {
                 newCardDiv.appendChild(newItemStatusDiv)
                 newItemStatusDiv.appendChild(newItemStatus)
 
-
-                $(document).ready(function(){
-                    $("#listItems").animate({opacity: "0.5"}, 1000);
-                 });
                  
 
 
