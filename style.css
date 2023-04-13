@@ -192,5 +192,6 @@ a {
 }
 
 .offcanvas-bg {
-  background: #282828;
+  background: rgb(40, 40, 40);
+  background: linear-gradient(126deg, rgba(40, 40, 40, 1) 0%, rgba(28, 28, 28, 1) 100%);
 }

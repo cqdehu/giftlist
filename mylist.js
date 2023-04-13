@@ -255,6 +255,7 @@ $(document).ready(function () {
                     loadItem()
                     toastText.innerHTML =  enterItemName.value+" tétel hozzá lett adva a listához!";
                     alertToast.show()
+                    enterItemName.value = ""
                 } else {
                     // hibaüzenet megjelenítése
                     toastText.innerHTML = response;
