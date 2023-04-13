@@ -1,12 +1,6 @@
-const dangerAlert = document.querySelector('#dangerAlert')
-var dangerToast = bootstrap.Toast.getOrCreateInstance(dangerAlert)
-var dangerToastText = document.querySelector(".toast-body")
-
-const successAlert = document.querySelector('#successAlert')
-var successToast = bootstrap.Toast.getOrCreateInstance(successAlert)
-var successToastText = document.querySelector(".toast-body")
-
-
+const toast = document.querySelector('#alertToast')
+var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
+var toastText = document.querySelector(".toast-body")
 
 
 var today = new Date();
@@ -199,6 +193,14 @@ function loadItem() {
 
 
             }
+            if (!data.length) {
+                console.log("A lista nem tartalmaz elemeket!")
+                console.log(data.length)
+
+            } else {
+                console.log("A lista elemei sikeresen betöltődtek!")
+                console.log(data.length)
+            }
 
         },
         error: function () {
@@ -250,13 +252,13 @@ $(document).ready(function () {
                     console.log("sikeres hozzáadás")
                     $("#listItems").empty();
                     loadItem()
-                    dangerToastText.innerHTML =  enterItemName.value+" tétel hozzá lett adva a listához!";
-                    dangerToast.show()
+                    toastText.innerHTML =  enterItemName.value+" tétel hozzá lett adva a listához!";
+                    alertToast.show()
                     enterItemName.value = ""
                 } else {
                     // hibaüzenet megjelenítése
-                    successToastText.innerHTML = response;
-                    successToast.show()
+                    toastText.innerHTML = response;
+                    alertToast.show()
                 }
             },
             error: function () {
