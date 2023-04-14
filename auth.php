@@ -20,7 +20,8 @@ if (!isset($_SESSION['username'])) {
     $user = $_SESSION['username'];
     $id = $_SESSION['id'];
 
-    $sql = "SELECT `name`, `status`, `user`, `createDate`, `id` FROM `items` WHERE `user` = '$user' AND `id`='$id'";
+    $sql = "SELECT `username`, `id` FROM `users` WHERE `username` = '$user' AND `id`='$id'";
+            ;
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -33,7 +34,7 @@ if (!isset($_SESSION['username'])) {
         echo "failed";
     }
 
-    echo json_encode($items);
+    echo json_encode($userdata);
 
     mysqli_close($conn);
 }

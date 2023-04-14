@@ -87,12 +87,12 @@ function auth() {
                 console.log("A felhasználó be van jelentkezve!")
 
                 for (var i = 0; i < data.length; i++) {
-                    var user = data[i].user;
+                    var username = data[i].username;
                     var id = data[i].id;
                 
-                    document.title = user + " | " + "GIFTLIST"
-                    $("#displayTitle").text(user + " list's")
-                    $("#username").text(user)
+                    document.title = username + " | " + "GIFTLIST"
+                    $("#displayTitle").text(username + " list's")
+                    $("#username").text(username)
                     $("#id").text(id)
                 
                 }
