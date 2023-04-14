@@ -104,25 +104,25 @@ function auth() {
 // Cookie érték figyelése
 function watchCookie(cookieName, callback) {
     var lastCookie = document.cookie;
-    setInterval(function() {
-      var cookieValue = document.cookie;
-      if (cookieValue !== lastCookie) {
-        lastCookie = cookieValue;
-        if (cookieValue.indexOf(cookieName) !== -1) {
-          callback();
+    setInterval(function () {
+        var cookieValue = document.cookie;
+        if (cookieValue !== lastCookie) {
+            lastCookie = cookieValue;
+            if (cookieValue.indexOf(cookieName) !== -1) {
+                callback();
+            }
         }
-      }
     }, 100);
-  }
-  
-  // Műveletek a cookie módosítása esetén
-  function handleCookieChange() {
+}
+
+// Műveletek a cookie módosítása esetén
+function handleCookieChange() {
     auth()
     // Itt lehet további műveleteket végezni a cookie módosítása esetén
-  }
-  
-  // Watch the cookie named "myCookie" for changes
-  watchCookie("PHPSESSID", handleCookieChange);
+}
+
+// Watch the cookie named "myCookie" for changes
+watchCookie("PHPSESSID", handleCookieChange);
 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -188,7 +188,7 @@ function loadItem() {
                 newCardDiv.appendChild(newItemStatusDiv)
                 newItemStatusDiv.appendChild(newItemStatus)
 
-                 
+
 
 
 
@@ -252,7 +252,7 @@ $(document).ready(function () {
                     console.log("sikeres hozzáadás")
                     $("#listItems").empty();
                     loadItem()
-                    toastText.innerHTML =  enterItemName.value+" tétel hozzá lett adva a listához!";
+                    toastText.innerHTML = enterItemName.value + " tétel hozzá lett adva a listához!";
                     alertToast.show()
                     enterItemName.value = ""
                 } else {
@@ -350,15 +350,14 @@ $('#removeItemNo').on('click', function () {
 
 //deleteItemModal
 
-$('#deleteItemBtn').on('click', function() {
-    $('#selectedItem').text(lastClickedCard)
-    $('#removeItemModal').modal('show')
-    //if (lastClickedCard != null) {
-    //    // show modal
-    //} else {
-    //    toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
-    //    alertToast.show()
-    //}
+$('#deleteItemBtn').on('click', function () {
+    if (lastClickedCard != null) {
+        $('#selectedItem').text(lastClickedCard.attr('id'))
+        $('#removeItemModal').modal('show')
+    } else {
+        toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
+        alertToast.show()
+    }
 })
 
 
