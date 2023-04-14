@@ -26,9 +26,9 @@ if (!isset($_SESSION['username'])) {
 
     if (mysqli_num_rows($result) > 0) {
         // Az eredményt tömbbe mentjük
-        $items = array();
+        $userdata = array();
         while ($row = mysqli_fetch_assoc($result)) {
-            $items[] = $row;
+            $userdata[] = $row;
         }
     } else {
         echo "failed";
