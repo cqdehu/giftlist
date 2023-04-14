@@ -352,7 +352,7 @@ $('#removeItemNo').on('click', function () {
 
 $('#deleteItemBtn').on('click', function () {
     if (lastClickedCard != null) {
-        $('#selectedItem').text(lastClickedCard.attr('id'))
+        $('#selectedItem').text("Would you like to permanently remove the " +lastClickedCard.attr('id')+ " item from your list?")
         $('#removeItemModal').modal('show')
     } else {
         toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
