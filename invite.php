@@ -3,10 +3,12 @@
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if (!empty($_POST['invitedUser'])) {
+    $invitedUser = $_POST['invitedUser'];
+
+    if (!empty($invitedUser)) {
         echo "Invited successfull!";
     } else {
-        echo "Kérjük, töltse ki mindkét mezőt.";
+        echo $invitedUser;
     }
 
     
