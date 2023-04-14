@@ -145,9 +145,9 @@ function loadItem() {
                 var createDate = data[i].createDate;
                 var id = data[i].id;
 
-                document.title = name + " | " + "GIFTLIST"
-                $("#displayTitle").text(name + " list's")
-                $("#username").text(name)
+                document.title = user + " | " + "GIFTLIST"
+                $("#displayTitle").text(user + " list's")
+                $("#username").text(user)
                 $("#id").text(id)
 
                 //Kiírás
