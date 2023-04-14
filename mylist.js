@@ -393,7 +393,7 @@ $('#inviteBtn').on('click',function () {
         data: {invitedUser: invitedUser.value},
         success: function(response){
             if(response == "success"){
-                console.log("Invited successfull.")
+                console.log()
             } else {
                 console.log(response)
             }
