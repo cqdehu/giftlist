@@ -157,11 +157,6 @@ function loadItem() {
                 var createDate = data[i].createDate;
                 var id = data[i].id;
 
-                document.title = user + " | " + "GIFTLIST"
-                $("#displayTitle").text(user + " list's")
-                $("#username").text(user)
-                $("#id").text(id)
-
                 //Kiírás
                 console.log(name + ", " + status + ", " + user + ", " + createDate + ", " + id)
 
