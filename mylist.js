@@ -117,7 +117,18 @@ function watchCookie(cookieName, callback) {
 
 // Műveletek a cookie módosítása esetén
 function handleCookieChange() {
-    auth()
+    $.ajax({
+        type: "POST",
+        url: "logout.php",
+        success: function (data) {
+            // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
+            window.location.href = "login.html";
+        },
+        error: function () {
+            // Hibás AJAX hívás esetén kezeljük a hibát
+            $("#message").html("Hiba történt az AJAX hívás során.");
+        }
+    });
     // Itt lehet további műveleteket végezni a cookie módosítása esetén
 }
 
@@ -243,7 +254,7 @@ $(document).ready(function () {
     $("#addItemBtn").click(function () {
         $.ajax({
             type: "POST",
-            url: "additem.php?v=1.0.0",
+            url: "additem.php",
             data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, },
             success: function (response) {
                 console.log(response);
