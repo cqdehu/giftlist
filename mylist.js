@@ -385,18 +385,22 @@ $('#inviteModalBtn').on('click',function () {
 
 $('#inviteBtn').on('click',function () {
 
-    var invitedUser = $('#invitedUser').value
+    const invitedUser = querySelector('#invitedUser')
 
     $.ajax({
         type: "POST",
         url: "invite.php",
-        data: {invitedUser: invitedUser},
+        data: {invitedUser: invitedUser.value},
         success: function(response){
             if(response == "success"){
                 console.log("Invited successfull.")
             } else {
                 console.log(response)
             }
+        },
+        error: function () {
+            // Hibás AJAX hívás esetén kezeljük a hibát
+            $("#message").html("Hiba történt az AJAX hívás során.");
         }
     })
 })
