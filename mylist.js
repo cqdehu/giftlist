@@ -385,7 +385,7 @@ $('#inviteModalBtn').on('click',function () {
 
 $('#inviteBtn').on('click',function () {
 
-    const invitedUser = querySelector('#invitedUser')
+    const invitedUser = document.querySelector('#invitedUser')
 
     $.ajax({
         type: "POST",
