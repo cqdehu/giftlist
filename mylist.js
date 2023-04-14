@@ -317,7 +317,7 @@ $(document).ready(function () {
 });
 
 //deleteItem
-$('#deleteItemBtn').on('click', function () {
+$('#removeItemYes').on('click', function () {
     if (!lastClickedCard) {
         return;
     }
@@ -339,6 +339,25 @@ $('#deleteItemBtn').on('click', function () {
         }
     });
 
+    $('#removeItemModal').modal('hide')
+
 
 });
+
+$('#removeItemNo').on('click', function () {
+    $('#removeItemModal').modal('hide')
+})
+
+//deleteItemModal
+
+$('#deleteItemBtn').on('click', function() {
+    $('#selectedItem').text(lastClickedCard)
+    $('#removeItemModal').modal('show')
+    //if (lastClickedCard != null) {
+    //    // show modal
+    //} else {
+    //    toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
+    //    alertToast.show()
+    //}
+})
 

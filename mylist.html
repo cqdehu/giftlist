@@ -116,15 +116,42 @@
 
     <!--*************************************************************************************************************-->
 
+    <!--RemoveItem-->
+    <div class="modal fade" id="removeItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content offcanvas-bg">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <p id="selectedItem" class="text-light TiltWrap">Biztosan szeretné törölni a Lego tételt listájáról?</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col ps-2 pe-2">
+                        <div class=" d-grid m-0 p-0">
+                            <button class="btn btn-gc rounded rounded-3 TiltWrap" id="removeItemYes">Yes</button>
+                        </div>
+                        
+                    </div>
+                    <div class="col ps-2 pe-2">
+                        <div class=" d-grid">
+                            <button class="btn btn-danger rounded rounded-3 TiltWrap" id="removeItemNo">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!--***************************************************************************************************************-->
 
     <!--Menu-->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-start offcanvas-bg text-light" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <img src="surce/Close.svg" type="button" data-bs-dismiss="offcanvas" aria-label="Close"
-                class="closeBtn"></img>
-            <h5 class="offcanvas-title TiltWrap" id="offcanvasExampleLabel">Lists</h5>
+                class="icon"></img>
+            <h5 class="offcanvas-title TiltWrap" id="offcanvasExampleLabel">Menu</h5>
         </div>
         <div class="offcanvas-body p-0">
 
@@ -132,13 +159,13 @@
                 <h5 class="TiltWrap">My List</h5>
             </div>
 
-            <div class="row border border-3 border-dark mx-3 mb-3 rounded-4 align-items-center">
+            <div class="row bg-light mx-3 mb-3 rounded-4 align-items-center" id="otherlistDave">
                 <div class="col p-0">
                     <h6 class="TiltWrap text-dark m-3">Ábel</h6>
                 </div>
-                <div class="col-3 text-end">
-                    <div class="me-4">
-
+                <div class="col-2 text-end">
+                    <div class="me-2">
+                        <img src="surce/Emty_List.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -147,9 +174,9 @@
                 <h5 class="TiltWrap">Other Lists</h5>
             </div>
 
-            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center" id="otherlistDave">
+            <div class="row bg-light mx-3 mb-4 rounded-4 align-items-center" id="otherlistDave">
                 <div class="col p-0">
-                    <h6 class="TiltWrap text-light m-3">Dávid</h6>
+                    <h6 class="TiltWrap text-dark m-3">Ábel</h6>
                 </div>
                 <div class="col-2 text-end">
                     <div class="me-2">
@@ -158,32 +185,9 @@
                 </div>
             </div>
 
-            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
+            <div class="row bg-light mx-3 mb-4 rounded-4 align-items-center" id="otherlistDave">
                 <div class="col p-0">
-                    <h6 class="TiltWrap text-light m-3">Évi</h6>
-                </div>
-                <div class="col-2 text-end">
-                    <div class="me-2">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
-                <div class="col p-0">
-                    <h6 class="TiltWrap text-light m-3">Kálmán</h6>
-                </div>
-                <div class="col-3 text-end">
-                    <div class="me-2">
-                        <img src="surce/Time out item.svg" alt="">
-                        <img src="surce/Emty_List.svg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
-                <div class="col p-0">
-                    <h6 class="TiltWrap text-light m-3">Alex</h6>
+                    <h6 class="TiltWrap text-dark m-3">Ábel</h6>
                 </div>
                 <div class="col-2 text-end">
                     <div class="me-2">
@@ -192,9 +196,9 @@
                 </div>
             </div>
 
-            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
+            <div class="row bg-light mx-3 mb-4 rounded-4 align-items-center" id="otherlistDave">
                 <div class="col p-0">
-                    <h6 class="TiltWrap text-light m-3">Ildi</h6>
+                    <h6 class="TiltWrap text-dark m-3">Ábel</h6>
                 </div>
                 <div class="col-2 text-end">
                     <div class="me-2">
@@ -203,22 +207,7 @@
                 </div>
             </div>
 
-            <div class="row bg-dark mx-3 mb-3 rounded-4 align-items-center">
-                <div class="col p-0">
-                    <h6 class="TiltWrap text-light m-3">Mattias</h6>
-                </div>
-                <div class="col-2 text-end">
-                    <div class="me-2">
-                        <img src="surce/Emty_List.svg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mx-3 mb-3">
-                <div class="col">
-                    <h2>Concept elements.</h2>
-                </div>
-            </div>
+            
 
 
         </div>

@@ -99,7 +99,21 @@ body {
 
 /**************************************************************************************/
 
+.gc{
+  color: #08FFBC;
+}
 
+.bgc{
+  background:#08FFBC;
+}
+
+.btn-gc{
+  background:#08FFBC;
+}
+
+.btn-gc:hover{
+  background:#0aca97;
+}
 
 
 
