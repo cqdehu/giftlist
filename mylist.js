@@ -85,6 +85,17 @@ function auth() {
             } else {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
+
+                for (var i = 0; i < data.length; i++) {
+                    var user = data[i].user;
+                    var id = data[i].id;
+                
+                    document.title = user + " | " + "GIFTLIST"
+                    $("#displayTitle").text(user + " list's")
+                    $("#username").text(user)
+                    $("#id").text(id)
+                
+                }
             }
         },
         error: function () {
@@ -129,6 +140,7 @@ function handleCookieChange() {
 watchCookie("PHPSESSID", handleCookieChange);
 
 //////////////////////////////////////////////////////////////////////////////////
+
 
 //loadItem
 function loadItem() {
