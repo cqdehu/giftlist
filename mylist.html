@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My List | GIFTLIST</title>
+    <title>| GIFTLIST</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -54,7 +54,7 @@
             </div>
             <div class="col-6 text-center">
                 <div class="my-4">
-                    <h4 class="text-light TiltWrap" id="displayTitle">My List</h4>
+                    <h4 class="text-light TiltWrap" id="displayTitle"></h4>
                 </div>
             </div>
             <div class="col-3 text-end">
@@ -70,13 +70,14 @@
 
     <!--Settings-->
 
-    <div class="offcanvas offcanvas-end offcanvas-bg text-light" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-end offcanvas-bg text-light" tabindex="-1" id="offcanvasSettings"
+        aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title TiltWrap" id="offcanvasExampleLabel">Settings</h5>
             <img src="surce/Close.svg" data-bs-dismiss="offcanvas" aria-label="Close" class="icon">
         </div>
         <div class="offcanvas-body mb-3 bx-3">
-            
+
             <div class="row">
                 <div class="col">
                     <h5 class="TiltWrap">Account</h5>
@@ -94,8 +95,8 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
             <div class="position-absolute bottom-0 start-50 translate-middle-x">
                 <div class="mb-3">
                     <p class="fs-6 TiltWrap m-0 p-0 text-center">GIFTLIST App</p>
@@ -119,38 +120,72 @@
     <!--RemoveItem-->
     <div class="modal fade" id="removeItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content offcanvas-bg">
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <p id="selectedItem" class="text-light TiltWrap">Biztosan szeretné törölni a Lego tételt listájáról?</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col ps-2 pe-2">
-                        <div class=" d-grid m-0 p-0">
-                            <button class="btn btn-gc rounded rounded-3 TiltWrap" id="removeItemYes">Yes</button>
+            <div class="modal-content offcanvas-bg">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <p id="selectedItem" class="text-light TiltWrap"></p>
                         </div>
-                        
                     </div>
-                    <div class="col ps-2 pe-2">
-                        <div class=" d-grid">
-                            <button class="btn btn-danger rounded rounded-3 TiltWrap" id="removeItemNo">No</button>
+                    <div class="row">
+                        <div class="col ps-2 pe-2">
+                            <div class=" d-grid m-0 p-0">
+                                <button class="btn btn-gc rounded rounded-3 TiltWrap" id="removeItemYes">Yes</button>
+                            </div>
+
+                        </div>
+                        <div class="col ps-2 pe-2">
+                            <div class=" d-grid">
+                                <button class="btn btn-danger rounded rounded-3 TiltWrap" id="removeItemNo">No</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+
+    <!--***************************************************************************************************************-->
+
+    <!--Invite-->
+
+    <div class="modal fade" id="inviteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content offcanvas-bg">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-light TiltWrap fs-4">Invite</p>
+                        </div>
+                        <div class="col text-end">
+                            <img src="surce/Close.svg" type="button" class="icon" data-bs-dismiss="modal" aria-label="Close"></img>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-6">
+                            <label for="" class="form-label TiltWrap text-light">Username</label>
+                            <input type="text" class=" form-control TiltWrap" id="invitedUser">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-6 text-end">
+                            <div class=" d-grid">
+                                <button class="btn btn-light TiltWrap" id="inviteBtn">Invite</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--***************************************************************************************************************-->
 
     <!--Menu-->
-    <div class="offcanvas offcanvas-start offcanvas-bg text-light" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-start offcanvas-bg text-light" tabindex="-1" id="offcanvasMenu"
+        aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-            <img src="surce/Close.svg" type="button" data-bs-dismiss="offcanvas" aria-label="Close"
-                class="icon"></img>
+            <img src="surce/Close.svg" type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="icon"></img>
             <h5 class="offcanvas-title TiltWrap" id="offcanvasExampleLabel">Menu</h5>
         </div>
         <div class="offcanvas-body p-0">
@@ -170,13 +205,18 @@
                 </div>
             </div>
 
-            <div class="row mx-2 mb-1 align-items-center">
-                <h5 class="TiltWrap">Other Lists</h5>
+            <div class="row mx-2 mt-2 mb-3 align-items-center">
+                <div class="col">
+                    <p class="TiltWrap fs-5 m-0">Other Lists</p>
+                </div>
+                <div class="col text-end">
+                    <button class="btn btn-light TiltWrap py-1" id="inviteModalBtn">Invite</button>
+                </div>
             </div>
 
             <div class="row bg-light mx-3 mb-4 rounded-4 align-items-center" id="otherlistDave">
                 <div class="col p-0">
-                    <h6 class="TiltWrap text-dark m-3">Ábel</h6>
+                    <p class="TiltWrap text-dark m-3" id="">Évi<!--Meghívó felhasználó neve.--></p>
                 </div>
                 <div class="col-2 text-end">
                     <div class="me-2">
@@ -185,29 +225,7 @@
                 </div>
             </div>
 
-            <div class="row bg-light mx-3 mb-4 rounded-4 align-items-center" id="otherlistDave">
-                <div class="col p-0">
-                    <h6 class="TiltWrap text-dark m-3">Ábel</h6>
-                </div>
-                <div class="col-2 text-end">
-                    <div class="me-2">
-                        <img src="surce/Emty_List.svg" alt="">
-                    </div>
-                </div>
-            </div>
 
-            <div class="row bg-light mx-3 mb-4 rounded-4 align-items-center" id="otherlistDave">
-                <div class="col p-0">
-                    <h6 class="TiltWrap text-dark m-3">Ábel</h6>
-                </div>
-                <div class="col-2 text-end">
-                    <div class="me-2">
-                        <img src="surce/Emty_List.svg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            
 
 
         </div>
@@ -351,7 +369,7 @@
     </footer>
 
     <!--***************************************************************************************************************-->
-    <script src="mylist.js?v=1.1.13"></script>
+    <script src="mylist.js?v=1.1.14"></script>
 </body>
 
 </html>

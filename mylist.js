@@ -377,4 +377,26 @@ $('#deleteItemBtn').on('click', function () {
     }
 })
 
+//invite
 
+$('#inviteModalBtn').on('click',function () {
+    $('#inviteModal').modal('show')
+})
+
+$('#inviteBtn').on('click',function () {
+
+    var invitedUser = $('#invitedUser').value
+
+    $.ajax({
+        type: "POST",
+        url: "invite.php",
+        data: {invitedUser: invitedUser},
+        success: function(response){
+            if(result == "success"){
+                console.log("Invited successfull.")
+            } else {
+                console.log(response)
+            }
+        }
+    })
+})
