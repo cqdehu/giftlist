@@ -75,6 +75,7 @@ function auth() {
     $.ajax({
         type: "GET",
         url: "auth.php",
+        dataType: "json",
         success: function (data) {
             // Sikeres válasz esetén kezeljük a visszatérő adatot
             if (data == "failed") {
