@@ -85,13 +85,6 @@ function auth() {
             } else {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
-                let adatok = data.split(";")
-                let username = adatok[0]
-                let id = adatok[1]
-                document.title = username + " | " + "GIFTLIST"
-                $("#displayTitle").text(username + " list's")
-                $("#username").text(username)
-                $("#id").text(id)
             }
         },
         error: function () {
@@ -151,6 +144,11 @@ function loadItem() {
                 var user = data[i].user;
                 var createDate = data[i].createDate;
                 var id = data[i].id;
+
+                document.title = name + " | " + "GIFTLIST"
+                $("#displayTitle").text(name + " list's")
+                $("#username").text(name)
+                $("#id").text(id)
 
                 //Kiírás
                 console.log(name + ", " + status + ", " + user + ", " + createDate + ", " + id)
