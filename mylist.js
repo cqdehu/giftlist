@@ -392,7 +392,7 @@ $('#inviteBtn').on('click',function () {
         url: "invite.php",
         data: {invitedUser: invitedUser},
         success: function(response){
-            if(result == "success"){
+            if(response == "success"){
                 console.log("Invited successfull.")
             } else {
                 console.log(response)
