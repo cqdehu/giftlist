@@ -215,9 +215,6 @@ function loadItem() {
     
     
                 }
-
-                var items = JSON.parse(response);
-                console.log(items);
             }
 
             // Az adatok feldolgozása
