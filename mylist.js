@@ -29,7 +29,7 @@ function addCardBorder(card) {
     removeCardBorder();
     card.addClass("border border-end-0 border-4 border-danger last-clicked");
     lastClickedCard = card;
-    console.log(lastClickedCard.attr("id"));
+    console.log("Kiválasztott tétel: "+lastClickedCard.attr("id"));
 }
 
 function handleCardClick(event) {
@@ -153,7 +153,7 @@ function loadItem() {
         
         success: function (data,response) {
 
-            if(response === "failed"){
+            if(response == "failed"){
                 console.log("A lekérdezés sikertelen volt.");
             } else {
                 for (var i = 0; i < data.length; i++) {
@@ -216,9 +216,6 @@ function loadItem() {
     
                 }
             }
-
-            // Az adatok feldolgozása
-
         },
         error: function () {
             // Hibás AJAX hívás esetén kezeljük a hibát
