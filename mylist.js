@@ -210,13 +210,11 @@ function loadItem() {
 
 
             }
-            if (!data.length) {
+            if (response == "failed") {
                 console.log("A lista nem tartalmaz elemeket!")
-                console.log(data.length)
 
             } else {
                 console.log("A lista elemei sikeresen betöltődtek!")
-                console.log(data.length)
             }
 
             console.log("Lista betöltése: "+response)
