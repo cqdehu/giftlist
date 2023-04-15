@@ -149,75 +149,78 @@ function loadItem() {
         url: "getitem.php",
         type: "POST",
         dataType: "json",
+
+        
         success: function (data,response) {
-            // Az adatok feldolgozása
-            for (var i = 0; i < data.length; i++) {
-                var name = data[i].name;
-                var status = data[i].status;
-                var user = data[i].user;
-                var createDate = data[i].createDate;
-                var id = data[i].id;
 
-                //Kiírás
-                console.log(name + ", " + status + ", " + user + ", " + createDate + ", " + id)
-
-                const newCardDiv = document.createElement("div")
-                newCardDiv.className = "row bg-white ms-4 mb-4 rounded-start-4 align-items-center item-card ";
-                newCardDiv.id = name
-
-                const newItemNameDiv = document.createElement("div")
-                newItemNameDiv.className = "col p-3 "
-
-                const newItemName = document.createElement("h5")
-                newItemName.className = "TiltWrap m-0 user-select-none "
-                newItemName.innerHTML = name
-
-                const newItemStatusDiv = document.createElement("div")
-                newItemStatusDiv.className = "col-2 text-end me-4"
-
-
-                const newItemStatus = document.createElement("img")
-                newItemStatus.className = "icon_status"
-
-                if (status == 3) {
-                    newItemStatus.src = "surce/3.svg"
-                }
-                if (status == 2) {
-                    newItemStatus.src = "surce/2.svg"
-                }
-                if (status == 1) {
-                    newItemStatus.src = "surce/1.svg"
-                }
-                if (status == 0) {
-                    newItemStatus.src = ""
-                }
-
-                //OldItem
-                //var today = new Date();
-                //if (today.getFullYear() - createDate.getFullYear() >= 3){
-                //    console.log("Régi elem szerepel a listán.")
-                //}
-
-
-                listItems.appendChild(newCardDiv)
-                newCardDiv.appendChild(newItemNameDiv)
-                newItemNameDiv.appendChild(newItemName)
-                newCardDiv.appendChild(newItemStatusDiv)
-                newItemStatusDiv.appendChild(newItemStatus)
-
-
-
-
-
-            }
-            if (response == "failed") {
-                console.log("A lista nem tartalmaz elemeket!")
-
+            if(response === "failed"){
+                console.log("A lekérdezés sikertelen volt.");
             } else {
-                console.log("A lista elemei sikeresen betöltődtek!")
+                for (var i = 0; i < data.length; i++) {
+                    var name = data[i].name;
+                    var status = data[i].status;
+                    var user = data[i].user;
+                    var createDate = data[i].createDate;
+                    var id = data[i].id;
+    
+                    //Kiírás
+                    console.log(name + ", " + status + ", " + user + ", " + createDate + ", " + id)
+    
+                    const newCardDiv = document.createElement("div")
+                    newCardDiv.className = "row bg-white ms-4 mb-4 rounded-start-4 align-items-center item-card ";
+                    newCardDiv.id = name
+    
+                    const newItemNameDiv = document.createElement("div")
+                    newItemNameDiv.className = "col p-3 "
+    
+                    const newItemName = document.createElement("h5")
+                    newItemName.className = "TiltWrap m-0 user-select-none "
+                    newItemName.innerHTML = name
+    
+                    const newItemStatusDiv = document.createElement("div")
+                    newItemStatusDiv.className = "col-2 text-end me-4"
+    
+    
+                    const newItemStatus = document.createElement("img")
+                    newItemStatus.className = "icon_status"
+    
+                    if (status == 3) {
+                        newItemStatus.src = "surce/3.svg"
+                    }
+                    if (status == 2) {
+                        newItemStatus.src = "surce/2.svg"
+                    }
+                    if (status == 1) {
+                        newItemStatus.src = "surce/1.svg"
+                    }
+                    if (status == 0) {
+                        newItemStatus.src = ""
+                    }
+    
+                    //OldItem
+                    //var today = new Date();
+                    //if (today.getFullYear() - createDate.getFullYear() >= 3){
+                    //    console.log("Régi elem szerepel a listán.")
+                    //}
+    
+    
+                    listItems.appendChild(newCardDiv)
+                    newCardDiv.appendChild(newItemNameDiv)
+                    newItemNameDiv.appendChild(newItemName)
+                    newCardDiv.appendChild(newItemStatusDiv)
+                    newItemStatusDiv.appendChild(newItemStatus)
+    
+    
+    
+    
+    
+                }
+
+                var items = JSON.parse(response);
+                console.log(items);
             }
 
-            console.log("Lista betöltése: "+response)
+            // Az adatok feldolgozása
 
         },
         error: function () {
