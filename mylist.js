@@ -219,7 +219,7 @@ function loadItem() {
                 console.log(data.length)
             }
 
-            console.log(response)
+            console.log("Lista betöltése: "+response)
 
         },
         error: function () {
