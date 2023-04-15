@@ -149,7 +149,7 @@ function loadItem() {
         url: "getitem.php",
         type: "POST",
         dataType: "json",
-        success: function (data) {
+        success: function (data,response) {
             // Az adatok feldolgozása
             for (var i = 0; i < data.length; i++) {
                 var name = data[i].name;
