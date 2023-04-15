@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         while ($row = mysqli_fetch_assoc($result)) {
             $items[] = $row;
         }
+        echo "success";
     } else {
         echo "failed";
     }
