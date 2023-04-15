@@ -219,6 +219,8 @@ function loadItem() {
                 console.log(data.length)
             }
 
+            console.log(response)
+
         },
         error: function () {
             // Hibás AJAX hívás esetén kezeljük a hibát
