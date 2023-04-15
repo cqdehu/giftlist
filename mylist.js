@@ -345,7 +345,7 @@ $('#removeItemYes').on('click', function () {
         data: { itemId: itemId, username: username },
         success: function (response) {
             console.log('Sikeresen törölted az adatot az adatbázisból.');
-            lastClickedCard.remove();
+            loadItem()
             lastClickedCard = null;
         },
         error: function (xhr, status, error) {
