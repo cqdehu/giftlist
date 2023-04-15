@@ -263,10 +263,7 @@ $(document).ready(function () {
             url: "additem.php",
             data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, },
             success: function (response) {
-                console.log(response);
                 if (response == "success") {
-                    // sikeres bejelentkezés, átirányítás a welcome.html oldalra
-                    console.log("sikeres hozzáadás")
                     $("#listItems").empty();
                     loadItem()
                     toastText.innerHTML = enterItemName.value + " tétel hozzá lett adva a listához!";

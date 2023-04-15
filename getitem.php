@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $items[] = $row;
         }
     } else {
-        echo "failed";
+        echo "Lista nem tartalmaz elemeket!";
     }
 
     echo json_encode($items);
