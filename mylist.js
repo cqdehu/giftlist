@@ -152,6 +152,7 @@ function loadItem() {
 
         
         success: function (data,response) {
+            console.log(response)
 
             if(response == "failed"){
                 console.log("A lekérdezés sikertelen volt.");
