@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $items[] = $row;
         }
     } else {
-        echo "failed";
+        $items = array();
     }
 
     echo json_encode($items);

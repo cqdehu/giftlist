@@ -151,13 +151,8 @@ function loadItem() {
         dataType: "json",
 
         
-        success: function (data,response) {
-            //valami
-            console.log(response)
-
-            if(response == "failed"){
-                console.log("A lekérdezés sikertelen volt.");
-            } else {
+        success: function (data) {
+            if(data.length > 0){
                 for (var i = 0; i < data.length; i++) {
                     var name = data[i].name;
                     var status = data[i].status;
@@ -212,11 +207,9 @@ function loadItem() {
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
     
-    
-    
-    
-    
                 }
+            } else {
+                console.log('Az eredmény egy üres lista!');
             }
         },
         error: function () {
