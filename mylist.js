@@ -95,6 +95,8 @@ function auth() {
                     $("#displayTitle").text(username + " list's")
                     $("#username").text(username)
                     $("#id").text(id)
+
+                    un = username
                 
                 }
             }
@@ -209,7 +211,8 @@ function loadItem() {
     
                 }
             } else {
-                console.log('Az eredmény egy üres lista!');
+                toastText.innerHTML =  un + ' listája jelenleg üres.';
+                alertToast.show()
             }
         },
         error: function () {
