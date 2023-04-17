@@ -152,6 +152,7 @@ function loadItem() {
 
         
         success: function (data,response) {
+            //valami
             console.log(response)
 
             if(response == "failed"){
