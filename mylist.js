@@ -454,7 +454,7 @@ function getInvite() {
                     inviteCard.id = invitedUser
 
                     const inviteCardCol1 = document.createElement('div')
-                    inviteCardcol1.className = "col p-0 "
+                    inviteCardCol1.className = "col p-0 "
 
                     const inviteCardCol1P = document.createElement('p')
                     inviteCardCol1P.className = "TiltWrap text-dark m-3 "
