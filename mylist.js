@@ -502,7 +502,7 @@ function getInvite() {
 
 
 $('#myList').on('click', function () {
-    lastClickedInviteCard.removeClass("border border-4 border-danger last-clickedi");
+    lastClickedInviteCard.removeClass("border border-4 border-danger last-clicked");
     $("#listItems").empty();
     auth()
 })
