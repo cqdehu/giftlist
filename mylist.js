@@ -100,7 +100,7 @@ function auth() {
 
                 }
 
-                loadItem(username, id)
+                loadItem(un)
             }
         },
         error: function () {
@@ -265,7 +265,7 @@ $(document).ready(function () {
             success: function (response) {
                 if (response == "success") {
                     $("#listItems").empty();
-                    loadItem()
+                    loadItem(un)
                     toastText.innerHTML = enterItemName.value + " tétel hozzá lett adva a listához!";
                     alertToast.show()
                     enterItemName.value = ""
@@ -317,7 +317,7 @@ $(document).ready(function () {
                 if (result === "success") {
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
-                    loadItem()
+                    loadItem(un)
                     toastText.innerHTML = lastClickedCard.attr("id") + " tétel módosítva lett.";
                     alertToast.show();
                 } else {
