@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Ellenőrizzük, hogy a felhasználónév még nem foglalt-e
-    $user = $_POST['username'];
+    $user = $_SESSION['username'];
     $userto = $_POST['userto'];
 
     $sql = "SELECT `name`, `status`, `user`, `createDate`, `id`, `userto` FROM `items` WHERE `user` = '$user' AND `userto` = '$userto'";
