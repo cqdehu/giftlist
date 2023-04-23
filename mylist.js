@@ -168,7 +168,7 @@ function loadItem(username) {
                     var user = data[i].user;
                     var createDate = data[i].createDate;
                     var id = data[i].id;
-                    var userto = data[i].id;
+                    var userto = data[i].userto;
 
                     //Kiírás
                     console.log(name + ", " + status + ", " + user + ", " + userto + ", " + createDate + ", " + id)
