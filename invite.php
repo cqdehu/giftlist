@@ -19,15 +19,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $invitationUser = $_SESSION['username'];
     $createDate = $_POST['createDate'];
 
-    $query = "SELECT * FROM `users` WHERE `username` = '$invitedUser'";
+    $query = "SELECT * FROM `invitations` WHERE `invitationUser` = '$invitationUser' AND `invitedUser` = '$invitedUser'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "OK";
-
+        echo "Ez a meghívás már létezik!";
+    } else {
         $query = "INSERT INTO `invitations`(`invitationUser`,`invitedUser`,`createDate`) VALUES ('$invitationUser','$invitedUser','$createDate')";
         $result = mysqli_query($conn, $query);
-    } else {
-        echo "Nem létezik ilyen felhasználó!";
+        echo "OK";
     }
 }
+
