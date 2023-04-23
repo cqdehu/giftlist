@@ -100,6 +100,8 @@ function auth() {
                     un = username
                     userto = username
 
+                    console.log(un + "/////" + userto)
+
                 }
 
                 loadItem(un)
