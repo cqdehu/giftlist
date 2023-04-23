@@ -177,7 +177,7 @@ watchCookie("PHPSESSID", handleCookieChange);
 
 //loadItem
 function loadItem(username) {
-    console.log(userto)
+    var userlist = userto
     $.ajax({
         url: "getitem.php",
         data: {
@@ -247,7 +247,7 @@ function loadItem(username) {
 
                 }
             } else {
-                toastText.innerHTML =' listája jelenleg üres.';
+                toastText.innerHTML = userlist +' listája jelenleg üres.';
                 alertToast.show()
             }
         },
