@@ -155,6 +155,7 @@ function loadItem(username) {
         url: "getitem.php",
         data: {
             username: username,
+            userto: userto,
         },
         type: "POST",
         dataType: "json",
