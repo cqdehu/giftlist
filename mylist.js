@@ -29,7 +29,7 @@ function addCardBorder(card) {
     removeCardBorder();
     card.addClass("border border-end-0 border-4 border-danger last-clicked");
     lastClickedCard = card;
-    console.log("Kiválasztott tétel: "+lastClickedCard.attr("id"));
+    console.log("Kiválasztott tétel: " + lastClickedCard.attr("id"));
 }
 
 function handleCardClick(event) {
@@ -64,7 +64,6 @@ $(document).on('dblclick', '.item-card', function (event) {
 
 $(document).ready(function () {
     auth()
-    
 })
 
 
@@ -90,17 +89,17 @@ function auth() {
                 for (var i = 0; i < data.length; i++) {
                     var username = data[i].username;
                     var id = data[i].id;
-                
+
                     document.title = username + " | " + "GIFTLIST"
                     $("#displayTitle").text(username + " list's")
                     $("#username").text(username)
                     $("#id").text(id)
 
                     un = username
-                
+
                 }
 
-                loadItem(username,id)
+                loadItem(username, id)
             }
         },
         error: function () {
@@ -148,7 +147,7 @@ watchCookie("PHPSESSID", handleCookieChange);
 
 
 //loadItem
-function loadItem(username,id) {
+function loadItem(username, id) {
     $.ajax({
         url: "getitem.php",
         data: {
@@ -158,37 +157,37 @@ function loadItem(username,id) {
         type: "POST",
         dataType: "json",
 
-        
+
         success: function (data) {
-            if(data.length > 0){
+            if (data.length > 0) {
                 for (var i = 0; i < data.length; i++) {
                     var name = data[i].name;
                     var status = data[i].status;
                     var user = data[i].user;
                     var createDate = data[i].createDate;
                     var id = data[i].id;
-    
+
                     //Kiírás
                     console.log(name + ", " + status + ", " + user + ", " + createDate + ", " + id)
-    
+
                     const newCardDiv = document.createElement("div")
                     newCardDiv.className = "row bg-white ms-4 mb-4 rounded-start-4 align-items-center item-card ";
                     newCardDiv.id = name
-    
+
                     const newItemNameDiv = document.createElement("div")
                     newItemNameDiv.className = "col p-3 "
-    
+
                     const newItemName = document.createElement("h5")
                     newItemName.className = "TiltWrap m-0 user-select-none "
                     newItemName.innerHTML = name
-    
+
                     const newItemStatusDiv = document.createElement("div")
                     newItemStatusDiv.className = "col-2 text-end me-4"
-    
-    
+
+
                     const newItemStatus = document.createElement("img")
                     newItemStatus.className = "icon_status"
-    
+
                     if (status == 3) {
                         newItemStatus.src = "surce/3.svg"
                     }
@@ -201,23 +200,23 @@ function loadItem(username,id) {
                     if (status == 0) {
                         newItemStatus.src = ""
                     }
-    
+
                     //OldItem
                     //var today = new Date();
                     //if (today.getFullYear() - createDate.getFullYear() >= 3){
                     //    console.log("Régi elem szerepel a listán.")
                     //}
-    
-    
+
+
                     listItems.appendChild(newCardDiv)
                     newCardDiv.appendChild(newItemNameDiv)
                     newItemNameDiv.appendChild(newItemName)
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
-    
+
                 }
             } else {
-                toastText.innerHTML =  un + ' listája jelenleg üres.';
+                toastText.innerHTML = un + ' listája jelenleg üres.';
                 alertToast.show()
             }
         },
@@ -367,7 +366,7 @@ $('#removeItemNo').on('click', function () {
 
 $('#deleteItemBtn').on('click', function () {
     if (lastClickedCard != null) {
-        $('#selectedItem').text("Would you like to permanently remove the '" +lastClickedCard.attr('id')+ "' item from your list?")
+        $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.attr('id') + "' item from your list?")
         $('#removeItemModal').modal('show')
     } else {
         toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
@@ -377,11 +376,11 @@ $('#deleteItemBtn').on('click', function () {
 
 //invite
 
-$('#inviteModalBtn').on('click',function () {
+$('#inviteModalBtn').on('click', function () {
     $('#inviteModal').modal('show')
 })
 
-$('#inviteBtn').on('click',function () {
+$('#inviteBtn').on('click', function () {
 
     const invitedUser = document.querySelector('#invitedUser')
 
@@ -392,8 +391,8 @@ $('#inviteBtn').on('click',function () {
             invitedUser: invitedUser.value,
             createDate: createDate,
         },
-        success: function(response){
-            if(response == "success"){
+        success: function (response) {
+            if (response == "success") {
                 console.log()
             } else {
                 console.log(response)
@@ -406,8 +405,91 @@ $('#inviteBtn').on('click',function () {
     })
 })
 
-$('#otherlistEvi').on('click', function () {
-    loadItem("Evi","64359f94423bf")
-    alert("Done")
-})
+//
+
+let lastClickedInviteCard = null;
+
+function addCardBorder(card) {
+    if (lastClickedInviteCard) {
+        lastClickedInviteCard.removeClass("border border-end-0 border-4 border-danger last-clicked");
+    }
+    card.addClass("border border-end-0 border-4 border-danger last-clicked");
+    lastClickedInviteCard = card;
+    console.log("Kiválasztott tétel: " + lastClickedInviteCard.attr("id"));
+}
+
+$(document).on('click', '.item-card', function (event) {
+    const card = $(event.target).closest('.item-card');
+    if (!card.length) {
+        return;
+    }
+
+    addCardBorder(card);
+});
+
+
+
+//getinvite
+
+function getInvite() {
+    $.ajax({
+        url: "getinvite.php",
+        data: {
+
+        },
+        type: "POST",
+        dataType: "json",
+
+
+        success: function (data) {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    var invitationUser = data[i].invitationUser;
+                    var invitedUser = data[i].invitedUser
+                    var createDate = data[i].createDate;
+
+                    const inviteList = document.querySelector('#inviteList')
+
+                    const inviteCard = document.createElement('div')
+                    inviteCard.className = "row bg-light mx-3 mb-4 rounded-4 align-items-center ";
+                    inviteCard.id = invitedUser
+
+                    const inviteCardCol1 = document.createElement('div')
+                    inviteCardcol1.className = "col p-0 "
+
+                    const inviteCardCol1P = document.createElement('p')
+                    inviteCardCol1P.className = "TiltWrap text-dark m-3 "
+                    inviteCardCol1P.innerHTML = invitedUser + " meghívta: " + invitationUser
+
+                    const inviteCardCol2 = document.createElement('div')
+                    inviteCardcol2.className = "col-2 text-end "
+
+                    const inviteCardCol2Div = document.createElement('div')
+                    inviteCardCol2Div.className = "me-2 "
+
+
+                    inviteList.appendChild(inviteCard)
+                    inviteCard.appendChild(inviteCardCol1)
+                    inviteCardCol1.appendChild(inviteCardCol1P)
+                    inviteCard.appendChild(inviteCardCol2)
+                    inviteCardCol2.appendChild(inviteCardCol2Div)
+
+                }
+            } else {
+                toastText.innerHTML = "Probléma van az invite-tal!!";
+                alertToast.show()
+            }
+        },
+        error: function () {
+            // Hibás AJAX hívás esetén kezeljük a hibát
+            $("#message").html("Hiba történt az AJAX hívás során.");
+        }
+
+    });
+}
+
+
+
+
+
 

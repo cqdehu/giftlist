@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-
-    // Ellenőrizzük, hogy a felhasználónév még nem foglalt-e
+    
     $user = $_POST['username'];
     $id = $_POST['id'];
 
