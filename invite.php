@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $query = "SELECT * FROM `users` WHERE `username` = '$invitedUser'";
     $result = mysqli_query($conn, $query);
 
-    if (mysqli_num_rows($result) == 0) {
+    if (mysqli_num_rows($result) > 0) {
         echo "OK";
     } else {
         echo "Nem létezik ilyen felhasználó!";
