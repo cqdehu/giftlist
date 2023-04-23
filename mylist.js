@@ -92,7 +92,7 @@ function auth() {
                     var id = data[i].id;
 
                     document.title = username + " | " + "GIFTLIST"
-                    $("#displayTitle").text(username + " list's")
+                    $("#displayTitle").text(username + "'s list")
                     $("#username").text(username)
                     $("#id").text(id)
 
@@ -423,10 +423,14 @@ $(document).on('click', '.invite-card', function (event) {
     const card = $(event.target).closest('.invite-card');
     if (!card.length) {
         return;
-    } 
-    
+    }
+
+    document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
+    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
     addCardBorder(card);
+    $("#listItems").empty();
     loadItem(lastClickedInviteCard.attr("id"))
+
 });
 
 
