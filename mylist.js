@@ -119,7 +119,7 @@ function auth() {
                     const myListCardCol2Div = document.createElement('div')
                     myListCardCol2Div.className  = "me-2 "
 
-                    mylist.append(myListCard)
+                    mylist.insertAdjacentElement("afterend", myListCard)
                     myListCard.appendChild(myListCardCol1,myListCardCol2)
                     myListCardCol1.appendChild(myListCardCol1P)
                     myListCardCol2.appendChild(myListCardCol2Div)
