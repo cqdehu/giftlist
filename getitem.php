@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $_SESSION['username'];
     $userto = $_POST['userto'];
 
-    $sql = "SELECT `name`, `status`, `user`, `createDate`, `id`, `userto` FROM `items` WHERE `user` = '$user' AND `userto` = '$userto'";
+    $sql = "SELECT `name`, `status`, `user`, `createDate`, `id`, `userto` FROM `items` WHERE `user` = 'Ábel' AND `userto` = 'admin' OR `userto` = `user`;";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
