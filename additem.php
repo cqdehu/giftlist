@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Ellenőrizzük, hogy a felhasználónév még nem foglalt-e
     $name = $_POST['name'];
     $user = $_SESSION['username'];
+    $userto = $_POST['userto'];
     $id = $_SESSION['id'];
     $status = $_POST['status'];
     $createDate = $_POST['createDate'];
@@ -27,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 0) {
-    
+
       // Adjuk hozzá az új felhasználót az adatbázishoz
       $query = "INSERT INTO `items`(`name`, `status`, `user`, `createDate`, `id`) VALUES ('$name', '$status', '$user', '$createDate', '$id')";
       $result = mysqli_query($conn, $query);

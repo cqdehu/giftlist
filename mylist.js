@@ -255,14 +255,15 @@ $("#addItemIcon").click(function () {
     $("#addItemModal").modal('show')
 })
 
+var userto = un
 
 //addItem
 $(document).ready(function () {
-    $("#addItemBtn").click(function () {
+    $("#addItemBtn").click(function () { 
         $.ajax({
             type: "POST",
             url: "additem.php",
-            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, },
+            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, userto: userto},
             success: function (response) {
                 if (response == "success") {
                     $("#listItems").empty();
