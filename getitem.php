@@ -17,23 +17,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Connection failed: " . mysqli_connect_error());
     }
 
+    // Ellenőrizzük, hogy a felhasználónév még nem foglalt-e
     $user = $_POST['username'];
     $id = $_POST['id'];
 
-    $sql = "SELECT * FROM `invitations` WHERE `invitedUser` = '$user'";
+    $sql = "SELECT `name`, `status`, `user`, `createDate`, `id` FROM `items` WHERE `user` = '$user' AND `id`='$id'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         // Az eredményt tömbbe mentjük
-        $invite = array();
+        $items = array();
         while ($row = mysqli_fetch_assoc($result)) {
-            $invite[] = $row;
+            $items[] = $row;
         }
     } else {
-        $invite = array();
+        $items = array();
     }
 
-    echo json_encode($invite);
+    echo json_encode($items);
 
     mysqli_close($conn);
 }
