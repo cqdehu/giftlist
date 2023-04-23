@@ -64,6 +64,7 @@ $(document).on('dblclick', '.item-card', function (event) {
 
 $(document).ready(function () {
     auth()
+    getInvite()
 })
 
 
@@ -419,8 +420,8 @@ function addCardBorder(card) {
 }
 
 
-$(document).on('click', '.item-card', function (event) {
-    const card = $(event.target).closest('.item-card');
+$(document).on('click', '.invite-card', function (event) {
+    const card = $(event.target).closest('.invite-card');
     if (!card.length) {
         return;
     }
@@ -452,7 +453,7 @@ function getInvite() {
                     const inviteList = document.querySelector('#inviteList')
 
                     const inviteCard = document.createElement('div')
-                    inviteCard.className = "row bg-light mx-3 mb-4 rounded-4 align-items-center ";
+                    inviteCard.className = "row bg-light mx-3 mb-4 rounded-4 align-items-center invite-card ";
                     inviteCard.id = invitedUser
 
                     const inviteCardCol1 = document.createElement('div')
