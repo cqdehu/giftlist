@@ -418,6 +418,7 @@ function addCardBorder(card) {
     console.log("Kiválasztott tétel: " + lastClickedInviteCard.attr("id"));
 }
 
+
 $(document).on('click', '.item-card', function (event) {
     const card = $(event.target).closest('.item-card');
     if (!card.length) {
