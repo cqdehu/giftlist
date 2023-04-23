@@ -155,7 +155,7 @@ function loadItem() {
         dataType: "json",
         data:{
             username: originusername,
-            id: originid
+            id: originid,
         },
         success: function (data) {
             if(data.length > 0){
