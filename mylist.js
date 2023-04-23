@@ -121,7 +121,8 @@ function auth() {
                     myListCardCol2Div.className  = "me-2 "
 
                     mylist.insertAdjacentElement("afterend", myListCard)
-                    myListCard.appendChild(myListCardCol1,myListCardCol2)
+                    myListCard.appendChild(myListCardCol1)
+                    myListCard.appendChild(myListCardCol2)
                     myListCardCol1.appendChild(myListCardCol1P)
                     myListCardCol2.appendChild(myListCardCol2Div)
 
