@@ -98,6 +98,7 @@ function auth() {
                     $("#id").text(id)
 
                     un = username
+                    userto = username
 
                 }
 
@@ -262,7 +263,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "additem.php",
-            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate,},
+            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, userto: userto},
             success: function (response) {
                 if (response == "success") {
                     $("#listItems").empty();
