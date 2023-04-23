@@ -384,6 +384,7 @@ $('#inviteBtn').on('click',function () {
         url: "invite.php",
         data: {
             invitedUser: invitedUser.value,
+            createDate: createDate,
         },
         success: function(response){
             if(response == "success"){
