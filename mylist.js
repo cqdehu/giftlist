@@ -256,16 +256,13 @@ $("#addItemIcon").click(function () {
 })
 
 
-
-
 //addItem
 $(document).ready(function () {
-    $("#addItemBtn").click(addItem("Abel"))
-    function addItem(userto) { 
+    $("#addItemBtn").click(function () {
         $.ajax({
             type: "POST",
             url: "additem.php",
-            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, userto: userto},
+            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate,},
             success: function (response) {
                 if (response == "success") {
                     $("#listItems").empty();
@@ -284,7 +281,7 @@ $(document).ready(function () {
                 $("#message").html("Hiba történt az AJAX hívás során.");
             }
         })
-    }
+    })
 })
 
 
