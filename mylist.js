@@ -427,7 +427,7 @@ $(document).on('click', '.invite-card', function (event) {
         return;
     }
 
-
+    userto = lastClickedInviteCard.attr("id")
     addCardBorderi(card);
     $("#listItems").empty();
     loadItem(lastClickedInviteCard.attr("id"))
