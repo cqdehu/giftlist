@@ -168,9 +168,10 @@ function loadItem(username) {
                     var user = data[i].user;
                     var createDate = data[i].createDate;
                     var id = data[i].id;
+                    var userto = data[i].id;
 
                     //Kiírás
-                    console.log(name + ", " + status + ", " + user + ", " + createDate + ", " + id)
+                    console.log(name + ", " + status + ", " + user + ", " + userto + ", " + createDate + ", " + id)
 
                     const newCardDiv = document.createElement("div")
                     newCardDiv.className = "row bg-white ms-4 mb-4 rounded-start-4 align-items-center item-card ";
@@ -427,9 +428,10 @@ $(document).on('click', '.invite-card', function (event) {
         return;
     }
 
-    userto = lastClickedInviteCard.attr("id")
+    
     addCardBorderi(card);
     $("#listItems").empty();
+    userto = lastClickedInviteCard.attr("id")
     loadItem(lastClickedInviteCard.attr("id"))
     document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
     $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
