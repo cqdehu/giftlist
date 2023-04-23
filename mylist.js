@@ -407,7 +407,6 @@ $('#inviteBtn').on('click',function () {
 })
 
 $('otherlistEvi').on('click', function () {
-    loadItem("Evi","64359f94423bf")
     alert("Done")
 })
 
