@@ -248,6 +248,7 @@ function loadItem(username) {
             } else {
                 toastText.innerHTML = userto + ' listája jelenleg üres.';
                 alertToast.show()
+                console.log(userto)
             }
         },
         error: function () {
