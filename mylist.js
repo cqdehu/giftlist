@@ -423,9 +423,7 @@ $(document).on('click', '.invite-card', function (event) {
     const card = $(event.target).closest('.invite-card');
     if (!card.length) {
         return;
-    }
-
-    var username = lastClickedInviteCard.attr("id") 
+    } 
 
     addCardBorder(card);
     loadItem(username)
