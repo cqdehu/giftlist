@@ -260,7 +260,7 @@ $("#addItemIcon").click(function () {
 
 //addItem
 $(document).ready(function () {
-    $("#addItemBtn").click(addItem(un))
+    $("#addItemBtn").click(addItem("Abel"))
     function addItem(userto) { 
         $.ajax({
             type: "POST",
