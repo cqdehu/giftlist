@@ -435,6 +435,7 @@ $(document).on('click', '.invite-card', function (event) {
     addCardBorderi(card);
     $("#listItems").empty();
     userto = lastClickedInviteCard.attr("id")
+    console.log(un+"//////"+userto)
     loadItem(lastClickedInviteCard.attr("id"))
     document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
     $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
