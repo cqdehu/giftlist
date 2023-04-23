@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 0) {
-        echo $result;
+        echo "OK";
     } else {
         echo "Nem létezik ilyen felhasználó!";
     }
