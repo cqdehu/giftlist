@@ -148,12 +148,11 @@ watchCookie("PHPSESSID", handleCookieChange);
 
 
 //loadItem
-function loadItem(username, id) {
+function loadItem(username) {
     $.ajax({
         url: "getitem.php",
         data: {
             username: username,
-            id: id
         },
         type: "POST",
         dataType: "json",
@@ -406,15 +405,15 @@ $('#inviteBtn').on('click', function () {
     })
 })
 
-//
+//viewList
 
 let lastClickedInviteCard = null;
 
 function addCardBorder(card) {
     if (lastClickedInviteCard) {
-        lastClickedInviteCard.removeClass("border border-end-0 border-4 border-danger last-clicked");
+        lastClickedInviteCard.removeClass("border border-4 border-danger last-clickedi");
     }
-    card.addClass("border border-end-0 border-4 border-danger last-clicked");
+    card.addClass("border border-4 border-danger last-clickedi");
     lastClickedInviteCard = card;
     console.log("Kiválasztott tétel: " + lastClickedInviteCard.attr("id"));
 }
@@ -426,7 +425,10 @@ $(document).on('click', '.invite-card', function (event) {
         return;
     }
 
+    var username = lastClickedInviteCard.attr("id") 
+
     addCardBorder(card);
+    loadItem(username)
 });
 
 
@@ -451,14 +453,14 @@ function getInvite() {
 
                     const inviteCard = document.createElement('div')
                     inviteCard.className = "row bg-light mx-3 mb-4 rounded-4 align-items-center invite-card ";
-                    inviteCard.id = invitedUser
+                    inviteCard.id = invitationUser
 
                     const inviteCardCol1 = document.createElement('div')
                     inviteCardCol1.className = "col p-0 "
 
                     const inviteCardCol1P = document.createElement('p')
                     inviteCardCol1P.className = "TiltWrap text-dark m-3 "
-                    inviteCardCol1P.innerHTML = invitedUser + " meghívta: " + invitationUser
+                    inviteCardCol1P.innerHTML = invitationUser
 
                     const inviteCardCol2 = document.createElement('div')
                     inviteCardCol2.className = "col-2 text-end "
