@@ -255,11 +255,13 @@ $("#addItemIcon").click(function () {
     $("#addItemModal").modal('show')
 })
 
-userto = un
+
+
 
 //addItem
 $(document).ready(function () {
-    $("#addItemBtn").click(function () { 
+    $("#addItemBtn").click(addItem(un))
+    function addItem(userto) { 
         $.ajax({
             type: "POST",
             url: "additem.php",
@@ -282,7 +284,7 @@ $(document).ready(function () {
                 $("#message").html("Hiba történt az AJAX hívás során.");
             }
         })
-    })
+    }
 })
 
 
