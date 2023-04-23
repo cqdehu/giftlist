@@ -222,7 +222,7 @@ function loadItem(username) {
 
                 }
             } else {
-                toastText.innerHTML = un + ' listája jelenleg üres.';
+                toastText.innerHTML = userto + ' listája jelenleg üres.';
                 alertToast.show()
             }
         },
