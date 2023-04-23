@@ -425,11 +425,12 @@ $(document).on('click', '.invite-card', function (event) {
         return;
     }
 
-    document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
-    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
+    var invuser = lastClickedInviteCard.attr("id")
+    document.title = invuser + " | " + "GIFTLIST"
+    $("#displayTitle").text(invuser + "'s list")
     addCardBorder(card);
     $("#listItems").empty();
-    loadItem(lastClickedInviteCard.attr("id"))
+    loadItem(invuser)
 
 });
 
