@@ -461,7 +461,7 @@ function getInvite() {
                     inviteCardCol1P.innerHTML = invitedUser + " meghívta: " + invitationUser
 
                     const inviteCardCol2 = document.createElement('div')
-                    inviteCardcol2.className = "col-2 text-end "
+                    inviteCardCol2.className = "col-2 text-end "
 
                     const inviteCardCol2Div = document.createElement('div')
                     inviteCardCol2Div.className = "me-2 "
