@@ -382,7 +382,9 @@ $('#inviteBtn').on('click',function () {
     $.ajax({
         type: "POST",
         url: "invite.php",
-        data: {invitedUser: invitedUser.value},
+        data: {
+            invitedUser: invitedUser.value,
+        },
         success: function(response){
             if(response == "success"){
                 console.log()
