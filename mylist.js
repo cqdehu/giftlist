@@ -410,7 +410,7 @@ $('#inviteBtn').on('click', function () {
 
 let lastClickedInviteCard = null;
 
-function addCardBorder(card) {
+function addCardBorderi(card) {
     if (lastClickedInviteCard) {
         lastClickedInviteCard.removeClass("border border-4 border-danger last-clickedi");
     }
@@ -427,7 +427,7 @@ $(document).on('click', '.invite-card', function (event) {
     }
 
 
-    addCardBorder(card);
+    addCardBorderi(card);
     $("#listItems").empty();
     loadItem(lastClickedInviteCard.attr("id"))
     document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
