@@ -494,8 +494,9 @@ function getInvite() {
 
 $('#myList').on('click',function(){
     $("#listItems").empty();
-    loadItem(un)
+    auth()
 })
+
 
 
 
