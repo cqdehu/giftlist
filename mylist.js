@@ -111,6 +111,7 @@ function auth() {
                     myListCardCol1.className = "col p-0 "
 
                     const myListCardCol1P = document.createElement('p')
+                    myListCardCol1P.className = "TiltWrap text-dark m-3 "
                     myListCardCol1P.innerHTML = un
 
                     const myListCardCol2 = document.createElement('div')
