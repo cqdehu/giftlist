@@ -494,6 +494,7 @@ function getInvite() {
 
 
 $('#myList').on('click',function(){
+    lastClickedInviteCard.removeClass("border border-4 border-danger last-clickedi");
     $("#listItems").empty();
     auth()
 })
