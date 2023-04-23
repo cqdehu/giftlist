@@ -101,6 +101,8 @@ function auth() {
 
                     console.log(un + "/////" + userto)
 
+                    const mylist = document.querySelector('#mylist')
+
                     const myListCard = document.createElement('div')
                     myListCard.className = "row bg-light mx-3 mb-3 rounded-4 align-items-center invite-card "
                     myListCard.id = un
@@ -116,6 +118,11 @@ function auth() {
 
                     const myListCardCol2Div = document.createElement('div')
                     myListCardCol2Div.className  = "me-2 "
+
+                    mylist.append(myListCard)
+                    myListCard.appendChild(myListCardCol1,myListCardCol2)
+                    myListCardCol1.appendChild(myListCardCol1P)
+                    myListCardCol2.appendChild(myListCardCol2Div)
 
                 
                 }
