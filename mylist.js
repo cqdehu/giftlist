@@ -255,7 +255,7 @@ $("#addItemIcon").click(function () {
     $("#addItemModal").modal('show')
 })
 
-var userto = un
+userto = un
 
 //addItem
 $(document).ready(function () {
