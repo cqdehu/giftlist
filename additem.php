@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_num_rows($result) == 0) {
 
       // Adjuk hozzá az új felhasználót az adatbázishoz
-      $query = "INSERT INTO `items`(`name`, `status`, `user`, `createDate`, `id`) VALUES ('$name', '$status', '$user', '$createDate', '$id')";
+      $query = "INSERT INTO `items`(`name`, `status`, `user`, `userto`, `createDate`, `id`) VALUES ('$name', '$status', '$user', '$userto', '$createDate', '$id')";
       $result = mysqli_query($conn, $query);
 
       if ($result) {
