@@ -343,12 +343,13 @@ $(document).ready(function () {
                 status: enterNewItemStatus.value,
                 createDate: createDate,
                 selectedItem: lastClickedCard.attr("id"),
+                userto:userto,
             },
             success: function (result) {
                 if (result === "success") {
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
-                    loadItem(un)
+                    loadItem(userto)
                     toastText.innerHTML = lastClickedCard.attr("id") + " tétel módosítva lett.";
                     alertToast.show();
                 } else {
@@ -530,6 +531,15 @@ $('#myList').on('click', function () {
     $("#listItems").empty();
     auth()
 })
+
+$('#myButton').on('click', function () {
+    $('#offcanvasMenu').offcanvas('show');
+  });
+  
+  // offcanvas menü bezárása
+  $('#myCloseButton').on('click', function () {
+    $('#offcanvasMenu').offcanvas('hide');
+  });
 
 
 

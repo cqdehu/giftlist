@@ -19,17 +19,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Ellenőrizzük, hogy az item neve még nem foglalt-e
     $name = $_POST['name'];
     $user = $_SESSION['username'];
+    $userto = $_POST['userto'];
     $status = $_POST['status'];
     $createDate = $_POST['createDate'];
     $id = $_SESSION['id'];
     $selectedItem = $_POST['selectedItem'];
 
-    $query = "SELECT * FROM `items` WHERE `name` = '$name' AND `user` = '$user' AND `id` != '$id'";
+    $query = "SELECT * FROM `items` WHERE `name` = '$name' AND `user` = '$user' AND `userto` = '$userto'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 0) {
       // Az itemet a felhasználói adatbázisban frissítjük
-      $query = "UPDATE `items` SET `name`='$name',`status`='$status',`createDate`='$createDate' WHERE `id`='$id' AND `user` = '$user' AND `name` = '$selectedItem'";
+      $query = "UPDATE `items` SET `name`='$name',`status`='$status',`createDate`='$createDate' WHERE `user` = '$user' AND `userto` = '$userto' AND `name` = '$selectedItem'";
       $result = mysqli_query($conn, $query);
 
       if ($result) {
