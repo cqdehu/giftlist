@@ -436,9 +436,6 @@ $(document).on('click', '.invite-card', function (event) {
 function getInvite() {
     $.ajax({
         url: "getinvite.php",
-        data: {
-
-        },
         type: "POST",
         dataType: "json",
 

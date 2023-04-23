@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Ellenőrizzük, hogy a felhasználónév még nem foglalt-e
-    $user = $_POST['username'];
-    $id = $_POST['id'];
+    $user = $_SESSION['username'];
+    $id = $_SESSION['id'];
 
     $sql = "SELECT * FROM `invitations` WHERE `invitedUser` = '$user'";
     $result = mysqli_query($conn, $sql);
