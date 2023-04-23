@@ -149,15 +149,13 @@ watchCookie("PHPSESSID", handleCookieChange);
 
 //loadItem
 function loadItem() {
-    var getusername = originusername
-    var getId = originid
     $.ajax({
         url: "getitem.php",
         type: "POST",
         dataType: "json",
         data:{
-            username: getusername,
-            id: getId,
+            username: originusername,
+            id: originid
         },
         success: function (data) {
             if(data.length > 0){
