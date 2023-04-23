@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Ellenőrizzük, hogy a felhasználónév még nem foglalt-e
-    $user = $_SESSION['username'];
-    $id = $_SESSION['id'];
+    $user = $_POST['username'];
+    $id = $_POST['id'];
 
     $sql = "SELECT `name`, `status`, `user`, `createDate`, `id` FROM `items` WHERE `user` = '$user' AND `id`='$id'";
     $result = mysqli_query($conn, $sql);

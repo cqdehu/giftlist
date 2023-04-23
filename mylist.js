@@ -96,7 +96,9 @@ function auth() {
                     $("#username").text(username)
                     $("#id").text(id)
 
-                    un = username
+                    originusername = username
+                    originid = id
+
                 
                 }
             }
@@ -147,12 +149,16 @@ watchCookie("PHPSESSID", handleCookieChange);
 
 //loadItem
 function loadItem() {
+    var getusername = originusername
+    var getId = originid
     $.ajax({
         url: "getitem.php",
         type: "POST",
         dataType: "json",
-
-        
+        data:{
+            username: getusername,
+            id: getId,
+        },
         success: function (data) {
             if(data.length > 0){
                 for (var i = 0; i < data.length; i++) {
@@ -211,7 +217,7 @@ function loadItem() {
     
                 }
             } else {
-                toastText.innerHTML =  un + ' listája jelenleg üres.';
+                toastText.innerHTML =  originusername + ' listája jelenleg üres.';
                 alertToast.show()
             }
         },
