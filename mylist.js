@@ -424,9 +424,9 @@ $(document).on('click', '.invite-card', function (event) {
     if (!card.length) {
         return;
     } 
-
+    
     addCardBorder(card);
-    loadItem(username)
+    loadItem(lastClickedInviteCard.attr("id"))
 });
 
 
