@@ -430,6 +430,8 @@ $(document).on('click', '.invite-card', function (event) {
     addCardBorder(card);
     $("#listItems").empty();
     loadItem(lastClickedInviteCard.attr("id"))
+    document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
+    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
 
 });
 
@@ -450,9 +452,6 @@ function getInvite() {
                     var invitationUser = data[i].invitationUser;
                     var invitedUser = data[i].invitedUser
                     var createDate = data[i].createDate;
-
-                    document.title = invitationUser + " | " + "GIFTLIST"
-                    $("#displayTitle").text(invitationUser + "'s list")
 
                     const inviteList = document.querySelector('#inviteList')
 
