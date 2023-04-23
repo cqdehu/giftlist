@@ -491,7 +491,12 @@ function getInvite() {
     });
 }
 
-
+function viewMyList(){
+    $('#myList').on('click',function(){
+        $("#listItems").empty();
+        loadItem(un)
+    })
+}
 
 
 
