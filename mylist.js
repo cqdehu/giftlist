@@ -465,6 +465,7 @@ $(document).on('click', '.invite-card', function (event) {
     loadItem(lastClickedInviteCard.attr("id"))
     document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
     $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
+    $('#offcanvasMenu').offcanvas('hide');
 
 });
 
@@ -532,13 +533,9 @@ $('#myList').on('click', function () {
     auth()
 })
 
-$('#myButton').on('click', function () {
+
+$('#logoBtn').on('click', function () {
     $('#offcanvasMenu').offcanvas('show');
-  });
-  
-  // offcanvas menü bezárása
-  $('#myCloseButton').on('click', function () {
-    $('#offcanvasMenu').offcanvas('hide');
   });
 
 
