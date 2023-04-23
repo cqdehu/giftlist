@@ -93,6 +93,7 @@ function auth() {
 
                     document.title = username + " | " + "GIFTLIST"
                     $("#displayTitle").text(username + "'s list")
+                    $("#mylistname").text(username)
                     $("#username").text(username)
                     $("#id").text(id)
 
@@ -479,8 +480,8 @@ function getInvite() {
 
                 }
             } else {
-                toastText.innerHTML = "Probléma van az invite-tal!!";
-                alertToast.show()
+                //toastText.innerHTML = "Probléma van az invite-tal!!";
+                //alertToast.show()
             }
         },
         error: function () {
