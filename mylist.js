@@ -64,7 +64,7 @@ $(document).on('dblclick', '.item-card', function (event) {
 
 $(document).ready(function () {
     auth()
-    loadItem()
+    
 })
 
 
@@ -96,11 +96,11 @@ function auth() {
                     $("#username").text(username)
                     $("#id").text(id)
 
-                    originusername = username
-                    originid = id
-
+                    un = username
                 
                 }
+
+                loadItem(username,id)
             }
         },
         error: function () {
@@ -148,15 +148,17 @@ watchCookie("PHPSESSID", handleCookieChange);
 
 
 //loadItem
-function loadItem() {
+function loadItem(username,id) {
     $.ajax({
         url: "getitem.php",
+        data: {
+            username: username,
+            id: id
+        },
         type: "POST",
         dataType: "json",
-        data:{
-            username: originusername,
-            id: originid,
-        },
+
+        
         success: function (data) {
             if(data.length > 0){
                 for (var i = 0; i < data.length; i++) {
@@ -215,7 +217,7 @@ function loadItem() {
     
                 }
             } else {
-                toastText.innerHTML =  originusername + ' listája jelenleg üres.';
+                toastText.innerHTML =  un + ' listája jelenleg üres.';
                 alertToast.show()
             }
         },
