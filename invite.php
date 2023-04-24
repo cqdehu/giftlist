@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Ellenőrizzük, hogy a meghívó és a meghívott nem ugyanaz a személy
     if (!$invitedUser || !$invitationUser || !$createDate) {
-        echo "Kérjük, töltse ki az összes mezőt!";
+        echo "Please fill out all the fields!";
     } else {
         if ($invitationUser == $invitedUser) {
-            echo "A meghívó és a meghívott nem lehet ugyanaz!";
+            echo "You cannot share your list with yourself!";
         } else {
             // Lekérdezzük a meghívó felhasználónevet az adatbázisból
             $query = "SELECT username FROM `users` WHERE `username` = '$invitationUser'";
@@ -39,14 +39,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Ellenőrizzük, hogy a meghívott felhasználónév létezik-e
             if (mysqli_num_rows($result) == 0) {
-                echo "A meghívott felhasználónév nem létezik!";
+                echo "The invited username does not exist!";
             } else {
                 $row = mysqli_fetch_assoc($result);
                 $invitedUserName = $row['username'];
 
                 // Ellenőrizzük, hogy a meghívó és a meghívott nem ugyanaz a személy
                 if ($invitationUserName == $invitedUserName) {
-                    echo "A meghívó és a meghívott nem lehet ugyanaz!";
+                    echo "You cannot share your list with yourself!";
                 } else {
                     $query = "SELECT * FROM `invitations` WHERE `invitationUser` = '$invitationUserName' AND `invitedUser` = '$invitedUserName'";
                     $result = mysqli_query($conn, $query);
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     } else {
                         $query = "INSERT INTO `invitations`(`invitationUser`,`invitedUser`,`createDate`) VALUES ('$invitationUserName','$invitedUserName','$createDate')";
                         $result = mysqli_query($conn, $query);
-                        echo "Sikeresen megosztottad $invitedUserName-el a listádat!";
+                        echo "You have successfully shared your list with $invitedUserName!";
                     }
                 }
             }
