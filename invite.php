@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $result = mysqli_query($conn, $query);
 
                     if (mysqli_num_rows($result) > 0) {
-                        echo "$invitedUser-el már megosztottad a listádat!";
+                        echo "You already shared your list with $invitedUser";
                     } else {
                         $query = "INSERT INTO `invitations`(`invitationUser`,`invitedUser`,`createDate`) VALUES ('$invitationUserName','$invitedUserName','$createDate')";
                         $result = mysqli_query($conn, $query);
