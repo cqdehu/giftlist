@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $servername = 'localhost';
@@ -32,23 +33,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Lekérdezzük a meghívott felhasználónevet az adatbázisból
         $query = "SELECT username FROM `users` WHERE `username` = '$invitedUser'";
         $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_assoc($result);
-        $invitedUserName = $row['username'];
-
-        // Ellenőrizzük, hogy a meghívó és a meghívott nem ugyanaz a személy
-        if ($invitationUserName == $invitedUserName) {
-            echo "A meghívó és a meghívott nem lehet ugyanaz!";
+        
+        // Ellenőrizzük, hogy a meghívott felhasználónév létezik-e
+        if (mysqli_num_rows($result) == 0) {
+            echo "A meghívott felhasználónév nem létezik!";
         } else {
-            $query = "SELECT * FROM `invitations` WHERE `invitationUser` = '$invitationUserName' AND `invitedUser` = '$invitedUserName'";
-            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_assoc($result);
+            $invitedUserName = $row['username'];
 
-            if (mysqli_num_rows($result) > 0) {
-                echo "Ez a meghívás már létezik!";
+            // Ellenőrizzük, hogy a meghívó és a meghívott nem ugyanaz a személy
+            if ($invitationUserName == $invitedUserName) {
+                echo "A meghívó és a meghívott nem lehet ugyanaz!";
             } else {
-                $query = "INSERT INTO `invitations`(`invitationUser`,`invitedUser`,`createDate`) VALUES ('$invitationUserName','$invitedUserName','$createDate')";
+                $query = "SELECT * FROM `invitations` WHERE `invitationUser` = '$invitationUserName' AND `invitedUser` = '$invitedUserName'";
                 $result = mysqli_query($conn, $query);
-                echo "Sikeresen megosztottad $invitedUser-el a listádat!.";
+
+                if (mysqli_num_rows($result) > 0) {
+                    echo "Ez a meghívás már létezik!";
+                } else {
+                    $query = "INSERT INTO `invitations`(`invitationUser`,`invitedUser`,`createDate`) VALUES ('$invitationUserName','$invitedUserName','$createDate')";
+                    $result = mysqli_query($conn, $query);
+                    echo "Sikeresen megosztottad $invitedUser-el a listádat!";
+                }
             }
         }
     }
+
+    mysqli_close($conn);
 }
