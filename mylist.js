@@ -118,7 +118,7 @@ function auth() {
                     myListCardCol2.className = "col-2 text-end "
 
                     const myListCardCol2Div = document.createElement('div')
-                    myListCardCol2Div.className  = "me-2 "
+                    myListCardCol2Div.className = "me-2 "
 
                     mylist.insertAdjacentElement("afterend", myListCard)
                     myListCard.appendChild(myListCardCol1)
@@ -126,7 +126,7 @@ function auth() {
                     myListCardCol1.appendChild(myListCardCol1P)
                     myListCardCol2.appendChild(myListCardCol2Div)
 
-                
+
                 }
 
                 loadItem(un)
@@ -247,7 +247,7 @@ function loadItem(username) {
 
                 }
             } else {
-                toastText.innerHTML = userlist +' listája jelenleg üres.';
+                toastText.innerHTML = userlist + ' listája jelenleg üres.';
                 alertToast.show()
             }
         },
@@ -292,7 +292,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "additem.php",
-            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, userto: userto},
+            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, userto: userto },
             success: function (response) {
                 if (response == "success") {
                     $("#listItems").empty();
@@ -343,7 +343,7 @@ $(document).ready(function () {
                 status: enterNewItemStatus.value,
                 createDate: createDate,
                 selectedItem: lastClickedCard.attr("id"),
-                userto:userto,
+                userto: userto,
             },
             success: function (result) {
                 if (result === "success") {
@@ -425,9 +425,11 @@ $('#inviteBtn').on('click', function () {
         },
         success: function (response) {
             if (response == "success") {
-                console.log()
+                toastText.innerHTML = response
+                alertToast.show()
             } else {
-                console.log(response)
+                toastText.innerHTML = response
+                alertToast.show()
             }
         },
         error: function () {
@@ -457,11 +459,11 @@ $(document).on('click', '.invite-card', function (event) {
         return;
     }
 
-    
+
     addCardBorderi(card);
     $("#listItems").empty();
     userto = lastClickedInviteCard.attr("id")
-    console.log(un+"//////"+userto)
+    console.log(un + "//////" + userto)
     loadItem(lastClickedInviteCard.attr("id"))
     document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
     $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
@@ -536,7 +538,7 @@ $('#myList').on('click', function () {
 
 $('#logoBtn').on('click', function () {
     $('#offcanvasMenu').offcanvas('show');
-  });
+});
 
 
 
