@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 $query = "INSERT INTO `invitations`(`invitationUser`,`invitedUser`,`createDate`) VALUES ('$invitationUserName','$invitedUserName','$createDate')";
                 $result = mysqli_query($conn, $query);
-                echo "OK";
+                echo "Sikeresen megosztottad $invitedUser-el a listádat!.";
             }
         }
     }
