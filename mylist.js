@@ -232,6 +232,13 @@ function loadItem(username) {
                         newItemStatus.src = ""
                     }
 
+                    if (user == userto){
+                        newCardDiv.className += "bg-white"
+                    } else {
+                        newCardDiv.className += "bg-warning"
+                    }
+                        
+
                     //OldItem
                     //var today = new Date();
                     //if (today.getFullYear() - createDate.getFullYear() >= 3){
