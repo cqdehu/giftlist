@@ -16,10 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       die("Connection failed: " . mysqli_connect_error());
     }
 
-    // Ellenőrizzük, hogy az item neve még nem foglalt-e
-    $name = $_POST['name'];
+    // Ellenőrizzük, hogy a felhasználónak van-e jogosultsága a módosításhoz
     $user = $_SESSION['username'];
     $userto = $_POST['userto'];
+    if ($user != $userto) {
+      die("Nincs hozzá jogod!");
+    }
+
+    // Ellenőrizzük, hogy az item neve még nem foglalt-e
+    $name = $_POST['name'];
     $status = $_POST['status'];
     $createDate = $_POST['createDate'];
     $id = $_SESSION['id'];
