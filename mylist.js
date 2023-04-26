@@ -235,15 +235,8 @@ function loadItem(username) {
                     if (user == userto){
                         newCardDiv.className += "bg-white"
                     } else {
-                        newCardDiv.style.background += "linear-gradient(91.8deg, #08FFBC 5.74%, #FFFFFF 51.52%);"
+                        newCardDiv.style.background = "linear-gradient(91.8deg, #08FFBC 5.74%, #FFFFFF 51.52%);"
                     }
-                        
-
-                    //OldItem
-                    //var today = new Date();
-                    //if (today.getFullYear() - createDate.getFullYear() >= 3){
-                    //    console.log("Régi elem szerepel a listán.")
-                    //}
 
 
                     listItems.appendChild(newCardDiv)
