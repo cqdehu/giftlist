@@ -235,7 +235,7 @@ function loadItem(username) {
                     if (user == userto){
                         newCardDiv.className += "bg-white"
                     } else {
-                        newCardDiv.style.background += "linear-gradient(91.8deg, #08FFBC 5.74%, #FFFFFF 51.52%)"
+                        newCardDiv.style.background += "linear-gradient(92.01deg, #FFFFFF 48.31%, rgba(255, 255, 255, 0) 100%)"
                     }
                         
 
