@@ -202,7 +202,7 @@ function loadItem(username) {
                     console.log(name + ", " + status + ", " + user + ", " + userto + ", " + createDate + ", " + id)
 
                     const newCardDiv = document.createElement("div")
-                    newCardDiv.className = "row bg-white ms-4 mb-4 rounded-start-4 align-items-center item-card ";
+                    newCardDiv.className = "row ms-4 mb-4 rounded-start-4 align-items-center item-card ";
                     newCardDiv.id = name
 
                     const newItemNameDiv = document.createElement("div")
