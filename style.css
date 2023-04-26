@@ -212,9 +212,9 @@ a {
 }
 
 .selected-card{
-  background: linear-gradient(92.77deg, #08FFBC 13.19%, #FFFFFF 52.31%);
+  background: #08FFBC;
 }
 
 .other-card{
-  background: #08FFBC;
+  background: linear-gradient(92.77deg, #08FFBC 13.19%, #FFFFFF 52.31%);
 }
