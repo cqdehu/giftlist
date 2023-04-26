@@ -44,3 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Sikeres törlés esetén visszatérünk a főoldalra
 }
+
+
+?>
