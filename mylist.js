@@ -235,7 +235,7 @@ function loadItem(username) {
                     if (user == userto){
                         newCardDiv.className += "bg-white"
                     } else {
-                        newCardDiv.style.background += "bg-warning"
+                        newCardDiv.className += "other-card"
                     }
                         
 
