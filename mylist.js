@@ -359,6 +359,7 @@ $(document).ready(function () {
                     loadItem(userto)
                     toastText.innerHTML = lastClickedCard.attr("id") + " tétel módosítva lett.";
                     alertToast.show();
+                    lastClickedCard = null
                     $("#updateItemModal").modal('hide')
                 } else {
                     // Hiba esetén kiírjuk a hibaüzenetet
