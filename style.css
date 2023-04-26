@@ -211,7 +211,7 @@ a {
   background: linear-gradient(126deg, rgba(40, 40, 40, 1) 0%, rgba(28, 28, 28, 1) 100%);
 }
 
-.selected-card{
+.border{
   border-color: #08FFBC;
 }
 
