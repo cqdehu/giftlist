@@ -210,3 +210,7 @@ a {
   background: rgb(40, 40, 40);
   background: linear-gradient(126deg, rgba(40, 40, 40, 1) 0%, rgba(28, 28, 28, 1) 100%);
 }
+
+.selected-card{
+  background: linear-gradient(91.8deg, #08FFBC 5.74%, #FFFFFF 51.52%);
+}
