@@ -212,7 +212,7 @@ a {
 }
 
 .border{
-  border-color: #08FFBC;
+  border: #08FFBC 3px solid;
 }
 
 .other-card{
