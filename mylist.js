@@ -235,7 +235,7 @@ function loadItem(username) {
                     if (user == userto){
                         newCardDiv.className += "bg-white"
                     } else {
-                        newCardDiv.className += "bg-warning"
+                        newCardDiv.className += "background: linear-gradient(91.8deg, #08FFBC 5.74%, #FFFFFF 51.52%);"
                     }
                         
 
