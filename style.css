@@ -212,7 +212,7 @@ a {
 }
 
 .selected-card{
-  border: #08FFBC 3px solid;
+  border-color: #08FFBC;
 }
 
 .other-card{
