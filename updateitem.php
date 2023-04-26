@@ -1,28 +1,33 @@
 <?php
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Kapcsolódás az adatbázishoz
+  $servername = 'localhost';
+  $dbusername = 'u142909563_admin';
+  $dbpassword = 'kcRN[bK7';
+  $dbname = 'u142909563_database';
+
+  $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
+
+  // Ellenőrizzük, hogy sikerült-e kapcsolódni az adatbázishoz
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
+
+  $user = $_SESSION['username'];
+  $userto = $_POST['userto'];
+
+  // Ellenőrizzük, hogy a felhasználónak jogosultsága van-e az adott userto-hoz
+  $query = "SELECT * FROM `users` WHERE `username` = '$user' AND `userto` = '$userto'";
+  $result = mysqli_query($conn, $query);
+
+  if (mysqli_num_rows($result) == 0) {
+    echo "Nincs hozzá jogod!";
+    exit();
+  }
+
   // Ellenőrizzük, hogy az item név mező nem üres
   if (!empty($_POST['name'])) {
-    // Kapcsolódás az adatbázishoz
-    $servername = 'localhost';
-    $dbusername = 'u142909563_admin';
-    $dbpassword = 'kcRN[bK7';
-    $dbname = 'u142909563_database';
-
-    $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
-
-    // Ellenőrizzük, hogy sikerült-e kapcsolódni az adatbázishoz
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-
-    // Ellenőrizzük, hogy a felhasználónak van-e jogosultsága a módosításhoz
-    $user = $_SESSION['username'];
-    $userto = $_POST['userto'];
-    if ($user != $userto) {
-      die("Nincs hozzá jogod! $user --- $userto");
-    }
-
     // Ellenőrizzük, hogy az item neve még nem foglalt-e
     $name = $_POST['name'];
     $status = $_POST['status'];
@@ -46,12 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
       echo "Már egyszer szerepel a listán.";
     }
-
-    mysqli_close($conn);
   } else {
     echo "Kérjük, töltse ki az Item mezőt.";
   }
+
+  mysqli_close($conn);
 }
-
-
-?>
