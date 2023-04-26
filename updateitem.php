@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $_SESSION['username'];
     $userto = $_POST['userto'];
     if ($user != $userto) {
-      die("Nincs hozzá jogod!");
+      die("Nincs hozzá jogod! $user --- $userto");
     }
 
     // Ellenőrizzük, hogy az item neve még nem foglalt-e
