@@ -1,4 +1,6 @@
-
+$(document).ready(function() {
+    $("#item-card").slideDown("slow");
+  });
 
 const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
