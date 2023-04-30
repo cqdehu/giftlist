@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#item-card").slideDown("slow");
+    $(".item-card").fadeIn();
   });
 
 const toast = document.querySelector('#alertToast')
