@@ -423,7 +423,7 @@ $(document).ready(function () {
 });
 
 //deleteItem
-$('#removeItemYes').on('click', function () {
+$('#updateItemIcon').on('click', function () {
     if (!lastClickedCard) {
         return;
     }
