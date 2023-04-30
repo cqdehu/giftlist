@@ -146,24 +146,32 @@ function auth() {
     });
 }
 
-function watchPHPSessionIdCookie(callback) {
+function watchPHPSessionCookie(callback) {
     var lastCookie = document.cookie;
     setInterval(function () {
-      var cookieValue = document.cookie;
-      if (cookieValue !== lastCookie) {
-        lastCookie = cookieValue;
-        if (cookieValue.indexOf("PHPSESSID") !== -1) { // csak PHPSESSID cookie változását figyeli meg
-          callback();
+        var cookieValue = document.cookie;
+        if (cookieValue !== lastCookie) {
+            lastCookie = cookieValue;
+            var cookieName = "PHPSESSID=";
+            var cookieStart = cookieValue.indexOf(cookieName);
+            if (cookieStart !== -1) {
+                cookieStart += cookieName.length;
+                var cookieEnd = cookieValue.indexOf(";", cookieStart);
+                if (cookieEnd === -1) {
+                    cookieEnd = cookieValue.length;
+                }
+                var sessionId = cookieValue.substring(cookieStart, cookieEnd);
+                callback(sessionId);
+            }
         }
-      }
     }, 100);
-  }
+}
 
- //Műveletek a cookie módosítása esetén
-function handleCookieChange() {
+function handlePHPSessionCookieChange(sessionId) {
     $.ajax({
         type: "POST",
         url: "logout.php",
+        data: { sessionId: sessionId },
         success: function (data) {
             // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
             window.location.href = "login.html";
@@ -173,12 +181,10 @@ function handleCookieChange() {
             $("#message").html("Hiba történt az AJAX hívás során.");
         }
     });
-    // Itt lehet további műveleteket végezni a cookie módosítása esetén
 }
 
+watchPHPSessionCookie(handlePHPSessionCookieChange);
 
-// Watch the cookie named "myCookie" for changes
-watchPHPSessionIdCookie(handleCookieChange);
 
 //////////////////////////////////////////////////////////////////////////////////
 
