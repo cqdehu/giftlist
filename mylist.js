@@ -282,6 +282,7 @@ $(document).ready(function () {
             url: "logout.php",
             success: function (data) {
                 // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
+                $.removeCookie("selectedUser")
                 window.location.href = "login.html";
             },
             error: function () {
