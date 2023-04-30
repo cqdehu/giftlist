@@ -427,7 +427,6 @@ $('#deleteItemBtn').on('click', function () {
             if (result === "success") {
                 if (lastClickedCard != null) {
                     $("#removeItemModal").modal('show')
-                    enterEditItemName.value = lastClickedCard.attr("id")
                 } else {
                     toastText.innerHTML = result;
                     alertToast.show()
