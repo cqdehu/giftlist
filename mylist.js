@@ -1,3 +1,6 @@
+auth()
+getInvite()
+
 const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
@@ -62,11 +65,9 @@ $(document).on('dblclick', '.item-card', function (event) {
 
 //////////////////////////////////////////////////////////////////////////////////
 
-$(document).ready(function () {
-    auth()
-    getInvite()
-    
-})
+
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////
