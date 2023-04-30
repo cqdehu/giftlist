@@ -218,3 +218,12 @@ a {
 .other-card{
   background: linear-gradient(92.77deg, #08FFBC 13.19%, #FFFFFF 52.31%);
 }
+
+.item-card {
+  opacity: 0; /* kezdetben áttűnés */
+  transition: opacity 0.5s ease-in-out; /* áttűnés tranzíció 0.5 másodperces idővel */
+}
+
+.item-card.show {
+  opacity: 1; /* megjelenési állapot */
+}

@@ -113,7 +113,7 @@ function auth() {
                         const mylist = document.querySelector('#mylist')
 
                         const myListCard = document.createElement('div')
-                        myListCard.className = "row bg-light mx-3 mb-3 rounded-4 align-items-center invite-card "
+                        myListCard.className = "row bg-light mx-3 mb-3 rounded-4 align-items-center invite-card show"
                         myListCard.id = un
 
                         const myListCardCol1 = document.createElement('div')
@@ -273,10 +273,6 @@ function loadItem(username) {
                     newItemNameDiv.appendChild(newItemName)
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
-
-                    $(itemCard).hide().each(function(i) {
-                        $(this).delay(i * 100).fadeIn();
-                    });
                     
                 }
             } else {
