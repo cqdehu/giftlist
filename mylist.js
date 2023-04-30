@@ -156,24 +156,24 @@ function auth() {
 //}
 
 // Műveletek a cookie módosítása esetén
-function handleCookieChange() {
-    $.ajax({
-        type: "POST",
-        url: "logout.php",
-        success: function (data) {
-            // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
-            window.location.href = "login.html";
-        },
-        error: function () {
-            // Hibás AJAX hívás esetén kezeljük a hibát
-            $("#message").html("Hiba történt az AJAX hívás során.");
-        }
-    });
-    // Itt lehet további műveleteket végezni a cookie módosítása esetén
-}
-
-// Watch the cookie named "myCookie" for changes
-watchCookie("PHPSESSID", handleCookieChange);
+//function handleCookieChange() {
+//    $.ajax({
+//        type: "POST",
+//        url: "logout.php",
+//        success: function (data) {
+//            // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
+//            window.location.href = "login.html";
+//        },
+//        error: function () {
+//            // Hibás AJAX hívás esetén kezeljük a hibát
+//            $("#message").html("Hiba történt az AJAX hívás során.");
+//        }
+//    });
+//    // Itt lehet további műveleteket végezni a cookie módosítása esetén
+//}
+//
+//// Watch the cookie named "myCookie" for changes
+//watchCookie("PHPSESSID", handleCookieChange);
 
 //////////////////////////////////////////////////////////////////////////////////
 
