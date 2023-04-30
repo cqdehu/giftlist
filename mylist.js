@@ -100,7 +100,7 @@ function auth() {
                     $("#id").text(id)
 
                     un = username
-                    userto = username
+                    userto = selectedUser
 
                     console.log(un + "/////" + userto)
 
