@@ -83,11 +83,11 @@ function auth() {
         cache: false,
         success: function (data) {
             // Sikeres válasz esetén kezeljük a visszatérő adatot
-            if (data == "failed") {
+            if (data === "failed") {
                 // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
                 console.log("A felhasználó nincs bejelentkezve!")
                 $.removeCookie("selectedUser")
-                window.location.href("login.html");
+                window.location.href = "login.html";
 
 
 
