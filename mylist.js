@@ -1,6 +1,3 @@
-$(document).ready(function() {
-    $("div:has(.item-card)").fadeIn();
-  });
 
 const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
@@ -276,6 +273,7 @@ function loadItem(username) {
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
 
+                    $("div:has(.item-card)").fadeIn();
                 }
             } else {
                 toastText.innerHTML = userlist + ' listája jelenleg üres.';
