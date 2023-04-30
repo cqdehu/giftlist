@@ -134,7 +134,7 @@ function auth() {
 
                 var selectedUser =  $.cookie('selectedUser')
                 console.log(selectedUser)
-                //loadItem(selectedUser)
+                loadItem(selectedUser)
             }
         },
         error: function () {
