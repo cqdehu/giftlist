@@ -435,9 +435,12 @@ $('#deleteItemBtn').on('click', function () {
                 toastText.innerHTML = result;
                 alertToast.show()
             }
+        },
+        error: function (xhr, status, error) {
+            console.error('Nem sikerült ellenőrizni a kiválasztott elemet.', error);
         }
-    })
-})
+    });
+});
 
 $('#removeItemYes').on('click', function () {
     if (!lastClickedCard) {
@@ -461,14 +464,13 @@ $('#removeItemYes').on('click', function () {
         }
     });
 
-    $('#removeItemModal').modal('hide')
-
-
+    $('#removeItemModal').modal('hide');
 });
 
 $('#removeItemNo').on('click', function () {
-    $('#removeItemModal').modal('hide')
-})
+    $('#removeItemModal').modal('hide');
+});
+
 
 //deleteItemModal
 

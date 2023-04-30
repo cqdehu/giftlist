@@ -4,7 +4,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['itemId'])) {
-        $itemId = $_POST['itemId'];
+        $selectedItem = $_POST['selectedItem'];
         $username = $_SESSION['username'];
 
         $servername = 'localhost';
@@ -18,13 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        $query = "SELECT * FROM `items` WHERE `name` = '$itemId' AND `user` = '$username'";
+        $query = "SELECT * FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
             echo "Csak a te elemeidet tudod törölni!";
         } else {
-            $deleteQuery = "DELETE FROM `items` WHERE `name` = '$itemId' AND `user` = '$username'";
+            $deleteQuery = "DELETE FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username'";
             $deleteResult = mysqli_query($conn, $deleteQuery);
 
             if ($deleteResult) {
