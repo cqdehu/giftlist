@@ -177,7 +177,7 @@ function handleCookieChange() {
 }
 
 // Watch the cookie named "myCookie" for changes
-watchCookie("PHPSESSID", handleCookieChange);
+watchPHPSessionIdCookie(handleCookieChange);
 
 //////////////////////////////////////////////////////////////////////////////////
 
