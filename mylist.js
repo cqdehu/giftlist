@@ -273,7 +273,8 @@ function loadItem(username) {
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
 
-                    $("div:has(.item-card)").fadeIn();
+                    let itemCards = document.querySelectorAll(".item-card");
+                    itemCards.fadeIn()
                 }
             } else {
                 toastText.innerHTML = userlist + ' listája jelenleg üres.';
