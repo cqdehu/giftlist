@@ -300,7 +300,11 @@ $(document).ready(function () {
             success: function (data) {
                 // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
                 $.removeCookie("selectedUser")
-                window.location.href = "login.html";
+                window.location.replace("login.html"); //replace metódus használata
+                history.pushState(null, null, location.href); //törlés az előző oldalakból
+                window.onpopstate = function () {
+                    history.go(1);
+                };
             },
             error: function () {
                 // Hibás AJAX hívás esetén kezeljük a hibát
