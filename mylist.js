@@ -415,35 +415,30 @@ $(document).ready(function () {
 });
 
 //deleteItem
-$('#updateItemIcon').on('click', function () {
-    if (!lastClickedCard) {
-        return;
-    }
-
-    const itemId = lastClickedCard.attr('id');
-    const userto = '<?php echo $_POST["userto"]; ?>';
-
+$('#deleteItemBtn').on('click', function () {
     $.ajax({
         type: "POST",
         url: "checkitem.php",
         data: {
-            selectedItem: itemId,
+            selectedItem: lastClickedCard.attr("id"),
             userto: userto,
         },
         success: function (result) {
             if (result === "success") {
-                $('#updateItemModal').modal('show');
-                enterEditItemName.value = itemId;
+                if (lastClickedCard != null) {
+                    $("#removeItemModal").modal('show')
+                    enterEditItemName.value = lastClickedCard.attr("id")
+                } else {
+                    toastText.innerHTML = result;
+                    alertToast.show()
+                }
             } else {
                 toastText.innerHTML = result;
-                alertToast.show();
+                alertToast.show()
             }
-        },
-        error: function (xhr, status, error) {
-            console.error('Nem sikerült ellenőrizni a jogosultságot.', error);
         }
-    });
-});
+    })
+})
 
 $('#removeItemYes').on('click', function () {
     if (!lastClickedCard) {
@@ -452,47 +447,29 @@ $('#removeItemYes').on('click', function () {
 
     const itemId = lastClickedCard.attr('id');
     const username = '<?php echo $_SESSION["username"]; ?>';
-    const userto = '<?php echo $_POST["userto"]; ?>';
 
     $.ajax({
         type: "POST",
-        url: "checkitem.php",
-        data: {
-            selectedItem: itemId,
-            userto: userto,
-        },
-        success: function (result) {
-            if (result === "success") {
-                $.ajax({
-                    type: "POST",
-                    url: "deleteitem.php",
-                    data: { itemId: itemId, username: username },
-                    success: function (response) {
-                        console.log('Sikeresen törölted az adatot az adatbázisból.');
-                        lastClickedCard.remove();
-                        lastClickedCard = null;
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
-                    }
-                });
-
-                $('#removeItemModal').modal('hide');
-            } else {
-                toastText.innerHTML = result;
-                alertToast.show();
-            }
+        url: "deleteitem.php",
+        data: { itemId: itemId, username: username },
+        success: function (response) {
+            console.log('Sikeresen törölted az adatot az adatbázisból.');
+            lastClickedCard.remove();
+            lastClickedCard = null;
         },
         error: function (xhr, status, error) {
-            console.error('Nem sikerült ellenőrizni a jogosultságot.', error);
+            console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
         }
     });
+
+    $('#removeItemModal').modal('hide')
+
+
 });
 
 $('#removeItemNo').on('click', function () {
-    $('#removeItemModal').modal('hide');
-});
-
+    $('#removeItemModal').modal('hide')
+})
 
 //deleteItemModal
 
