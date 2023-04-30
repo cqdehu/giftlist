@@ -146,32 +146,29 @@ function auth() {
     });
 }
 
-function watchPHPSessionCookie(callback) {
+//Cookie érték figyelése
+function watchPHPSessionIdCookie(callback) {
     var lastCookie = document.cookie;
     setInterval(function () {
         var cookieValue = document.cookie;
         if (cookieValue !== lastCookie) {
             lastCookie = cookieValue;
-            var cookieName = "PHPSESSID=";
-            var cookieStart = cookieValue.indexOf(cookieName);
-            if (cookieStart !== -1) {
-                cookieStart += cookieName.length;
-                var cookieEnd = cookieValue.indexOf(";", cookieStart);
-                if (cookieEnd === -1) {
-                    cookieEnd = cookieValue.length;
-                }
-                var sessionId = cookieValue.substring(cookieStart, cookieEnd);
-                callback(sessionId);
+            if (cookieValue.indexOf("PHPSESSID") !== -1) {
+                callback();
             }
         }
     }, 100);
 }
 
-function handlePHPSessionCookieChange(sessionId) {
+//Műveletek a cookie módosítása esetén
+function handleCookieChange() {
+    var selectedUserCookie = $.cookie("selectedUser");
+    if (selectedUserCookie !== null) {
+        $.removeCookie("selectedUser");
+    }
     $.ajax({
         type: "POST",
         url: "logout.php",
-        data: { sessionId: sessionId },
         success: function (data) {
             // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
             window.location.href = "login.html";
@@ -183,7 +180,9 @@ function handlePHPSessionCookieChange(sessionId) {
     });
 }
 
-watchPHPSessionCookie(handlePHPSessionCookieChange);
+// Watch the PHPSESSID cookie for changes
+watchPHPSessionIdCookie(handleCookieChange);
+
 
 
 //////////////////////////////////////////////////////////////////////////////////
