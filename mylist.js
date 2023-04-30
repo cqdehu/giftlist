@@ -176,6 +176,7 @@ function handleCookieChange() {
     // Itt lehet további műveleteket végezni a cookie módosítása esetén
 }
 
+
 // Watch the cookie named "myCookie" for changes
 watchPHPSessionIdCookie(handleCookieChange);
 
