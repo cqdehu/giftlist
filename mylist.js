@@ -87,6 +87,7 @@ function auth() {
                 
 
             } else {
+                var selectedUser =  $.cookie('selectedUser')
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
 
@@ -132,7 +133,7 @@ function auth() {
 
                 }
 
-                var selectedUser =  $.cookie('selectedUser')
+                
                 console.log(selectedUser)
                 loadItem(selectedUser)
             }
