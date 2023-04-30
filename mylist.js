@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".item-card").fadeIn();
+    $("div:has(.item-card)").fadeIn();
   });
 
 const toast = document.querySelector('#alertToast')
