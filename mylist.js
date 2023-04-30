@@ -143,6 +143,7 @@ function auth() {
         }
     });
 }
+
 // Cookie érték figyelése
 //function watchCookie(cookieName, callback) {
 //    var lastCookie = document.cookie;
