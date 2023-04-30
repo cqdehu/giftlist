@@ -21,12 +21,15 @@ let lastClickedCard = null;
 
 function removeCardBorder() {
     if (lastClickedCard) {
-        lastClickedCard.fadeOut("slow", function () {
-            $(this).removeClass("custom-border last-clicked");
-            lastClickedCard = null;
-        });
+      lastClickedCard.find(".custom-border::before").css("width", "0");
+      lastClickedCard.delay(300).queue(function(next) {
+        lastClickedCard.removeClass("custom-border last-clicked");
+        lastClickedCard = null;
+        next();
+      });
     }
-}
+  }
+  
 
 function addCardBorder(card) {
     removeCardBorder();
@@ -275,7 +278,7 @@ function loadItem(username) {
                     newItemNameDiv.appendChild(newItemName)
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
-
+                    
                 }
             } else {
                 toastText.innerHTML = userlist + ' listája jelenleg üres.';
