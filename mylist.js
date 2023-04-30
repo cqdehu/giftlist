@@ -21,8 +21,10 @@ let lastClickedCard = null;
 
 function removeCardBorder() {
     if (lastClickedCard) {
-        lastClickedCard.removeClass("custom-border last-clicked");
-        lastClickedCard = null;
+        lastClickedCard.fadeOut("slow", function () {
+            $(this).removeClass("custom-border last-clicked");
+            lastClickedCard = null;
+        });
     }
 }
 
@@ -273,7 +275,7 @@ function loadItem(username) {
                     newItemNameDiv.appendChild(newItemName)
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
-                    
+
                 }
             } else {
                 toastText.innerHTML = userlist + ' listája jelenleg üres.';
