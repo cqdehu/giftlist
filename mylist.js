@@ -436,9 +436,13 @@ $('#removeItemYes').on('click', function () {
         url: "deleteitem.php",
         data: { itemId: itemId, username: username },
         success: function (response) {
-            console.log('Sikeresen törölted az adatot az adatbázisból.');
-            lastClickedCard.remove();
-            lastClickedCard = null;
+            if (response === "success") {
+                console.log('Sikeresen törölted az adatot az adatbázisból.');
+                lastClickedCard.remove();
+                lastClickedCard = null;
+            } else {
+                console.error('Nem sikerült törölni az adatot az adatbázisból: ' + response);
+            }
         },
         error: function (xhr, status, error) {
             console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
@@ -446,9 +450,8 @@ $('#removeItemYes').on('click', function () {
     });
 
     $('#removeItemModal').modal('hide')
-
-
 });
+
 
 $('#removeItemNo').on('click', function () {
     $('#removeItemModal').modal('hide')
