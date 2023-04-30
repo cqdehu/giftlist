@@ -146,14 +146,17 @@ function auth() {
     });
 }
 
+
+
+
 //Cookie érték figyelése
-function watchPHPSessionIdCookie(callback) {
+function watchCookie(cookieName, callback) {
     var lastCookie = document.cookie;
     setInterval(function () {
         var cookieValue = document.cookie;
         if (cookieValue !== lastCookie) {
             lastCookie = cookieValue;
-            if (cookieValue.indexOf("PHPSESSID") !== -1) {
+            if (cookieValue.indexOf(cookieName) !== -1) {
                 callback();
             }
         }
@@ -162,26 +165,30 @@ function watchPHPSessionIdCookie(callback) {
 
 //Műveletek a cookie módosítása esetén
 function handleCookieChange() {
-    var selectedUserCookie = $.cookie("selectedUser");
-    if (selectedUserCookie !== null) {
-        $.removeCookie("selectedUser");
+    if ($.cookie("PHPSESSID") !== lastSessionID) {
+        $.ajax({
+            type: "POST",
+            url: "logout.php",
+            success: function (data) {
+                // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
+                window.location.href = "login.html";
+            },
+            error: function () {
+                // Hibás AJAX hívás esetén kezeljük a hibát
+                $("#message").html("Hiba történt az AJAX hívás során.");
+            }
+        });
+        // Itt lehet további műveleteket végezni a cookie módosítása esetén
     }
-    $.ajax({
-        type: "POST",
-        url: "logout.php",
-        success: function (data) {
-            // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
-            window.location.href = "login.html";
-        },
-        error: function () {
-            // Hibás AJAX hívás esetén kezeljük a hibát
-            $("#message").html("Hiba történt az AJAX hívás során.");
-        }
-    });
 }
 
-// Watch the PHPSESSID cookie for changes
-watchPHPSessionIdCookie(handleCookieChange);
+// Watch the cookie named "PHPSESSID" and "selectedUser" for changes
+var lastSessionID = $.cookie("PHPSESSID");
+watchCookie("PHPSESSID", handleCookieChange);
+watchCookie("selectedUser", function () {
+    console.log("selectedUser cookie changed");
+});
+
 
 
 
