@@ -86,7 +86,7 @@ function auth() {
                 window.location.replace("login.html");
                 
 
-                
+
             } else {
                 var selectedUser =  $.cookie('selectedUser')
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
@@ -96,9 +96,9 @@ function auth() {
                     var username = data[i].username;
                     var id = data[i].id;
 
-                    document.title = username + " | " + "GIFTLIST"
-                    $("#displayTitle").text(username + "'s list")
-                    $("#username").text(username)
+                    document.title = selectedUser + " | " + "GIFTLIST"
+                    $("#displayTitle").text(selectedUser + "'s list")
+                    $("#username").text(selectedUser)
                     $("#id").text(id)
 
                     un = username
