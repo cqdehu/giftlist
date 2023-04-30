@@ -146,19 +146,18 @@ function auth() {
     });
 }
 
- //Cookie érték figyelése
-function watchCookie(cookieName, callback) {
+function watchPHPSessionIdCookie(callback) {
     var lastCookie = document.cookie;
     setInterval(function () {
-        var cookieValue = document.cookie;
-        if (cookieValue !== lastCookie) {
-            lastCookie = cookieValue;
-            if (cookieValue.indexOf(cookieName) !== -1) {
-                callback();
-            }
+      var cookieValue = document.cookie;
+      if (cookieValue !== lastCookie) {
+        lastCookie = cookieValue;
+        if (cookieValue.indexOf("PHPSESSID") !== -1) { // csak PHPSESSID cookie változását figyeli meg
+          callback();
         }
+      }
     }, 100);
-}
+  }
 
  //Műveletek a cookie módosítása esetén
 function handleCookieChange() {
