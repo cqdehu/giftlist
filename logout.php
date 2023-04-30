@@ -14,7 +14,7 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Átirányítjuk a felhasználót a bejelentkezési oldalra
+
 setcookie('PHPSESSID', '', time()-3600);
 
 ?>
