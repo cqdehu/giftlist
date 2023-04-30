@@ -99,6 +99,9 @@ function auth() {
                     un = username
                     userto = username
 
+                    var selectedUser = $.cookie("selectedUser",un)
+
+
                     console.log(un + "/////" + userto)
 
                     const mylist = document.querySelector('#mylist')
@@ -129,7 +132,7 @@ function auth() {
 
                 }
 
-                loadItem(un)
+                loadItem(selectedUser)
             }
         },
         error: function () {
@@ -472,8 +475,9 @@ $(document).on('click', '.invite-card', function (event) {
     addCardBorderi(card);
     $("#listItems").empty();
     userto = lastClickedInviteCard.attr("id")
+    var selectedUser = $.cookie("selectedUser",user)
     console.log(un + "//////" + userto)
-    loadItem(lastClickedInviteCard.attr("id"))
+    loadItem(selectedUser)
     document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
     $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
     $('#offcanvasMenu').offcanvas('hide');
