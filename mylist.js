@@ -134,13 +134,13 @@ function auth() {
                     myListCardCol1.appendChild(myListCardCol1P)
                     myListCardCol2.appendChild(myListCardCol2Div)
 
-
+                    console.log(selectedUser)
                 }
 
 
-                console.log(selectedUser)
+                
                 loadItem(selectedUser)
-                alert("auth() lefutott")
+                
             }
         },
         error: function () {
