@@ -30,7 +30,9 @@ $(document).ready(function () {
                 console.log(response);
                 if (response == "success") {
                     // sikeres bejelentkezés, átirányítás a welcome.html oldalra
+                    $.cookie("selectedUser",username)
                     window.location.replace("mylist.html");
+                    
                 } else {
                     // hibaüzenet megjelenítése
                     toastText.innerHTML = response;

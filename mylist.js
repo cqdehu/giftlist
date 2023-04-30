@@ -99,9 +99,6 @@ function auth() {
                     un = username
                     userto = username
 
-                    var selectedUser = $.cookie("selectedUser",un)
-
-
                     console.log(un + "/////" + userto)
 
                     const mylist = document.querySelector('#mylist')
@@ -132,6 +129,7 @@ function auth() {
 
                 }
 
+                var selectedUser =  $.cookie('selectedUser')
                 loadItem(selectedUser)
             }
         },
