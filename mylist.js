@@ -274,7 +274,7 @@ function loadItem(username) {
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
 
-                    const itemCard = newCardDiv.querySelector(".item-card");
+                    const itemCard = $(".item-card");
                     $(itemCard).fadeIn();
                 }
             } else {
