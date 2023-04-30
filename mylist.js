@@ -87,7 +87,7 @@ function auth() {
                 // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
                 console.log("A felhasználó nincs bejelentkezve!")
                 $.removeCookie("selectedUser")
-                window.location.replace("login.html");
+                window.location.href("login.html");
 
 
 
