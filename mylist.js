@@ -273,7 +273,7 @@ function loadItem(username) {
                     newItemNameDiv.appendChild(newItemName)
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
-                    
+
                 }
             } else {
                 toastText.innerHTML = userlist + ' listája jelenleg üres.';
@@ -352,13 +352,29 @@ $(document).ready(function () {
 //////////////////////////////////////////////////////////////////////////////////
 
 $("#updateItemIcon").click(function () {
-    if (lastClickedCard != null) {
-        $("#updateItemModal").modal('show')
-        enterEditItemName.value = lastClickedCard.attr("id")
-    } else {
-        toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
-        alertToast.show()
-    }
+    $.ajax({
+        type: "POST",
+        url: "checkitem.php",
+        data: {
+            selectedItem: lastClickedCard.attr("id"),
+            userto: userto,
+        },
+        success: function (result) {
+            if (result === "success") {
+                if (lastClickedCard != null) {
+                    $("#updateItemModal").modal('show')
+                    enterEditItemName.value = lastClickedCard.attr("id")
+                } else {
+                    toastText.innerHTML = result;
+                    alertToast.show()
+                }
+            } else {
+                toastText.innerHTML = result;
+                alertToast.show()
+            }
+        }
+    })
+
 
 
 })
