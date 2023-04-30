@@ -65,6 +65,7 @@ $(document).on('dblclick', '.item-card', function (event) {
 $(document).ready(function () {
     auth()
     getInvite()
+    
 })
 
 
@@ -81,7 +82,9 @@ function auth() {
             if (data == "failed") {
                 // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
                 console.log("A felhasználó nincs bejelentkezve!")
+                $.removeCookie("selectedUser")
                 window.location.replace("login.html");
+                
 
             } else {
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
@@ -130,7 +133,8 @@ function auth() {
                 }
 
                 var selectedUser =  $.cookie('selectedUser')
-                loadItem(selectedUser)
+                console.log(selectedUser)
+                //loadItem(selectedUser)
             }
         },
         error: function () {
