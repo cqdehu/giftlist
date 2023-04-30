@@ -76,79 +76,81 @@ $(document).ready(function () {
 
 //auth
 function auth() {
-    $.ajax({
-        type: "GET",
-        url: "auth.php",
-        dataType: "json",
-        cache: false,
-        success: function (data) {
-            // Sikeres válasz esetén kezeljük a visszatérő adatot
-            if (data === "failed") {
-                // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
-                console.log("A felhasználó nincs bejelentkezve!")
-                $.removeCookie("selectedUser")
-                window.location.href = "login.html";
+    setTimeout(function () {
+        $.ajax({
+            type: "GET",
+            url: "auth.php",
+            dataType: "json",
+            cache: false,
+            success: function (data) {
+                // Sikeres válasz esetén kezeljük a visszatérő adatot
+                if (data === "failed") {
+                    // A felhasználó nincs bejelentkezve, megjelenítjük az üzenetet
+                    console.log("A felhasználó nincs bejelentkezve!")
+                    $.removeCookie("selectedUser")
+                    window.location.href = "login.html";
 
 
 
-            } else {
-                var selectedUser = $.cookie('selectedUser')
-                // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
-                console.log("A felhasználó be van jelentkezve!")
+                } else {
+                    var selectedUser = $.cookie('selectedUser')
+                    // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
+                    console.log("A felhasználó be van jelentkezve!")
 
-                for (var i = 0; i < data.length; i++) {
-                    var username = data[i].username;
-                    var id = data[i].id;
+                    for (var i = 0; i < data.length; i++) {
+                        var username = data[i].username;
+                        var id = data[i].id;
 
-                    document.title = selectedUser + " | " + "GIFTLIST"
-                    $("#displayTitle").text(selectedUser + "'s list")
-                    $("#username").text(username)
-                    $("#id").text(id)
+                        document.title = selectedUser + " | " + "GIFTLIST"
+                        $("#displayTitle").text(selectedUser + "'s list")
+                        $("#username").text(username)
+                        $("#id").text(id)
 
-                    un = username
-                    userto = selectedUser
+                        un = username
+                        userto = selectedUser
 
-                    console.log(un + "/////" + userto)
+                        console.log(un + "/////" + userto)
 
-                    const mylist = document.querySelector('#mylist')
+                        const mylist = document.querySelector('#mylist')
 
-                    const myListCard = document.createElement('div')
-                    myListCard.className = "row bg-light mx-3 mb-3 rounded-4 align-items-center invite-card "
-                    myListCard.id = un
+                        const myListCard = document.createElement('div')
+                        myListCard.className = "row bg-light mx-3 mb-3 rounded-4 align-items-center invite-card "
+                        myListCard.id = un
 
-                    const myListCardCol1 = document.createElement('div')
-                    myListCardCol1.className = "col p-0 "
+                        const myListCardCol1 = document.createElement('div')
+                        myListCardCol1.className = "col p-0 "
 
-                    const myListCardCol1P = document.createElement('p')
-                    myListCardCol1P.className = "TiltWrap text-dark m-3 "
-                    myListCardCol1P.innerHTML = un
+                        const myListCardCol1P = document.createElement('p')
+                        myListCardCol1P.className = "TiltWrap text-dark m-3 "
+                        myListCardCol1P.innerHTML = un
 
-                    const myListCardCol2 = document.createElement('div')
-                    myListCardCol2.className = "col-2 text-end "
+                        const myListCardCol2 = document.createElement('div')
+                        myListCardCol2.className = "col-2 text-end "
 
-                    const myListCardCol2Div = document.createElement('div')
-                    myListCardCol2Div.className = "me-2 "
+                        const myListCardCol2Div = document.createElement('div')
+                        myListCardCol2Div.className = "me-2 "
 
-                    mylist.insertAdjacentElement("afterend", myListCard)
-                    myListCard.appendChild(myListCardCol1)
-                    myListCard.appendChild(myListCardCol2)
-                    myListCardCol1.appendChild(myListCardCol1P)
-                    myListCardCol2.appendChild(myListCardCol2Div)
+                        mylist.insertAdjacentElement("afterend", myListCard)
+                        myListCard.appendChild(myListCardCol1)
+                        myListCard.appendChild(myListCardCol2)
+                        myListCardCol1.appendChild(myListCardCol1P)
+                        myListCardCol2.appendChild(myListCardCol2Div)
 
-                    console.log(selectedUser)
+                        console.log(selectedUser)
+                    }
+
+
+
+                    loadItem(selectedUser)
+
                 }
-
-
-                
-                loadItem(selectedUser)
-                
+            },
+            error: function () {
+                // Hibás AJAX hívás esetén kezeljük a hibát
+                $("#message").html("Hiba történt az AJAX hívás során.");
             }
-        },
-        error: function () {
-            // Hibás AJAX hívás esetén kezeljük a hibát
-            $("#message").html("Hiba történt az AJAX hívás során.");
-        }
-    });
+        });
+    }, 100)
 }
 
 //Cookie érték figyelése
