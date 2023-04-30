@@ -113,7 +113,7 @@ function auth() {
                         const mylist = document.querySelector('#mylist')
 
                         const myListCard = document.createElement('div')
-                        myListCard.className = "row bg-light mx-3 mb-3 rounded-4 align-items-center invite-card show"
+                        myListCard.className = "row bg-light mx-3 mb-3 rounded-4 align-items-center invite-card"
                         myListCard.id = un
 
                         const myListCardCol1 = document.createElement('div')
@@ -224,7 +224,7 @@ function loadItem(username) {
                     console.log(name + ", " + status + ", " + user + ", " + userto + ", " + createDate + ", " + id)
 
                     const newCardDiv = document.createElement("div")
-                    newCardDiv.className = "row ms-4 mb-4 rounded-start-4 align-items-center item-card ";
+                    newCardDiv.className = "row ms-4 mb-4 rounded-start-4 align-items-center item-card show";
                     newCardDiv.id = name
 
                     const newItemNameDiv = document.createElement("div")
