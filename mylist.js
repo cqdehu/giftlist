@@ -482,17 +482,16 @@ $(document).on('click', '.invite-card', function (event) {
         return;
     }
 
-
     addCardBorderi(card);
     $("#listItems").empty();
-    userto = lastClickedInviteCard.attr("id")
-    var selectedUser = $.cookie("selectedUser",userto)
-    console.log(un + "//////" + userto)
-    loadItem(selectedUser)
-    document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
-    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
+    var lastClickedInviteCard = card;
+    var userto = lastClickedInviteCard.attr("id");
+    $.cookie("selectedUser", userto);
+    console.log(un + "//////" + userto);
+    loadItem($.cookie("selectedUser"));
+    document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST";
+    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list");
     $('#offcanvasMenu').offcanvas('hide');
-
 });
 
 
