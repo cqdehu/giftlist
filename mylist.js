@@ -146,39 +146,39 @@ function auth() {
     });
 }
 
-// Cookie érték figyelése
-//function watchCookie(cookieName, callback) {
-//    var lastCookie = document.cookie;
-//    setInterval(function () {
-//        var cookieValue = document.cookie;
-//        if (cookieValue !== lastCookie) {
-//            lastCookie = cookieValue;
-//            if (cookieValue.indexOf(cookieName) !== -1) {
-//                callback();
-//            }
-//        }
-//    }, 100);
-//}
+ //Cookie érték figyelése
+function watchCookie(cookieName, callback) {
+    var lastCookie = document.cookie;
+    setInterval(function () {
+        var cookieValue = document.cookie;
+        if (cookieValue !== lastCookie) {
+            lastCookie = cookieValue;
+            if (cookieValue.indexOf(cookieName) !== -1) {
+                callback();
+            }
+        }
+    }, 100);
+}
 
-// Műveletek a cookie módosítása esetén
-//function handleCookieChange() {
-//    $.ajax({
-//        type: "POST",
-//        url: "logout.php",
-//        success: function (data) {
-//            // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
-//            window.location.href = "login.html";
-//        },
-//        error: function () {
-//            // Hibás AJAX hívás esetén kezeljük a hibát
-//            $("#message").html("Hiba történt az AJAX hívás során.");
-//        }
-//    });
-//    // Itt lehet további műveleteket végezni a cookie módosítása esetén
-//}
-//
-//// Watch the cookie named "myCookie" for changes
-//watchCookie("PHPSESSID", handleCookieChange);
+ //Műveletek a cookie módosítása esetén
+function handleCookieChange() {
+    $.ajax({
+        type: "POST",
+        url: "logout.php",
+        success: function (data) {
+            // Sikeres válasz esetén átirányítjuk a felhasználót a bejelentkezési oldalra
+            window.location.href = "login.html";
+        },
+        error: function () {
+            // Hibás AJAX hívás esetén kezeljük a hibát
+            $("#message").html("Hiba történt az AJAX hívás során.");
+        }
+    });
+    // Itt lehet további műveleteket végezni a cookie módosítása esetén
+}
+
+// Watch the cookie named "myCookie" for changes
+watchCookie("PHPSESSID", handleCookieChange);
 
 //////////////////////////////////////////////////////////////////////////////////
 
