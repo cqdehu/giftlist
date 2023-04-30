@@ -86,6 +86,7 @@ function auth() {
                 window.location.replace("login.html");
                 
 
+                
             } else {
                 var selectedUser =  $.cookie('selectedUser')
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
