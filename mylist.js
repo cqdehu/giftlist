@@ -21,15 +21,10 @@ let lastClickedCard = null;
 
 function removeCardBorder() {
     if (lastClickedCard) {
-      lastClickedCard.find(".custom-border::before").css("width", "0");
-      lastClickedCard.delay(300).queue(function(next) {
         lastClickedCard.removeClass("custom-border last-clicked");
         lastClickedCard = null;
-        next();
-      });
     }
-  }
-  
+}
 
 function addCardBorder(card) {
     removeCardBorder();
