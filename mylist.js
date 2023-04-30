@@ -1,5 +1,4 @@
-auth()
-getInvite()
+
 
 const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
@@ -66,7 +65,10 @@ $(document).on('dblclick', '.item-card', function (event) {
 //////////////////////////////////////////////////////////////////////////////////
 
 
-
+$(document).ready(function () {
+    auth()
+    getInvite()
+})
 
 
 
@@ -85,11 +87,11 @@ function auth() {
                 console.log("A felhasználó nincs bejelentkezve!")
                 $.removeCookie("selectedUser")
                 window.location.replace("login.html");
-                
+
 
 
             } else {
-                var selectedUser =  $.cookie('selectedUser')
+                var selectedUser = $.cookie('selectedUser')
                 // A felhasználó be van jelentkezve, megjelenítjük a tartalmat
                 console.log("A felhasználó be van jelentkezve!")
 
@@ -135,7 +137,7 @@ function auth() {
 
                 }
 
-                
+
                 console.log(selectedUser)
                 loadItem(selectedUser)
                 alert("auth() lefutott")
@@ -249,12 +251,12 @@ function loadItem(username) {
                         newItemStatus.src = ""
                     }
 
-                    if (user == userto){
+                    if (user == userto) {
                         newCardDiv.className += "bg-white"
                     } else {
                         newCardDiv.className += "other-card"
                     }
-                        
+
 
                     //OldItem
                     //var today = new Date();
@@ -490,7 +492,7 @@ $(document).on('click', '.invite-card', function (event) {
     addCardBorderi(card);
     $("#listItems").empty();
     userto = lastClickedInviteCard.attr("id")
-    var selectedUser = $.cookie("selectedUser",userto)
+    var selectedUser = $.cookie("selectedUser", userto)
     console.log(un + "//////" + userto)
     loadItem(selectedUser)
     document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
