@@ -1,12 +1,3 @@
-function check_session() {
-    session_start();
-    if (!isset($_SESSION['username'])) {
-        header('Location: login.php');
-        exit();
-    }
-}
-check_session()
-
 auth()
 getInvite()
 
