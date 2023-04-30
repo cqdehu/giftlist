@@ -80,6 +80,7 @@ function auth() {
         type: "GET",
         url: "auth.php",
         dataType: "json",
+        cache: false,
         success: function (data) {
             // Sikeres válasz esetén kezeljük a visszatérő adatot
             if (data == "failed") {
@@ -101,7 +102,7 @@ function auth() {
 
                     document.title = selectedUser + " | " + "GIFTLIST"
                     $("#displayTitle").text(selectedUser + "'s list")
-                    $("#username").text(selectedUser)
+                    $("#username").text(username)
                     $("#id").text(id)
 
                     un = username
