@@ -135,6 +135,7 @@ function auth() {
                         myListCardCol1.appendChild(myListCardCol1P)
                         myListCardCol2.appendChild(myListCardCol2Div)
 
+
                         console.log(selectedUser)
                     }
 
@@ -273,8 +274,8 @@ function loadItem(username) {
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
 
-                    let itemCards = document.querySelectorAll(".item-card");
-                    itemCards.fadeIn()
+                    const itemCard = newCardDiv.querySelector(".item-card");
+                    $(itemCard).fadeIn();
                 }
             } else {
                 toastText.innerHTML = userlist + ' listája jelenleg üres.';
