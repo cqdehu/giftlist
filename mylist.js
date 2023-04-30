@@ -146,9 +146,6 @@ function auth() {
     });
 }
 
-
-
-
 //Cookie érték figyelése
 function watchCookie(cookieName, callback) {
     var lastCookie = document.cookie;
@@ -188,8 +185,6 @@ watchCookie("PHPSESSID", handleCookieChange);
 watchCookie("selectedUser", function () {
     console.log("selectedUser cookie changed");
 });
-
-
 
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -489,16 +484,17 @@ $(document).on('click', '.invite-card', function (event) {
         return;
     }
 
+
     addCardBorderi(card);
     $("#listItems").empty();
-    var lastClickedInviteCard = card;
-    var userto = lastClickedInviteCard.attr("id");
-    $.cookie("selectedUser", userto);
-    console.log(un + "//////" + userto);
-    loadItem($.cookie("selectedUser"));
-    document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST";
-    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list");
+    userto = lastClickedInviteCard.attr("id")
+    var selectedUser = $.cookie("selectedUser",userto)
+    console.log(un + "//////" + userto)
+    loadItem(selectedUser)
+    document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
+    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
     $('#offcanvasMenu').offcanvas('hide');
+
 });
 
 
