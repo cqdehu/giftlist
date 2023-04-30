@@ -138,6 +138,7 @@ function auth() {
                 
                 console.log(selectedUser)
                 loadItem(selectedUser)
+                alert("auth() lefutott")
             }
         },
         error: function () {
