@@ -352,6 +352,14 @@ $(document).ready(function () {
 //////////////////////////////////////////////////////////////////////////////////
 
 $("#updateItemIcon").click(function () {
+    // Ellenőrizzük, hogy van-e kiválasztva elem
+    if (lastClickedCard == null) {
+        toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
+        alertToast.show();
+        return;
+    }
+
+    // AJAX hívás
     $.ajax({
         type: "POST",
         url: "checkitem.php",
@@ -361,23 +369,23 @@ $("#updateItemIcon").click(function () {
         },
         success: function (result) {
             if (result === "success") {
-                if (lastClickedCard != null) {
-                    $("#updateItemModal").modal('show')
-                    enterEditItemName.value = lastClickedCard.attr("id")
-                } else {
-                    toastText.innerHTML = result;
-                    alertToast.show()
-                }
+                // Ha a szerver visszatért "success"-sel, megjelenítjük a módosítási ablakot
+                $("#updateItemModal").modal('show');
+                enterEditItemName.value = lastClickedCard.attr("id");
             } else {
+                // Ha a szerver visszatért egyéb válasszal, megjelenítjük az üzenetet
                 toastText.innerHTML = result;
-                alertToast.show()
+                alertToast.show();
             }
+        },
+        error: function (xhr, status, error) {
+            // Ha hiba történik, megjelenítjük a hibaüzenetet
+            toastText.innerHTML = "Hiba történt a kérés elküldésekor: " + error;
+            alertToast.show();
         }
-    })
+    });
+});
 
-
-
-})
 
 // updateItem
 $(document).ready(function () {
