@@ -21,14 +21,14 @@ let lastClickedCard = null;
 
 function removeCardBorder() {
     if (lastClickedCard) {
-        lastClickedCard.removeClass("border border-2 border-end-0 custom-border last-clicked");
+        lastClickedCard.removeClass("custom-border last-clicked");
         lastClickedCard = null;
     }
 }
 
 function addCardBorder(card) {
     removeCardBorder();
-    card.addClass("border border-2 border-end-0 custom-border last-clicked");
+    card.addClass("custom-border last-clicked");
     lastClickedCard = card;
     console.log("Kiválasztott tétel: " + lastClickedCard.attr("id"));
 }
