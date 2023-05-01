@@ -4,7 +4,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['selectedItem'])) {
-        
+
         $selectedItem = $_POST['selectedItem'];
         $username = $_SESSION['username'];
 
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        $query = "SELECT * FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username'";
+        $query = "SELECT * FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username' AND `id` = '{$_SESSION['id']}'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
