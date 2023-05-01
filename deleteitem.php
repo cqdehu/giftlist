@@ -1,5 +1,10 @@
 <?php
 
+if ($item['user'] != $username) {
+    echo "Csak a saját elemet tudod törölni!";
+    exit;
+}
+
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
