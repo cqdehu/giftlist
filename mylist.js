@@ -435,10 +435,8 @@ $("#deleteItemBtn").click(function () {
         },
         success: function (result) {
             if (result === "success") {
-                $('#deleteItemBtn').on('click', function () {
-                    $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.attr('id') + "' item from your list?")
-                    $('#removeItemModal').modal('show')
-                })
+                $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.attr('id') + "' item from your list?")
+                $('#removeItemModal').modal('show')
             } else {
                 toastText.innerHTML = result;
                 alertToast.show();
@@ -480,6 +478,7 @@ $("#removeItemYes").click(function () {
 $("#removeItemNo").click(function () {
     $("#removeItemModal").modal("hide");
 });
+
 
 
 
