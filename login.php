@@ -36,8 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           // Az adatokat stringgé alakítjuk, majd mentjük a cookie-ba
           $user_str = serialize($user);
           setcookie('selectedUser', $user_str);
-        
-          echo "success";
+      
         } else {
           echo "failed";
         }
