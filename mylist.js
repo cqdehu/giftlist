@@ -444,7 +444,7 @@ $("#deleteItemBtn").click(function () {
 
     $.ajax({
         type: "POST",
-        url: "checkitem.php",
+        url: "deletecheckitem.php",
         data: {
             selectedItem: lastClickedCard.attr("id"),
             userto: userto,
