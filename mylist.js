@@ -453,11 +453,12 @@ $("#deleteItemBtn").click(function () {
             var data = JSON.parse(result);
             var status = data.status;
             var itemName = data.itemName;
+            var message = data.message
             if (status == "success") {
                 $('#selectedItem').text("Would you like to permanently delete the "+ "'" +itemName + "'" +" item from your list?")
                 $('#removeItemModal').modal('show')
             } else {
-                toastText.innerHTML = result;
+                toastText.innerHTML = message;
                 alertToast.show();
             }
         },
