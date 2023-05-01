@@ -413,7 +413,7 @@ $(document).ready(function () {
                     loadItem(userto);
             
                     // A toast üzenet létrehozása
-                    var message = lastClickedCard.attr("id") + " tétel (név: " + itemName + ") módosítva lett.";
+                    var message = itemName + " tétel módosítva lett.";
                     toastText.innerHTML = message;
                     alertToast.show();
                     lastClickedCard = null;
