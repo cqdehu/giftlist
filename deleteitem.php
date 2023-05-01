@@ -1,9 +1,6 @@
 <?php
 
-if ($item['user'] != $username) {
-    echo "Csak a saját elemet tudod törölni!";
-    exit;
-}
+session_start();
 
 session_start();
 
@@ -23,20 +20,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        $query = "SELECT * FROM `items` WHERE `user` = '$username' AND `name` = '$selectedItem'";
+        $query = "SELECT * FROM `items` WHERE `name` = '$selectedItem'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
-            $deleteQuery = "DELETE FROM `items` WHERE `user` = '$username' AND `name` = '$selectedItem'";
-            $deleteResult = mysqli_query($conn, $deleteQuery);
+            $item = mysqli_fetch_assoc($result);
 
-            if ($deleteResult) {
-                echo "success";
+            if ($item['userto'] == $username) {
+                $deleteQuery = "DELETE FROM `items` WHERE `name` = '$selectedItem'";
+                $deleteResult = mysqli_query($conn, $deleteQuery);
+
+                if ($deleteResult) {
+                    echo "success";
+                } else {
+                    echo "Nem sikerült törölni az elemet az adatbázisból!";
+                }
             } else {
-                echo "Nem sikerült törölni az elemet az adatbázisból!";
+                echo "Csak a saját elemet tudod törölni!";
             }
         } else {
-            echo "Csak a saját elemet tudod törölni!";
+            echo "Nem található ilyen elem!";
         }
 
         mysqli_close($conn);
@@ -44,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Kérlek, válassz egy tételt a listából!";
     }
 }
+
 
 
 ?>
