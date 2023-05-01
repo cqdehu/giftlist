@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if (isset($_POST['selectedItem']) && !empty($_POST['selectedItem'])) {
     // Ellenőrizzük, hogy az item név mező nem üres
     if (!empty($_POST['selectedItem'])) {
         // Kapcsolódás az adatbázishoz
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         mysqli_close($conn);
     } else {
-        
+
         $selectedItem = $_POST['selectedItem'];
 
         echo "Kérlek, válassz egy tételt a listából! (c)"."//".$selectedItem;
