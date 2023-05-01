@@ -446,7 +446,7 @@ $("#deleteItemBtn").click(function () {
         type: "POST",
         url: "checkitem.php",
         data: {
-            selectedItem: lastClickedCard.data("id"),
+            selectedItem: lastClickedCard.attr("id"),
             userto: userto,
         },
         success: function (result) {
@@ -454,7 +454,7 @@ $("#deleteItemBtn").click(function () {
                 $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.data('id') + "' item from your list?")
                 $('#removeItemModal').modal('show')
             } else {
-                toastText.innerHTML = result + "/ /" + lastClickedCard.data("id"); 
+                toastText.innerHTML = result + "/ /" + lastClickedCard.attr("id"); 
                 alertToast.show();
             }
         },
