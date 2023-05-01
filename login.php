@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $row = mysqli_fetch_assoc($result);
       if (password_verify($password, $row['password'])) {
         // Sikeres bejelentkezés, átirányítjuk a felhasználót az üdvözlőoldalra
-        $_SESSION['username'] = $username;
+        $_SESSION['username'] = $row['username'];
         $id = $row['id']; // kivesszük a felhasználó id-jét az adatbázisból
         $_SESSION['id'] = $id; // elmentjük a felhasználó id-jét a session változóban
         $selectedUser = $row['username']; // kivesszük az adatbázisban tárolt felhasználónevet
