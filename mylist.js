@@ -470,7 +470,7 @@ $("#removeItemYes").click(function () {
         type: "POST",
         url: "deleteitem.php",
         data: {
-            selectedItem: lastClickedCard.data("id"),
+            selectedItem: lastClickedCard.attr("id"),
             userto: userto,
         },
         success: function (result) {
