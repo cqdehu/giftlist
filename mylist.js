@@ -392,8 +392,6 @@ $("#updateItemIcon").click(function () {
 // updateItem
 $(document).ready(function () {
     $("#updateItemBtn").click(function () {
-
-
         // Elküldjük az adatokat a PHP szkriptnek Jquery Ajax segítségével
         $.ajax({
             type: "POST",
@@ -406,29 +404,30 @@ $(document).ready(function () {
                 userto: userto,
             },
             success: function (result) {
-                if (result === "success") {
+                if (result.success) {
                     // Az adatbázisból visszakapott name érték beállítása
                     var itemName = result.itemName;
             
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
-                    loadItem(userto)
+                    loadItem(userto);
             
                     // A toast üzenet létrehozása
                     var message = lastClickedCard.attr("id") + " tétel (név: " + itemName + ") módosítva lett.";
                     toastText.innerHTML = message;
                     alertToast.show();
-                    lastClickedCard = null
-                    $("#updateItemModal").modal('hide')
+                    lastClickedCard = null;
+                    $("#updateItemModal").modal('hide');
                 } else {
                     // Hiba esetén kiírjuk a hibaüzenetet
-                    toastText.innerHTML = result;
+                    toastText.innerHTML = result.error;
                     alertToast.show();
                 }
             }
         });
     });
 });
+
 
 
 
