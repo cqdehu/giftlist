@@ -26,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $row = mysqli_fetch_assoc($result);
       if (password_verify($password, $row['password'])) {
         $sql = "SELECT `username`, `id` FROM `users` WHERE `username` = '$username'";
-        $result = mysqli_query($conn, $sql);
+        $userResult = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) > 0) {
+        if (mysqli_num_rows($userResult) > 0) {
           // Az eredményt tömbbe mentjük
-          $_SESSION['username'] = $result;
+          $_SESSION['username'] = $userResult;
         } else {
           echo "failed";
         }
