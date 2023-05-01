@@ -383,7 +383,7 @@ $("#updateItemIcon").click(function () {
             }
         });
     } else {
-        toastText.innerHTML = "No selected item!";
+        toastText.innerHTML = "Please choose an item from the list!";
         alertToast.show()
     }
 });
