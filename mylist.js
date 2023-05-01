@@ -420,7 +420,7 @@ $(document).ready(function () {
 
 //deleteItem
 $("#deleteItemBtn").click(function () {
-    if (lastClickedCard == null) {
+    if (!lastClickedCard) {
         toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
         alertToast.show();
         return;
