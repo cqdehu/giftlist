@@ -430,12 +430,12 @@ $("#deleteItemBtn").click(function () {
         type: "POST",
         url: "checkitem.php",
         data: {
-            selectedItem: lastClickedCard.attr("id"),
+            selectedItem: lastClickedCard.data("id"),
             userto: userto,
         },
         success: function (result) {
             if (result === "success") {
-                $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.attr('id') + "' item from your list?")
+                $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.data('id') + "' item from your list?")
                 $('#removeItemModal').modal('show')
             } else {
                 toastText.innerHTML = result;
@@ -454,7 +454,7 @@ $("#removeItemYes").click(function () {
         type: "POST",
         url: "deleteitem.php",
         data: {
-            selectedItem: lastClickedCard.attr("id"),
+            selectedItem: lastClickedCard.data("id"),
             userto: userto,
         },
         success: function (result) {
@@ -478,6 +478,7 @@ $("#removeItemYes").click(function () {
 $("#removeItemNo").click(function () {
     $("#removeItemModal").modal("hide");
 });
+
 
 
 
