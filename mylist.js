@@ -450,8 +450,11 @@ $("#deleteItemBtn").click(function () {
             userto: userto,
         },
         success: function (result) {
-            if (result.status == "success") {
-                $('#selectedItem').text(result.itemName)
+            var data = JSON.parse(result);
+            var status = data.status;
+            var itemName = data.itemName;
+            if (status == "success") {
+                $('#selectedItem').text(itemName)
                 $('#removeItemModal').modal('show')
             } else {
                 toastText.innerHTML = result.status;
