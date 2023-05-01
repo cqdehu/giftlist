@@ -23,22 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $selectedItem = $_POST['selectedItem'];
 
         // Ellenőrizzük, hogy a felhasználó jogosult-e a módosításra
-        $query = "SELECT name FROM `items` WHERE `itemid` = '$selectedItem' AND `user` = '$user' AND `userto` = '$userto'";
+        $query = "SELECT * FROM `items` WHERE `itemid` = '$selectedItem' AND `user` = '$user' AND `userto` = '$userto'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
-            $response = array("status" => "error", "message" => "Csak a te elemeidet tudod módosítani!");
-            echo json_encode($response);
+            echo "Csak a te elemeidet tudod módosítani!";
         } else {
-            $row = mysqli_fetch_assoc($result);
-            $itemName = $row['name'];
-            $response = array("status" => "success", "itemName" => $itemName);
-            echo json_encode($response);
+            echo "success";
         }
-        
 
         mysqli_close($conn);
     } else {
         echo "Kérlek, válassz egy tételt a listából!";
     }
 }
+?>
