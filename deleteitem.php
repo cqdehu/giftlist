@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_num_rows($result) > 0) {
             $item = mysqli_fetch_assoc($result);
 
-            if ($item['userto'] == $username) {
+            if ($item['user'] == $username) {
                 $deleteQuery = "DELETE FROM `items` WHERE `name` = '$selectedItem'";
                 $deleteResult = mysqli_query($conn, $deleteQuery);
 
