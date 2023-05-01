@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $selectedItem = $_POST['selectedItem'];
 
         // Ellenőrizzük, hogy a felhasználó jogosult-e a módosításra
-        $query = "SELECT * FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$user' AND `userto` = '$userto'";
+        $query = "SELECT * FROM `items` WHERE `itemid` = '$selectedItem' AND `user` = '$user' AND `userto` = '$userto'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
