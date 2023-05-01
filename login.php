@@ -29,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['username'] = $username;
         $id = $row['id']; // kivesszük a felhasználó id-jét az adatbázisból
         $_SESSION['id'] = $id; // elmentjük a felhasználó id-jét a session változóban
-        setcookie('selectedUser', $username);
+        $selectedUser = $row['username']; // kivesszük az adatbázisban tárolt felhasználónevet
+        setcookie('selectedUser', $selectedUser); // beállítjuk a cookie-t az adatbázisban tárolt felhasználónevre
         echo "success";
       } else {
         echo "Helytelen jelszó.";
