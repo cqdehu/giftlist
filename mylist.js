@@ -469,10 +469,13 @@ $("#removeItemYes").click(function () {
         },
         error: function (xhr, status, error) {
             console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
+        },
+        complete: function () {
+            $("#removeItemModal").modal("hide");
         }
     });
-    $("#removeItemModal").modal("hide");
 });
+
 
 $("#removeItemNo").click(function () {
     $("#removeItemModal").modal("hide");
