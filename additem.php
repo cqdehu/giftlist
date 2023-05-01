@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_num_rows($result) == 0) {
       $query = "INSERT INTO `items`(`name`, `status`, `user`, `userto`, `createDate`, `id`, `itemid`) VALUES ('$name', '$status', '$user', '$userto', '$createDate', '$id', '$itemid')";
 
-
       $result = mysqli_query($conn, $query);
       if ($result) {
         echo "success";
