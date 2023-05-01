@@ -454,7 +454,7 @@ $("#deleteItemBtn").click(function () {
                 $('#selectedItem').text(result.itemName)
                 $('#removeItemModal').modal('show')
             } else {
-                toastText.innerHTML = result;
+                toastText.innerHTML = result + " :C";
                 alertToast.show();
             }
         },
