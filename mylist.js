@@ -414,8 +414,18 @@ $(document).ready(function () {
     });
 });
 
+
+
+
+
 //deleteItem
 $("#deleteItemBtn").click(function () {
+    if (lastClickedCard == null) {
+        toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
+        alertToast.show();
+        return;
+    }
+    
     $.ajax({
         type: "POST",
         url: "checkitem.php",
@@ -425,19 +435,15 @@ $("#deleteItemBtn").click(function () {
         },
         success: function (result) {
             if (result === "success") {
-                if (lastClickedCard != null) {
-                    $("#removeItemModal").modal('show')
-                } else {
-                    toastText.innerHTML = result;
-                    alertToast.show()
-                }
+                $("#removeItemModal").modal('show');
             } else {
                 toastText.innerHTML = result;
-                alertToast.show()
+                alertToast.show();
             }
         }
-    })
-})
+    });
+});
+
 
 $("#removeItemYes").click(function () {
     $.ajax({
