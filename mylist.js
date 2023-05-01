@@ -462,6 +462,7 @@ $("#removeItemYes").click(function () {
         success: function (result) {
             if (result === "success") {
                 $("#removeItemModal").modal('hide');
+                lastClickedCard.remove();
             } else {
                 toastText.innerHTML = result;
                 alertToast.show();
