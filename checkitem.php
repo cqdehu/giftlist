@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $row = mysqli_fetch_assoc($result);
             $itemName = $row['name'];
-            json_encode(array("status" => "success", "itemName" => $itemName));
+            $response = array("status" => "success", "itemName" => $itemName);
+            echo json_encode($response);
         }
 
         mysqli_close($conn);
@@ -39,4 +40,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Kérlek, válassz egy tételt a listából!";
     }
 }
-?>
