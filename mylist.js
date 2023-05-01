@@ -457,7 +457,7 @@ $("#deleteItemBtn").click(function () {
                 $('#selectedItem').text("Would you like to permanently delete the "+ "'" +itemName + "'" +" item from your list?")
                 $('#removeItemModal').modal('show')
             } else {
-                toastText.innerHTML = result.status;
+                toastText.innerHTML = result;
                 alertToast.show();
             }
         },
