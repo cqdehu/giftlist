@@ -450,10 +450,9 @@ $("#deleteItemBtn").click(function () {
             userto: userto,
         },
         success: function (result) {
-            if (result.startsWith("Would you like to permanently remove the '")) {
-                const itemName = result.substring(42, result.length - 15);
-                $('#selectedItem').text("Would you like to permanently remove the '" + itemName + "' item from your list?");
-                $('#removeItemModal').modal('show');
+            if (result === "success") {
+                $('#selectedItem').text(result)
+                $('#removeItemModal').modal('show')
             } else {
                 toastText.innerHTML = result; 
                 alertToast.show();
