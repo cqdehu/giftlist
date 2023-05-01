@@ -425,7 +425,7 @@ $("#deleteItemBtn").click(function () {
         alertToast.show();
         return;
     }
-    
+
     $.ajax({
         type: "POST",
         url: "checkitem.php",
@@ -440,6 +440,10 @@ $("#deleteItemBtn").click(function () {
                 toastText.innerHTML = result;
                 alertToast.show();
             }
+        },
+        error: function (xhr, status, error) {
+            toastText.innerHTML = "Hiba történt az elem ellenőrzésekor.";
+            alertToast.show();
         }
     });
 });
