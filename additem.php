@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userto = $_POST['userto'];
     $status = $_POST['status'];
     $createDate = $_POST['createDate'];
-    $query = "SELECT * FROM `items` WHERE `name` = '$name' AND `user` = '$user'";
+    $query = "SELECT * FROM `items` WHERE `name` = '$name' AND `user` = '$id' AND `userto` = '$userto'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 0) {
