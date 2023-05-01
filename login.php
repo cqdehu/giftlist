@@ -25,23 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_num_rows($result) > 0) {
       $row = mysqli_fetch_assoc($result);
       if (password_verify($password, $row['password'])) {
-        $sql = "SELECT `username`, `id` FROM `users` WHERE `username` = '$username'";
-        $userResult = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-          // Az eredményt tömbbe mentjük
-          $user = mysqli_fetch_assoc($result);
-          $_SESSION['username'] = $user;
-        
-          // Az adatokat stringgé alakítjuk, majd mentjük a cookie-ba
-          $user_str = serialize($user);
-          setcookie('selectedUser', $user_str);
-      
-        } else {
-          echo "failed";
-        }
-        
-        
+        // Sikeres bejelentkezés, átirányítjuk a felhasználót az üdvözlőoldalra
+        $_SESSION['username'] = $username;
+        $id = $row['id']; // kivesszük a felhasználó id-jét az adatbázisból
+        $_SESSION['id'] = $id; // elmentjük a felhasználó id-jét a session változóban
         echo "success";
       } else {
         echo "Helytelen jelszó.";
@@ -55,3 +42,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Kérjük, töltse ki mindkét mezőt.";
   }
 }
+?>
