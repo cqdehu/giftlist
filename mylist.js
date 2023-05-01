@@ -407,10 +407,16 @@ $(document).ready(function () {
             },
             success: function (result) {
                 if (result === "success") {
+                    // Az adatbázisból visszakapott name érték beállítása
+                    var itemName = result.itemName;
+            
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
                     loadItem(userto)
-                    toastText.innerHTML = lastClickedCard.attr("id") + " tétel módosítva lett.";
+            
+                    // A toast üzenet létrehozása
+                    var message = lastClickedCard.attr("id") + " tétel (név: " + itemName + ") módosítva lett.";
+                    toastText.innerHTML = message;
                     alertToast.show();
                     lastClickedCard = null
                     $("#updateItemModal").modal('hide')
