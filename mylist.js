@@ -449,9 +449,9 @@ $("#deleteItemBtn").click(function () {
             selectedItem: lastClickedCard.attr("id"),
             userto: userto,
         },
-        success: function (result,response) {
+        success: function (result) {
             if (result === "success") {
-                $('#selectedItem').text(response)
+                $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.attr('id') + "' item from your list?")
                 $('#removeItemModal').modal('show')
             } else {
                 toastText.innerHTML = result; 
