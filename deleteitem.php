@@ -22,18 +22,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = "SELECT * FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username'";
         $result = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($result) != 1) {
-            echo "Csak a saját elemet tudod törölni! :C";
-        } else {
-            $deleteQuery = "DELETE FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username'";
-            $deleteResult = mysqli_query($conn, $deleteQuery);
-
-            if ($deleteResult) {
+        if (mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
+            $itemUser = $row['user'];
+            if ($itemUser == $username) {
+              $deleteQuery = "DELETE FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username'";
+              $deleteResult = mysqli_query($conn, $deleteQuery);
+              if ($deleteResult) {
                 echo "success";
-            } else {
+              } else {
                 echo "Nem sikerült törölni az elemet az adatbázisból!";
+              }
+            } else {
+              echo "Csak a saját elemet tudod törölni!";
             }
-        }
+          } else {
+            echo "Csak a saját elemet tudod törölni!";
+          }
+          
 
         mysqli_close($conn);
     } else {
