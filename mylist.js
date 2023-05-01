@@ -456,10 +456,14 @@ $("#removeItemYes").click(function () {
         data: {
             selectedItem: lastClickedCard.attr("id"),
         },
-        success: function (result) {
-            console.log('Sikeresen törölted az adatot az adatbázisból.');
-            lastClickedCard.remove();
-            lastClickedCard = null;
+        ssuccess: function (result) {
+            if (result === "success") {
+                $("#removeItemModal").modal('show');
+                alertToast.hide();
+            } else {
+                toastText.innerHTML = result;
+                alertToast.show();
+            }
         },
         error: function (xhr, status, error) {
             console.error('Nem sikerült törölni az adatot az adatbázisból.', error);
