@@ -450,7 +450,7 @@ $("#deleteItemBtn").click(function () {
             userto: userto,
         },
         success: function (result) {
-            if (result.status === "success") {
+            if (result.status == "success") {
                 $('#selectedItem').text(result.itemName)
                 $('#removeItemModal').modal('show')
             } else {
@@ -474,7 +474,7 @@ $("#removeItemYes").click(function () {
             userto: userto,
         },
         success: function (result) {
-            if (result === "success") {
+            if (result == "success") {
                 $("#removeItemModal").modal('hide');
                 lastClickedCard.remove();
             } else {
