@@ -456,7 +456,7 @@ $("#removeItemYes").click(function () {
         data: {
             selectedItem: lastClickedCard.attr("id"),
         },
-        ssuccess: function (result) {
+        success: function (result) {
             if (result === "success") {
                 $("#removeItemModal").modal('show');
                 alertToast.hide();
