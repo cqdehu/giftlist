@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
-            echo "Csak a te elemeidet tudod törölni!";
+            echo "Csak a te elemeidet tudod törölni! :C";
         } else {
             $deleteQuery = "DELETE FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username'";
             $deleteResult = mysqli_query($conn, $deleteQuery);
