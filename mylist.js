@@ -277,7 +277,7 @@ function loadItem(username) {
 
                 }
             } else {
-                toastText.innerHTML = userlist + ' listája jelenleg üres.';
+                toastText.innerHTML = userlist + ' list is currently empty!';
                 alertToast.show()
             }
         },
@@ -332,7 +332,7 @@ $(document).ready(function () {
                 if (response == "success") {
                     $("#listItems").empty();
                     loadItem(un)
-                    toastText.innerHTML = enterItemName.value + " tétel hozzá lett adva a listához!";
+                    toastText.innerHTML = enterItemName.value + " item has been added to the list!";
                     alertToast.show()
                     enterItemName.value = ""
                 } else {
@@ -383,7 +383,7 @@ $("#updateItemIcon").click(function () {
             }
         });
     } else {
-        toastText.innerHTML = "Nincs kijelölt elem";
+        toastText.innerHTML = "No selected item!";
         alertToast.show()
     }
 });
@@ -413,7 +413,7 @@ $(document).ready(function () {
                     loadItem(userto);
             
                     // A toast üzenet létrehozása
-                    var message = itemName + " tétel módosítva lett.";
+                    var message = itemName + " item has been modified.";
                     toastText.innerHTML = message;
                     alertToast.show();
                     lastClickedCard = null;
