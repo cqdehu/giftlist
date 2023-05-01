@@ -27,13 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
-            echo "Csak a te elemeidet tudod módosítani!";
+            $response = array("status" => "error", "message" => "Csak a te elemeidet tudod módosítani!");
+            echo json_encode($response);
         } else {
             $row = mysqli_fetch_assoc($result);
             $itemName = $row['name'];
             $response = array("status" => "success", "itemName" => $itemName);
             echo json_encode($response);
         }
+        
 
         mysqli_close($conn);
     } else {
