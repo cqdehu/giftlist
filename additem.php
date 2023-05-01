@@ -27,11 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userto = $_POST['userto'];
     $status = $_POST['status'];
     $createDate = $_POST['createDate'];
+    $itemid = uniqid();
     $query = "SELECT * FROM `items` WHERE `name` = '$name' AND `user` = '$user' AND `userto` = '$userto'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 0) {
-      $query = "INSERT INTO `items`(`name`, `status`, `user`, `userto`, `createDate`, `id`) VALUES ('$name', '$status', '$user', '$userto', '$createDate', '$id')";
+      $query = "INSERT INTO `items`(`name`, `status`, `user`, `userto`, `createDate`, `itemid`) VALUES ('$name', '$status', '$user', '$userto', '$createDate', '$itemid')";
+
       $result = mysqli_query($conn, $query);
       if ($result) {
         echo "success";
