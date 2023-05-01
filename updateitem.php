@@ -1,52 +1,47 @@
 <?php
 session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // Ellenőrizzük, hogy az item név mező nem üres
-  if (!empty($_POST['name'])) {
-    // Kapcsolódás az adatbázishoz
-    $servername = 'localhost';
-    $dbusername = 'u142909563_admin';
-    $dbpassword = 'kcRN[bK7';
-    $dbname = 'u142909563_database';
+    // Ellenőrizzük, hogy az item neve mező nem üres
+    if (!empty($_POST['name'])) {
+        // Kapcsolódás az adatbázishoz
+        $servername = 'localhost';
+        $dbusername = 'u142909563_admin';
+        $dbpassword = 'kcRN[bK7';
+        $dbname = 'u142909563_database';
 
-    $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
+        $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
 
-    // Ellenőrizzük, hogy sikerült-e kapcsolódni az adatbázishoz
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
+        // Ellenőrizzük, hogy sikerült-e kapcsolódni az adatbázishoz
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
-    // Ellenőrizzük, hogy az item neve még nem foglalt-e
-    $name = $_POST['name'];
-    $user = $_SESSION['username'];
-    $userto = $_POST['userto'];
-    $status = $_POST['status'];
-    $createDate = $_POST['createDate'];
-    $id = $_SESSION['id'];
-    $selectedItem = $_POST['selectedItem'];
-  
-    $query = "SELECT * FROM `items` WHERE `itemid` = '$selectedItem' AND `user` = '$user' AND `userto` = '$userto'";
-    $result = mysqli_query($conn, $query);
+        // Ellenőrizzük, hogy a felhasználó jogosult-e a módosításra
+        $user = $_SESSION['username'];
+        $userto = $_POST['userto'];
+        $selectedItem = $_POST['selectedItem'];
+        $name = mysqli_real_escape_string($conn, $_POST['name']);
+        $status = mysqli_real_escape_string($conn, $_POST['status']);
 
-    if (mysqli_num_rows($result) == 1) {
-      // Az itemet a felhasználói adatbázisban frissítjük
-      $query = "UPDATE `items` SET `name`='$name',`status`='$status',`createDate`='$createDate' WHERE `user` = '$user' AND `userto` = '$userto' AND `itemid` = '$selectedItem'";
-      $result = mysqli_query($conn, $query);
+        $query = "SELECT * FROM `items` WHERE `itemid` = '$selectedItem' AND `user` = '$user' AND `userto` = '$userto'";
+        $result = mysqli_query($conn, $query);
 
-      if ($result) {
-        echo "success";
-      } else {
-        echo "Hiba történt a tétel módosítása során.";
-      }
+        if (mysqli_num_rows($result) != 1) {
+            echo "Csak a te elemeidet tudod módosítani!";
+        } else {
+            $query = "UPDATE `items` SET `name` = '$name', `status` = '$status' WHERE `itemid` = '$selectedItem'";
+            if (mysqli_query($conn, $query)) {
+                // Sikeres módosítás esetén visszaküldjük az új nevet a JavaScriptnek
+                echo $name;
+            } else {
+                echo "Hiba történt a módosítás során.";
+            }
+        }
+
+        mysqli_close($conn);
     } else {
-      echo "Csak saját elemek módosíthatóak.";
+        echo "Az elem neve nem lehet üres!";
     }
-
-    mysqli_close($conn);
-  } else {
-    echo "Kérjük, töltse ki az Item mezőt.";
-  }
 }
-
-
 ?>
