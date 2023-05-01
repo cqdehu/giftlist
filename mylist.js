@@ -404,9 +404,9 @@ $(document).ready(function () {
                 userto: userto,
             },
             success: function (result) {
-                if (result.success) {
+                if (result) {
                     // Az adatbázisból visszakapott name érték beállítása
-                    var itemName = result.itemName;
+                    var itemName = result;
             
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
@@ -427,6 +427,7 @@ $(document).ready(function () {
         });
     });
 });
+
 
 
 
