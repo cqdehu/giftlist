@@ -454,7 +454,7 @@ $("#deleteItemBtn").click(function () {
                 $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.data('id') + "' item from your list?")
                 $('#removeItemModal').modal('show')
             } else {
-                toastText.innerHTML = result + "/ /" + lastClickedCard.attr("id"); 
+                toastText.innerHTML = result; 
                 alertToast.show();
             }
         },
