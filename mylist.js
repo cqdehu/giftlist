@@ -354,7 +354,7 @@ $(document).ready(function () {
 $("#updateItemIcon").click(function () {
     $.ajax({
         type: "POST",
-        url: "checkitem.php",
+        url: "updatecheckitem.php",
         data: {
             selectedItem: lastClickedCard.attr("id"),
             userto: userto,
