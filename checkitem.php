@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $row = mysqli_fetch_assoc($result);
             $itemName = $row['name'];
-            echo json_encode(array("status" => "success", "itemName" => $itemName));
+            json_encode(array("status" => "success", "itemName" => $itemName));
         }
 
         mysqli_close($conn);
