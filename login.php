@@ -31,10 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_num_rows($userResult) > 0) {
           // Az eredményt tömbbe mentjük
           $_SESSION['username'] = $userResult;
+          setcookie('selectedUser', $userResult);
         } else {
           echo "failed";
         }
-        setcookie('selectedUser', $_SESSION['username']);
+        
         echo "success";
       } else {
         echo "Helytelen jelszó.";
