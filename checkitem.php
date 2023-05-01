@@ -34,6 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         mysqli_close($conn);
     } else {
+        $selectedItem = $_POST['selectedItem'];
+
         echo "Kérlek, válassz egy tételt a listából! (c)"."//".$selectedItem;
     }
 }
