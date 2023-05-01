@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
-            echo json_encode(array("status" => "error", "message" => "Csak a te elemeidet tudod módosítani!"));
+            echo "Csak a te elemeidet tudod módosítani!";
         } else {
             $row = mysqli_fetch_assoc($result);
             $itemName = $row['name'];
