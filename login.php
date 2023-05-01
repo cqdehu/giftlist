@@ -28,13 +28,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "SELECT `username`, `id` FROM `users` WHERE `username` = '$username'";
         $userResult = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($userResult) > 0) {
+        if (mysqli_num_rows($result) > 0) {
           // Az eredményt tömbbe mentjük
-          $_SESSION['username'] = $userResult;
-          setcookie('selectedUser', $userResult);
+          $user = mysqli_fetch_assoc($result);
+          $_SESSION['username'] = $user;
+        
+          // Az adatokat stringgé alakítjuk, majd mentjük a cookie-ba
+          $user_str = serialize($user);
+          setcookie('selectedUser', $user_str);
+        
+          echo "success";
         } else {
           echo "failed";
         }
+        
         
         echo "success";
       } else {
