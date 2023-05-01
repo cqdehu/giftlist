@@ -454,7 +454,7 @@ $("#deleteItemBtn").click(function () {
             var status = data.status;
             var itemName = data.itemName;
             if (status == "success") {
-                $('#selectedItem').text(itemName)
+                $('#selectedItem').text("Would you like to permanently delete the "+ itemName +" item from your list?")
                 $('#removeItemModal').modal('show')
             } else {
                 toastText.innerHTML = result.status;
