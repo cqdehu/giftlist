@@ -436,13 +436,8 @@ $("#deleteItemBtn").click(function () {
         success: function (result) {
             if (result === "success") {
                 $('#deleteItemBtn').on('click', function () {
-                    if (lastClickedCard != null) {
-                        $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.attr('id') + "' item from your list?")
-                        $('#removeItemModal').modal('show')
-                    } else {
-                        toastText.innerHTML = "Kérlek, válassz egy tételt a listából!";
-                        alertToast.show()
-                    }
+                    $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.attr('id') + "' item from your list?")
+                    $('#removeItemModal').modal('show')
                 })
             } else {
                 toastText.innerHTML = result;
@@ -466,8 +461,7 @@ $("#removeItemYes").click(function () {
         },
         success: function (result) {
             if (result === "success") {
-                $("#removeItemModal").modal('show');
-                alertToast.hide();
+                $("#removeItemModal").modal('hide');
             } else {
                 toastText.innerHTML = result;
                 alertToast.show();
