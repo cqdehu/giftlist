@@ -219,10 +219,10 @@ function loadItem(username) {
                     var createDate = data[i].createDate;
                     var id = data[i].id;
                     var userto = data[i].userto;
-                    var itemid = data[i].itemid
+                    var itemid = data[i].itemid;
 
                     //Kiírás
-                    console.log(name + ", " + status + ", " + user + ", " + userto + ", " + createDate + ", " + id)
+                    console.log(name + ", " + status + ", " + user + ", " + userto + ", " + createDate + ", " + id + "," + itemid)
 
                     const newCardDiv = document.createElement("div")
                     newCardDiv.className = "row ms-4 mb-4 rounded-start-4 align-items-center item-card ";
