@@ -21,7 +21,6 @@ if (!isset($_SESSION['username'])) {
     $id = $_SESSION['id'];
 
     $sql = "SELECT `username`, `id` FROM `users` WHERE `username` = '$user' AND `id`='$id'";
-            ;
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
