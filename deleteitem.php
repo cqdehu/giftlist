@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     echo "Nem sikerült törölni az elemet az adatbázisból!";
                 }
             } else {
-                echo "Csak a saját elemet tudod törölni!";
+                echo "Csak a saját elemet tudod törölni!". $username;
             }
         } else {
             echo "Nem található ilyen elem!";
