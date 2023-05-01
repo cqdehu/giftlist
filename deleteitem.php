@@ -33,16 +33,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Ellenőrizzük, hogy a felhasználó saját elemét próbálja-e törölni
             if ($item['user'] == $username) {
+                $query = "SELECT name FROM `items` WHERE `itemid` = '$selectedItem'";
+                $nameResult = mysqli_query($conn, $query);
+                $nameRow = mysqli_fetch_assoc($nameResult);
+                $name = $nameRow['name'];
+            
                 $deleteQuery = "DELETE FROM `items` WHERE `itemid` = '$selectedItem'";
                 $deleteResult = mysqli_query($conn, $deleteQuery);
-
+            
                 if ($deleteResult) {
-                    echo "success";
+                    echo "Would you like to permanently remove the '{$name}' item from your list?";
                 } else {
                     echo "Nem sikerült törölni az elemet az adatbázisból!";
                 }
             } else {
-                echo "Csak a saját elemet tudod törölni!". $username;
+                echo "Csak a saját elemet tudod törölni!";
             }
         } else {
             echo "Nem található ilyen elem!";
