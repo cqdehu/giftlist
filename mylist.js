@@ -451,13 +451,13 @@ $("#deleteItemBtn").click(function () {
     });
 });
 
-
 $("#removeItemYes").click(function () {
     $.ajax({
         type: "POST",
         url: "deleteitem.php",
         data: {
             selectedItem: lastClickedCard.attr("id"),
+            userto: userto,
         },
         success: function (result) {
             if (result === "success") {
@@ -476,7 +476,6 @@ $("#removeItemYes").click(function () {
         }
     });
 });
-
 
 $("#removeItemNo").click(function () {
     $("#removeItemModal").modal("hide");
