@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 0) {
-      $query = "INSERT INTO `items`(`name`, `status`, `user`, `userto`, `createDate`, `id`, `itemid`) VALUES ('$name', '$status', '$user', '$userto', '$createDate', '$id', '$itemid')";
+      $query = "INSERT INTO `items`(`name`, `status`, `user`, `userto`, `createDate`, `itemid`) VALUES ('$name', '$status', '$user', '$userto', '$createDate', '$itemid')";
+
 
       $result = mysqli_query($conn, $query);
       if ($result) {
