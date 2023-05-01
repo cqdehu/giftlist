@@ -5,6 +5,13 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['selectedItem'])) {
         $selectedItem = $_POST['selectedItem'];
+        
+        // Ellenőrizzük, hogy a felhasználó be van-e jelentkezve
+        if (!isset($_SESSION['username'])) {
+            echo "Kérlek jelentkezz be!";
+            exit();
+        }
+        
         $username = $_SESSION['username'];
 
         $servername = 'localhost';
@@ -24,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_num_rows($result) > 0) {
             $item = mysqli_fetch_assoc($result);
 
+            // Ellenőrizzük, hogy a felhasználó saját elemét próbálja-e törölni
             if ($item['user'] == $username) {
                 $deleteQuery = "DELETE FROM `items` WHERE `itemid` = '$selectedItem'";
                 $deleteResult = mysqli_query($conn, $deleteQuery);
