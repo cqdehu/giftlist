@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        $query = "SELECT * FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username' AND `id` = '{$_SESSION['id']}'";
+        $query = "SELECT * FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
