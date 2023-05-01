@@ -28,20 +28,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
-            echo "Csak a te elemeidet tudod módosítani!";
+            echo "Only your elements can be modified!";
         } else {
             $query = "UPDATE `items` SET `name` = '$name', `status` = '$status' WHERE `itemid` = '$selectedItem'";
             if (mysqli_query($conn, $query)) {
                 // Sikeres módosítás esetén visszaküldjük az új nevet a JavaScriptnek
                 echo $name;
             } else {
-                echo "Hiba történt a módosítás során.";
+                echo "An error has been made in the modification.";
             }
         }
 
         mysqli_close($conn);
     } else {
-        echo "Az elem neve nem lehet üres!";
+        echo "The element name cannot be empty!";
     }
 }
 ?>

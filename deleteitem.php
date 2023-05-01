@@ -39,18 +39,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($deleteResult) {
                     echo "success";
                 } else {
-                    echo "Nem sikerült törölni az elemet az adatbázisból!";
+                    echo "Could not delete the item from the database!";
                 }
             } else {
-                echo "Csak a saját elemet tudod törölni!". $username;
+                echo "You can only delete your own item!";
             }
         } else {
-            echo "Nem található ilyen elem!";
+            echo "No such item found!";
         }
 
         mysqli_close($conn);
     } else {
-        echo "Kérlek, válassz egy tételt a listából!";
+        echo "Please choose an item from the list!";
     }
 }
 

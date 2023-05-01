@@ -33,15 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         setcookie('selectedUser', $selectedUser); // beállítjuk a cookie-t az adatbázisban tárolt felhasználónevre
         echo "success";
       } else {
-        echo "Helytelen jelszó.";
+        echo "Incorrect password!";
       }
     } else {
-      echo "Nincs ilyen felhasználónév.";
+      echo "No such username!";
     }
 
     mysqli_close($conn);
   } else {
-    echo "Kérjük, töltse ki mindkét mezőt.";
+    echo "Please fill in both fields!";
   }
 }
 ?>

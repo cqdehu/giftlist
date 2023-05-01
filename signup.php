@@ -34,15 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['username'] = $username;
         echo "success";
       } else {
-        echo "Hiba történt a regisztráció során.";
+        echo "An error occurred during registration.";
       }
     } else {
-      echo "A felhasználónév már foglalt.";
+      echo "The username is already taken.";
     }
 
     mysqli_close($conn);
   } else {
-    echo "Kérjük, töltse ki mindkét mezőt.";
+    echo "Please fill in both fields.";
   }
 }
 ?>

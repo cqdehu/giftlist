@@ -38,10 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if ($result) {
         echo "success";
       } else {
-        echo "Hiba történt a tétel hozzáadása során.";
+        echo "An error was made when adding the item.";
       }
     } else {
-      echo "Már egyszer szerepel a listán.";
+      echo "It is already on the list once.";
     }
     mysqli_close($conn);
   }

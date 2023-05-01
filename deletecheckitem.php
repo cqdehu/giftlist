@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
-            $response = array("status" => "error", "message" => "Csak a te elemeidet tudod módosítani!");
+            $response = array("status" => "error", "message" => "Only your elements can be modified!");
             echo json_encode($response);
         } else {
             $row = mysqli_fetch_assoc($result);
@@ -39,6 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         mysqli_close($conn);
     } else {
-        echo "Kérlek, válassz egy tételt a listából!";
+        echo "Please choose an item from the list!";
     }
 }

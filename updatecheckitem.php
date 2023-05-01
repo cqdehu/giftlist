@@ -27,14 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) != 1) {
-            echo "Csak a te elemeidet tudod módosítani!";
+            echo "Only your elements can be modified!";
         } else {
             echo "success";
         }
 
         mysqli_close($conn);
     } else {
-        echo "Kérlek, válassz egy tételt a listából!";
+        echo "Please select an item from the list!";
     }
 }
 ?>
