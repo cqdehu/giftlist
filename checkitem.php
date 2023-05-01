@@ -1,52 +1,40 @@
 <?php
 session_start();
-$servername = 'localhost';
-$dbusername = 'u142909563_admin';
-$dbpassword = 'kcRN[bK7';
-$dbname = 'u142909563_database';
-$conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
 
-// Ellenőrizzük, hogy sikerült-e kapcsolódni az adatbázishoz
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Ellenőrizzük, hogy az item név mező nem üres
+    if (!empty($_POST['selectedItem'])) {
+        // Kapcsolódás az adatbázishoz
+        $servername = 'localhost';
+        $dbusername = 'u142909563_admin';
+        $dbpassword = 'kcRN[bK7';
+        $dbname = 'u142909563_database';
 
-$username = $_SESSION['username'];
-$selectedItem = $_POST['selectedItem'];
+        $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
 
-// Check if the item exists and find its owner
-$checkQuery = "SELECT * FROM `items` WHERE `name` = '$selectedItem'";
-$checkResult = mysqli_query($conn, $checkQuery);
+        // Ellenőrizzük, hogy sikerült-e kapcsolódni az adatbázishoz
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
-if (mysqli_num_rows($checkResult) == 1) {
-    $row = mysqli_fetch_assoc($checkResult);
-    $itemUser = $row['user'];
-    if ($itemUser == $username) {
-        $deleteQuery = "DELETE FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$username'";
-        $deleteResult = mysqli_query($conn, $deleteQuery);
-        if ($deleteResult) {
+        // Ellenőrizzük, hogy az item neve még nem foglalt-e
+        $user = $_SESSION['username'];
+        $userto = $_POST['userto'];
+        $selectedItem = $_POST['selectedItem'];
+
+        // Ellenőrizzük, hogy a felhasználó jogosult-e a módosításra
+        $query = "SELECT * FROM `items` WHERE `name` = '$selectedItem' AND `user` = '$user' AND `userto` = '$userto'";
+        $result = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($result) != 1) {
+            echo "Csak a te elemeidet tudod módosítani!";
+        } else {
             echo "success";
-        } else {
-            echo "Nem sikerült törölni az elemet az adatbázisból!";
         }
+
+        mysqli_close($conn);
     } else {
-        // Find the user who added the item and delete it from their list
-        $findUserQuery = "SELECT * FROM `users` WHERE `username` = '$itemUser'";
-        $findUserResult = mysqli_query($conn, $findUserQuery);
-        if (mysqli_num_rows($findUserResult) == 1) {
-            $userRow = mysqli_fetch_assoc($findUserResult);
-            $userId = $userRow['id'];
-            $deleteQuery = "DELETE FROM `items` WHERE `name` = '$selectedItem' AND `user_id` = '$userId'";
-            $deleteResult = mysqli_query($conn, $deleteQuery);
-            if ($deleteResult) {
-                echo "success";
-            } else {
-                echo "Nem sikerült törölni az elemet az adatbázisból!";
-            }
-        } else {
-            echo "Nem található a felhasználó az adatbázisban!";
-        }
+        echo "Kérlek, válassz egy tételt a listából!";
     }
-} else {
-    echo "Az elem nem található az adatbázisban!";
 }
+?>
