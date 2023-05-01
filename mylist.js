@@ -351,7 +351,6 @@ $(document).ready(function () {
 
 
 //////////////////////////////////////////////////////////////////////////////////
-
 $("#updateItemIcon").click(function () {
     $.ajax({
         type: "POST",
@@ -363,8 +362,20 @@ $("#updateItemIcon").click(function () {
         success: function (result) {
             if (result === "success") {
                 if (lastClickedCard != null) {
-                    $("#updateItemModal").modal('show')
-                    enterEditItemName.value = lastClickedCard.attr("id")
+                    // Az adatok elküldése a get_item_name.php oldalnak
+                    $.ajax({
+                        type: "POST",
+                        url: "get_item_name.php",
+                        data: {
+                            selectedItem: lastClickedCard.attr("id"),
+                            userto: userto,
+                        },
+                        success: function (itemName) {
+                            $("#updateItemModal").modal('show');
+                            // Az elem nevének beállítása az enterEditItemName mezőbe
+                            enterEditItemName.value = itemName;
+                        }
+                    });
                 } else {
                     toastText.innerHTML = result;
                     alertToast.show()
@@ -374,11 +385,9 @@ $("#updateItemIcon").click(function () {
                 alertToast.show()
             }
         }
-    })
+    });
+});
 
-
-
-})
 
 // updateItem
 $(document).ready(function () {
