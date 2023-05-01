@@ -407,11 +407,11 @@ $(document).ready(function () {
                 if (result) {
                     // Az adatbázisból visszakapott name érték beállítása
                     var itemName = result;
-            
+
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
                     loadItem(userto);
-            
+
                     // A toast üzenet létrehozása
                     var message = itemName + " tétel módosítva lett.";
                     toastText.innerHTML = message;
@@ -450,11 +450,11 @@ $("#deleteItemBtn").click(function () {
             userto: userto,
         },
         success: function (result) {
-            if (result === "success") {
-                $('#selectedItem').text("Would you like to permanently remove the '" + lastClickedCard.attr('id') + "' item from your list?")
+            if (result.status === "success") {
+                $('#selectedItem').text(result.itemName)
                 $('#removeItemModal').modal('show')
             } else {
-                toastText.innerHTML = result; 
+                toastText.innerHTML = result;
                 alertToast.show();
             }
         },
