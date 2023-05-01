@@ -468,6 +468,7 @@ $("#deleteItemBtn").click(function () {
     });
 });
 
+
 $("#removeItemYes").click(function () {
     $.ajax({
         type: "POST",
