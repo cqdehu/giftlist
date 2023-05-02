@@ -1,6 +1,8 @@
 $('#deleteSection').hide()
 $('#updateSection').hide()
 
+var originalTitle = document.title;
+
 const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
@@ -125,25 +127,13 @@ function auth() {
                         var username = data[i].username;
                         var id = data[i].id;
 
-                        un = username
-                        userto = selectedUser
-
-                        const loggedInUserId = un;
-                        const currentUserId = card.attr("id");
-                        const isCurrentUser = currentUserId === loggedInUserId;
-
-                        if (isCurrentUser) {
-                            document.title = `${currentUserId} | GIFTLIST`;
-                            $("#displayTitle").text(`${currentUserId}'s list`);
-                        } else {
-                            document.title = `to ${currentUserId} | GIFTLIST`;
-                            $("#displayTitle").text(`to ${currentUserId}'s list`);
-                        }
+                        document.title = selectedUser + " | " + "GIFTLIST"
                         $("#displayTitle").text(selectedUser + "'s list")
                         $("#username").text(username)
                         $("#id").text(id)
 
-                        
+                        un = username
+                        userto = selectedUser
 
                         console.log(un + "/////" + userto)
 
@@ -188,6 +178,8 @@ function auth() {
             }
         });
     }, 100)
+
+    document.title = originalTitle;
 }
 
 //Cookie érték figyelése
@@ -598,21 +590,21 @@ function addCardBorderi(card) {
 $(document).on('click', '.invite-card', function (event) {
     const card = $(event.target).closest('.invite-card');
     if (!card.length) {
-        return;
+      return;
     }
-
+  
     const loggedInUserId = un;
     const currentUserId = card.attr("id");
     const isCurrentUser = currentUserId === loggedInUserId;
-
+  
     if (isCurrentUser) {
-        document.title = `${currentUserId} | GIFTLIST`;
-        $("#displayTitle").text(`${currentUserId}'s list`);
+      document.title = `${currentUserId} | GIFTLIST`;
+      $("#displayTitle").text(`${currentUserId}'s list`);
     } else {
-        document.title = `to ${currentUserId} | GIFTLIST`;
-        $("#displayTitle").text(`to ${currentUserId}'s list`);
+      document.title = `to ${currentUserId} | GIFTLIST`;
+      $("#displayTitle").text(`to ${currentUserId}'s list`);
     }
-
+  
     addCardBorderi(card);
     $("#listItems").empty();
     userto = currentUserId;
@@ -620,8 +612,8 @@ $(document).on('click', '.invite-card', function (event) {
     console.log(un + "//////" + userto);
     loadItem(selectedUser);
     $('#offcanvasMenu').offcanvas('hide');
-});
-
+  });
+  
 
 
 
