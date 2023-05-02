@@ -597,7 +597,7 @@ $(document).on('click', '.invite-card', function (event) {
     console.log(un + "//////" + userto)
     loadItem(selectedUser)
     document.title = "to "+lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
-    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
+    $("#displayTitle").text("to "+lastClickedInviteCard.attr("id") + "'s list")
     $('#offcanvasMenu').offcanvas('hide');
 
 
