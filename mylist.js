@@ -285,6 +285,7 @@ function loadItem(username) {
                         newItemStatus.src = ""
                     }
 
+                    
                     if (user == userto) {
                         newCardDiv.className += "bg-white"
                     } else {
