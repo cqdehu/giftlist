@@ -127,7 +127,6 @@ function auth() {
                         var username = data[i].username;
                         var id = data[i].id;
 
-                        document.title = selectedUser + " | " + "GIFTLIST"
                         $("#displayTitle").text(selectedUser + "'s list")
                         $("#username").text(username)
                         $("#id").text(id)
@@ -179,7 +178,7 @@ function auth() {
         });
     }, 100)
 
-    document.title = originalTitle;
+
 }
 
 //Cookie érték figyelése
@@ -586,25 +585,35 @@ function addCardBorderi(card) {
     console.log("Kiválasztott tétel: " + lastClickedInviteCard.attr("id"));
 }
 
+function setInitialTitle() {
+    var selectedUser = $.cookie('selectedUser');
+    document.title = selectedUser + " | " + "GIFTLIST";
+    $("#displayTitle").text(selectedUser + "'s list");
+}
+
+$(document).ready(function () {
+    setInitialTitle();
+});
+
 
 $(document).on('click', '.invite-card', function (event) {
     const card = $(event.target).closest('.invite-card');
     if (!card.length) {
-      return;
+        return;
     }
-  
+
     const loggedInUserId = un;
     const currentUserId = card.attr("id");
     const isCurrentUser = currentUserId === loggedInUserId;
-  
+
     if (isCurrentUser) {
-      document.title = `${currentUserId} | GIFTLIST`;
-      $("#displayTitle").text(`${currentUserId}'s list`);
+        document.title = `${currentUserId} | GIFTLIST`;
+        $("#displayTitle").text(`${currentUserId}'s list`);
     } else {
-      document.title = `to ${currentUserId} | GIFTLIST`;
-      $("#displayTitle").text(`to ${currentUserId}'s list`);
+        document.title = `to ${currentUserId} | GIFTLIST`;
+        $("#displayTitle").text(`to ${currentUserId}'s list`);
     }
-  
+
     addCardBorderi(card);
     $("#listItems").empty();
     userto = currentUserId;
@@ -612,8 +621,8 @@ $(document).on('click', '.invite-card', function (event) {
     console.log(un + "//////" + userto);
     loadItem(selectedUser);
     $('#offcanvasMenu').offcanvas('hide');
-  });
-  
+});
+
 
 
 
