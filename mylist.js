@@ -575,9 +575,9 @@ let lastClickedInviteCard = null;
 
 function addCardBorderi(card) {
     if (lastClickedInviteCard) {
-        lastClickedInviteCard.removeClass("border border-4 border-danger last-clickedi");
+        lastClickedInviteCard.removeClass("custom-border last-clickedi");
     }
-    card.addClass("border border-4 border-danger last-clickedi");
+    card.addClass("custom-border last-clickedi");
     lastClickedInviteCard = card;
     console.log("Kiválasztott tétel: " + lastClickedInviteCard.attr("id"));
 }
@@ -588,17 +588,30 @@ $(document).on('click', '.invite-card', function (event) {
     if (!card.length) {
         return;
     }
-
-
-    addCardBorderi(card);
-    $("#listItems").empty();
-    userto = lastClickedInviteCard.attr("id")
     var selectedUser = $.cookie("selectedUser", userto)
-    console.log(un + "//////" + userto)
-    loadItem(selectedUser)
-    document.title = "to "+lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
-    $("#displayTitle").text("to "+lastClickedInviteCard.attr("id") + "'s list")
-    $('#offcanvasMenu').offcanvas('hide');
+
+    if (selectedUser == un) {
+        addCardBorderi(card);
+        $("#listItems").empty();
+        userto = lastClickedInviteCard.attr("id")
+        console.log(un + "//////" + userto)
+        loadItem(selectedUser)
+        document.title =lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
+        $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
+        $('#offcanvasMenu').offcanvas('hide');
+
+    } else {
+        addCardBorderi(card);
+        $("#listItems").empty();
+        userto = lastClickedInviteCard.attr("id")
+        console.log(un + "//////" + userto)
+        loadItem(selectedUser)
+        document.title = "to " + lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
+        $("#displayTitle").text("to " + lastClickedInviteCard.attr("id") + "'s list")
+        $('#offcanvasMenu').offcanvas('hide');
+    }
+
+
 
 
 });
@@ -661,13 +674,6 @@ function getInvite() {
     });
 }
 
-
-$('#myList').on('click', function () {
-    document.title =lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
-    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
-    $("#listItems").empty();
-    auth()
-})
 
 
 $('#logoBtn').on('click', function () {
