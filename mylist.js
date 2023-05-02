@@ -1,6 +1,7 @@
 $('#deleteSection').hide()
 $('#updateSection').hide()
 
+
 const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
 var toastText = document.querySelector(".toast-body")
@@ -587,25 +588,15 @@ function addCardBorderi(card) {
 
 
 
-
-
-
-
 function setInitialTitle() {
     var selectedUser = $.cookie('selectedUser');
-    if (selectedUser) {
-        if (selectedUser != un) {
-            document.title = `to ${selectedUser} | GIFTLIST`;
-            $("#displayTitle").text(`to ${selectedUser}'s list`);
-        } else {
-            document.title = `${selectedUser} | GIFTLIST`;
-            $("#displayTitle").text(`${selectedUser}'s list`);
-        }
-    }
+    document.title = selectedUser + " | " + "GIFTLIST";
+    $("#displayTitle").text(selectedUser + "'s list");
 }
 
 function setTitlesForUser(userId) {
-    if (userId === un) {
+    var selectedUser = $.cookie('selectedUser');
+    if (userId === selectedUser) {
         document.title = `${userId} | GIFTLIST`;
         $("#displayTitle").text(`${userId}'s list`);
     } else {
@@ -641,8 +632,6 @@ $(document).ready(function () {
         $('#offcanvasMenu').offcanvas('hide');
     });
 });
-
-  
 
 
 
