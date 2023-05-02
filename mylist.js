@@ -58,8 +58,27 @@ $(document).on('dblclick', '.item-card', function (event) {
         removeCardBorder();
     } else {
         addCardBorder(card);
+        $.ajax({
+            type: "POST",
+            url: "checkitem.php",
+            data: {
+                selectedItem: lastClickedCard.attr("id"),
+                userto: userto,
+            },
+            success: function (result) {
+                if (result === "success") {
+                    toastText.innerHTML = "The selected item can be modified!";
+                    successToast.show();
+                } else {
+                    toastText.innerHTML = result;
+                    alertToast.show();
+                }
+            }
+        });
     }
 });
+
+
 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -407,11 +426,11 @@ $(document).ready(function () {
                 if (result) {
                     // Az adatbázisból visszakapott name érték beállítása
                     var itemName = result;
-            
+
                     // Sikeres esetben frissítjük az oldalt
                     $("#listItems").empty();
                     loadItem(userto);
-            
+
                     // A toast üzenet létrehozása
                     var message = itemName + " item has been modified.";
                     toastText.innerHTML = message;
@@ -455,7 +474,7 @@ $("#deleteItemBtn").click(function () {
             var itemName = data.itemName;
             var message = data.message
             if (status == "success") {
-                $('#selectedItem').text("Would you like to permanently delete the "+ "'" +itemName + "'" +" item from your list?")
+                $('#selectedItem').text("Would you like to permanently delete the " + "'" + itemName + "'" + " item from your list?")
                 $('#removeItemModal').modal('show')
             } else {
                 toastText.innerHTML = message;
