@@ -596,14 +596,7 @@ function setInitialTitle() {
 }
 
 function setTitlesForUser(userId) {
-    var selectedUser = $.cookie('selectedUser');
-    if (userId === selectedUser) {
-        document.title = `${userId} | GIFTLIST`;
-        $("#displayTitle").text(`${userId}'s list`);
-    } else {
-        document.title = `to ${userId} | GIFTLIST`;
-        $("#displayTitle").text(`to ${userId}'s list`);
-    }
+
 }
 
 $(document).ready(function () {
@@ -618,8 +611,15 @@ $(document).ready(function () {
         }
 
         const loggedInUserId = un;
-        const currentUserId = card.attr("id");
-        setTitlesForUser(currentUserId);
+
+        var selectedUser = $.cookie('selectedUser');
+        if (loggedInUserId === selectedUser) {
+            document.title = `${userId} | GIFTLIST`;
+            $("#displayTitle").text(`${userId}'s list`);
+        } else {
+            document.title = `to ${userId} | GIFTLIST`;
+            $("#displayTitle").text(`to ${userId}'s list`);
+        }
 
         addCardBorderi(card);
         $("#listItems").empty();
