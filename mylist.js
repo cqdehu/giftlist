@@ -443,6 +443,8 @@ $(document).ready(function () {
                     alertToast.show();
                     lastClickedCard = null;
                     $("#updateItemModal").modal('hide');
+                    $('#deleteSection').fadeOut()
+                    $('#updateSection').fadeOut()
                 } else {
                     // Hiba esetén kiírjuk a hibaüzenetet
                     toastText.innerHTML = result.error;
@@ -516,6 +518,8 @@ $("#removeItemYes").click(function () {
         },
         complete: function () {
             $("#removeItemModal").modal("hide");
+            $('#deleteSection').fadeOut()
+            $('#updateSection').fadeOut()
         }
     });
 });
