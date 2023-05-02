@@ -627,6 +627,7 @@ $(document).ready(function () {
         console.log(un + "//////" + userto);
         loadItem(userto);
         $('#offcanvasMenu').offcanvas('hide');
+        console.log(selectedUser+" AND "+loggedInUserId)
     });
 });
 
