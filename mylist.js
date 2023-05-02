@@ -126,12 +126,18 @@ function auth() {
                         var username = data[i].username;
                         var id = data[i].id;
 
-                        $("#displayTitle").text(selectedUser + "'s list")
-                        $("#username").text(username)
-                        $("#id").text(id)
 
                         un = username
                         userto = selectedUser
+
+                        $("#username").text(username)
+                        $("#id").text(id)
+
+                        if (selectedUser === un) {
+                            $("#displayTitle").text(selectedUser + "'s list")
+                        } else {
+                            $("#displayTitle").text("to " + selectedUser + "'s list")
+                        }
 
                         console.log(un + "/////" + userto)
 
@@ -609,6 +615,16 @@ $(document).ready(function () {
     });
 });
 
+
+//var selectedUser = $.cookie('selectedUser');
+//
+//if (selectedUser === un) {
+//    document.title = `${userId} | GIFTLIST`;
+//    $("#displayTitle").text(`${userId}'s list`);
+//} else {
+//    document.title = `to ${userId} | GIFTLIST`;
+//    $("#displayTitle").text(`to ${userId}'s list`);
+//}
 
 
 
