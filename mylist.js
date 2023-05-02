@@ -272,16 +272,16 @@ function loadItem(username) {
                     const newItemStatus = document.createElement("img")
                     newItemStatus.className = "icon_status"
 
-                    if (status == 3) {
+                    if (status == 1) {
                         newItemStatus.src = "surce/3.svg"
                     }
                     if (status == 2) {
                         newItemStatus.src = "surce/2.svg"
                     }
-                    if (status == 1) {
+                    if (status == 3) {
                         newItemStatus.src = "surce/1.svg"
                     }
-                    if (status == 0) {
+                    if (status == 4) {
                         newItemStatus.src = ""
                     }
 
