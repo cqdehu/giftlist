@@ -589,31 +589,28 @@ $(document).on('click', '.invite-card', function (event) {
         return;
     }
 
-    const loggedInUserId = un
+    const loggedInUserId = un;
 
     const currentUserId = lastClickedInviteCard.attr("id");
     const isCurrentUser = currentUserId === loggedInUserId;
 
     if (isCurrentUser) {
-        document.title = `${lastClickedInviteCard.attr("id")} | GIFTLIST`;
-        $("#displayTitle").text(`${lastClickedInviteCard.attr("id")}'s list`);
-      } else {
-        document.title = `to ${lastClickedInviteCard.attr("id")} | GIFTLIST`;
-        $("#displayTitle").text(`to ${lastClickedInviteCard.attr("id")}'s list`);
-      }
-      
-
-
+        document.title = `${currentUserId} | GIFTLIST`;
+        $("#displayTitle").text(`${currentUserId}'s list`);
+    } else {
+        document.title = `to ${currentUserId} | GIFTLIST`;
+        $("#displayTitle").text(`to ${currentUserId}'s list`);
+    }
+    
     addCardBorderi(card);
     $("#listItems").empty();
     userto = lastClickedInviteCard.attr("id")
     var selectedUser = $.cookie("selectedUser", userto)
-    console.log(un + "//////" + userto)
+    console.log(loggedInUserId + "//////" + userto)
     loadItem(selectedUser)
     $('#offcanvasMenu').offcanvas('hide');
-
-
 });
+
 
 
 
