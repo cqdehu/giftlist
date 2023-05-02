@@ -591,7 +591,7 @@ function setInitialTitle() {
     $("#displayTitle").text(selectedUser + "'s list");
 }
 
-function setTitlesForUser(userId) {
+function setTitlesForUser(userId, selectedUser) {
     if (userId === selectedUser) {
         document.title = `${userId} | GIFTLIST`;
         $("#displayTitle").text(`${userId}'s list`);
@@ -600,6 +600,7 @@ function setTitlesForUser(userId) {
         $("#displayTitle").text(`to ${userId}'s list`);
     }
 }
+
 
 $(document).ready(function () {
     setInitialTitle();
@@ -612,7 +613,7 @@ $(document).ready(function () {
 
         const loggedInUserId = un;
         const currentUserId = card.attr("id");
-        setTitlesForUser(currentUserId);
+        setTitlesForUser(currentUserId, selectedUser);
 
         addCardBorderi(card);
         $("#listItems").empty();
