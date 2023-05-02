@@ -586,10 +586,7 @@ function addCardBorderi(card) {
 
 
 
-console.log(un)
-
 function setInitialTitle() {
-
     var selectedUser = $.cookie('selectedUser');
     document.title = selectedUser + " | " + "GIFTLIST";
     $("#displayTitle").text(selectedUser + "'s list");
@@ -610,6 +607,7 @@ $(document).ready(function () {
     // A kiválasztott felhasználó betöltése cookie-ból
     var selectedUser = $.cookie('selectedUser');
     if (selectedUser) {
+        console.log(un)
         setInitialTitle();
     }
 
