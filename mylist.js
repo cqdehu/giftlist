@@ -594,6 +594,7 @@ $(document).ready(function () {
             return;
         }
 
+        var selectedUser = $.cookie('selectedUser');
         addCardBorderi(card);
         $("#listItems").empty();
         console.log(un + "//////" + userto);
