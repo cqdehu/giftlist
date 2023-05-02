@@ -1,3 +1,5 @@
+$('#deleteSection').hide()
+$('#updateSection').hide()
 
 const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
