@@ -136,30 +136,34 @@ function auth() {
 
                         console.log(un + "/////" + userto)
 
-                        const mylist = document.querySelector('#mylist')
+                        let isMyListCardCreated = false;
 
-                        const myListCard = document.createElement('div')
-                        myListCard.className = "row bg-light mx-3 mb-3 rounded-4 align-items-center invite-card"
-                        myListCard.id = un
+                        function createMyListCard() {
+                            if (!isMyListCardCreated) {
+                                const mylist = document.querySelector('#mylist');
+                                const myListCard = document.createElement('div');
+                                myListCard.className = "row bg-light mx-3 mb-3 rounded-4 align-items-center invite-card";
+                                myListCard.id = un;
+                                const myListCardCol1 = document.createElement('div');
+                                myListCardCol1.className = "col p-0 ";
+                                const myListCardCol1P = document.createElement('p');
+                                myListCardCol1P.className = "TiltWrap text-dark m-3 ";
+                                myListCardCol1P.innerHTML = un;
+                                const myListCardCol2 = document.createElement('div');
+                                myListCardCol2.className = "col-2 text-end ";
+                                const myListCardCol2Div = document.createElement('div');
+                                myListCardCol2Div.className = "me-2 ";
+                                mylist.insertAdjacentElement("afterend", myListCard);
+                                myListCard.appendChild(myListCardCol1);
+                                myListCard.appendChild(myListCardCol2);
+                                myListCardCol1.appendChild(myListCardCol1P);
+                                myListCardCol2.appendChild(myListCardCol2Div);
+                                isMyListCardCreated = true;
+                            }
+                        }
 
-                        const myListCardCol1 = document.createElement('div')
-                        myListCardCol1.className = "col p-0 "
+                        createMyListCard();
 
-                        const myListCardCol1P = document.createElement('p')
-                        myListCardCol1P.className = "TiltWrap text-dark m-3 "
-                        myListCardCol1P.innerHTML = un
-
-                        const myListCardCol2 = document.createElement('div')
-                        myListCardCol2.className = "col-2 text-end "
-
-                        const myListCardCol2Div = document.createElement('div')
-                        myListCardCol2Div.className = "me-2 "
-
-                        mylist.insertAdjacentElement("afterend", myListCard)
-                        myListCard.appendChild(myListCardCol1)
-                        myListCard.appendChild(myListCardCol2)
-                        myListCardCol1.appendChild(myListCardCol1P)
-                        myListCardCol2.appendChild(myListCardCol2Div)
 
 
                         console.log(selectedUser)
