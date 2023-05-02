@@ -591,13 +591,6 @@ function setInitialTitle() {
     $("#displayTitle").text(selectedUser + "'s list");
 }
 
-$(document).ready(function () {
-    setInitialTitle();
-});
-
-
-var selectedUser = $.cookie('selectedUser');
-
 function setTitlesForUser(userId) {
     if (userId === selectedUser) {
         document.title = `${userId} | GIFTLIST`;
@@ -610,26 +603,27 @@ function setTitlesForUser(userId) {
 
 $(document).ready(function () {
     setInitialTitle();
+
+    $(document).on('click', '.invite-card', function (event) {
+        const card = $(event.target).closest('.invite-card');
+        if (!card.length) {
+            return;
+        }
+
+        const loggedInUserId = un;
+        const currentUserId = card.attr("id");
+        setTitlesForUser(currentUserId);
+
+        addCardBorderi(card);
+        $("#listItems").empty();
+        userto = currentUserId;
+        $.cookie("selectedUser", userto);
+        console.log(un + "//////" + userto);
+        loadItem(userto);
+        $('#offcanvasMenu').offcanvas('hide');
+    });
 });
 
-$(document).on('click', '.invite-card', function (event) {
-    const card = $(event.target).closest('.invite-card');
-    if (!card.length) {
-        return;
-    }
-
-    const loggedInUserId = un;
-    const currentUserId = card.attr("id");
-    setTitlesForUser(currentUserId);
-
-    addCardBorderi(card);
-    $("#listItems").empty();
-    userto = currentUserId;
-    $.cookie("selectedUser", userto);
-    console.log(un + "//////" + userto);
-    loadItem(userto);
-    $('#offcanvasMenu').offcanvas('hide');
-});
 
 
 
