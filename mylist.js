@@ -595,9 +595,8 @@ function setInitialTitle() {
     $("#displayTitle").text(selectedUser + "'s list");
 }
 
-var selectedUser = $.cookie('selectedUser');
-
 function setTitlesForUser(userId) {
+    var selectedUser = $.cookie('selectedUser');
     if (userId === selectedUser) {
         document.title = `${userId} | GIFTLIST`;
         $("#displayTitle").text(`${userId}'s list`);
@@ -606,8 +605,6 @@ function setTitlesForUser(userId) {
         $("#displayTitle").text(`to ${userId}'s list`);
     }
 }
-
-
 
 $(document).ready(function () {
     // A kiválasztott felhasználó betöltése cookie-ból
@@ -625,7 +622,7 @@ $(document).ready(function () {
 
         const loggedInUserId = un;
         const currentUserId = card.attr("id");
-        setTitlesForUser(currentUserId, selectedUser);
+        setTitlesForUser(currentUserId);
 
         addCardBorderi(card);
         $("#listItems").empty();
@@ -636,6 +633,7 @@ $(document).ready(function () {
         $('#offcanvasMenu').offcanvas('hide');
     });
 });
+
 
 
 
