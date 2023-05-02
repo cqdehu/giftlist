@@ -130,7 +130,7 @@ function auth() {
                         un = username
                         userto = selectedUser
 
-                        setTitle(userto,un)
+                        setTitle(userto, un)
 
                         $("#username").text(username)
                         $("#id").text(id)
@@ -589,7 +589,7 @@ function addCardBorderi(card) {
 
 
 
-function setTitle(currentUserId,un) {
+function setTitle(currentUserId, un) {
     if (currentUserId === un) {
         document.title = `${currentUserId} | GIFTLIST`;
         $("#displayTitle").text(`${currentUserId}'s list`);
@@ -615,12 +615,43 @@ $(document).ready(function () {
         userto = currentUserId;
         $.cookie("selectedUser", userto);
         console.log(un + "//////" + userto);
-        
 
-        setTitle(currentUserId,un)
-        
+
+        setTitle(currentUserId, un)
+
 
         loadItem(currentUserId)
+
+        $('#offcanvasMenu').offcanvas('hide');
+    });
+});
+
+
+$(document).ready(function () {
+    $(document).on('click', '.invite-card', function (event) {
+        const card = $(event.target).closest('.invite-card');
+        if (!card.length) {
+            return;
+        }
+
+
+        const currentUserId = card.attr("id");
+
+
+        addCardBorderi(card);
+        $("#listItems").empty();
+        userto = currentUserId;
+        $.cookie("selectedUser", userto);
+        console.log(un + "//////" + userto);
+
+
+        setTitle(currentUserId, un)
+
+
+        loadItem(currentUserId)
+
+        $('#deleteSection').fadeOut()
+        $('#updateSection').fadeOut()
 
         $('#offcanvasMenu').offcanvas('hide');
     });
