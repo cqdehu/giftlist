@@ -69,11 +69,11 @@ $(document).on('dblclick', '.item-card', function (event) {
             },
             success: function (result) {
                 if (result === "success") {
-                    $('#deleteItemBtn').fadeIn()
-                    $('#updateItemIcon').fadeIn()
+                    $('#deleteSection').fadeIn()
+                    $('#updateSection').fadeIn()
                 } else {
-                    $('#deleteItemBtn').fadeOut()
-                    $('#updateItemIcon').fadeOut()
+                    $('#deleteSection').fadeOut()
+                    $('#updateSection').fadeOut()
                 }
             }
         });
