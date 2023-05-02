@@ -586,7 +586,14 @@ function addCardBorderi(card) {
 
 
 
+console.log(un)
 
+function setInitialTitle() {
+
+    var selectedUser = $.cookie('selectedUser');
+    document.title = selectedUser + " | " + "GIFTLIST";
+    $("#displayTitle").text(selectedUser + "'s list");
+}
 
 function setTitlesForUser(userId) {
     console.log(un)
@@ -601,14 +608,9 @@ function setTitlesForUser(userId) {
 
 $(document).ready(function () {
     // A kiválasztott felhasználó betöltése cookie-ból
-    const loggedInUserId = un
     var selectedUser = $.cookie('selectedUser');
-    if (selectedUser === loggedInUserId) {
-        document.title = `${userId} | GIFTLIST`;
-        $("#displayTitle").text(`${userId}'s list`);
-    } else {
-        document.title = `to ${userId} | GIFTLIST`;
-        $("#displayTitle").text(`to ${userId}'s list`);
+    if (selectedUser) {
+        setInitialTitle();
     }
 
     // Az eseménykezelő a dokumentumra van kötve
