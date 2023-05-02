@@ -594,13 +594,15 @@ $(document).ready(function () {
             return;
         }
 
+        userto = lastClickedInviteCard.attr("id")
         var selectedUser = $.cookie('selectedUser');
+        
         addCardBorderi(card);
         $("#listItems").empty();
         console.log(un + "//////" + userto);
         loadItem(selectedUser);
         $('#offcanvasMenu').offcanvas('hide');
-        console.log(selectedUser+" AND "+loggedInUserId)
+        console.log(selectedUser)
     });
 });
 
