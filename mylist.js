@@ -587,49 +587,56 @@ function addCardBorderi(card) {
 
 
 
+
+
+
+
 function setInitialTitle() {
     var selectedUser = $.cookie('selectedUser');
-    document.title = selectedUser + " | " + "GIFTLIST";
-    $("#displayTitle").text(selectedUser + "'s list");
-}
-
-function setTitlesForUser(userId) {
-    if (userId === un) {
-        document.title = `${userId} | GIFTLIST`;
-        $("#displayTitle").text(`${userId}'s list`);
-    } else {
-        document.title = `to ${userId} | GIFTLIST`;
-        $("#displayTitle").text(`to ${userId}'s list`);
+    if (selectedUser) {
+      if (selectedUser === un) {
+        document.title = `${selectedUser} | GIFTLIST`;
+        $("#displayTitle").text(`${selectedUser}'s list`);
+      } else {
+        document.title = `to ${selectedUser} | GIFTLIST`;
+        $("#displayTitle").text(`to ${selectedUser}'s list`);
+      }
     }
-}
-
-$(document).ready(function () {
+  }
+  
+  $(document).ready(function () {
     // A kiválasztott felhasználó betöltése cookie-ból
     var selectedUser = $.cookie('selectedUser');
     if (selectedUser) {
-        setInitialTitle();
+      setInitialTitle();
     }
-
+  
     // Az eseménykezelő a dokumentumra van kötve
     $(document).on('click', '.invite-card', function (event) {
-        const card = $(event.target).closest('.invite-card');
-        if (!card.length) {
-            return;
-        }
-
-        const loggedInUserId = un;
-        const currentUserId = card.attr("id");
-        setTitlesForUser(currentUserId);
-
-        addCardBorderi(card);
-        $("#listItems").empty();
-        userto = currentUserId;
-        $.cookie("selectedUser", userto);
-        console.log(un + "//////" + userto);
-        loadItem(userto);
-        $('#offcanvasMenu').offcanvas('hide');
+      const card = $(event.target).closest('.invite-card');
+      if (!card.length) {
+        return;
+      }
+  
+      const loggedInUserId = un;
+      const currentUserId = card.attr("id");
+  
+      // Mentés a cookie-ban
+      userto = currentUserId;
+      $.cookie("selectedUser", userto);
+  
+      // Beállítja az oldal címét és a felhasználó nevét
+      setInitialTitle();
+  
+      setTitlesForUser(currentUserId);
+  
+      addCardBorderi(card);
+      $("#listItems").empty();
+      loadItem(userto);
+      $('#offcanvasMenu').offcanvas('hide');
     });
-});
+  });
+  
 
 
 
