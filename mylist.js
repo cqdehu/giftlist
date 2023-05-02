@@ -595,7 +595,7 @@ function setInitialTitle() {
 
 function setTitlesForUser(userId) {
     var selectedUser = $.cookie('selectedUser');
-    if (userId === Uint8Array) {
+    if (userId === un) {
         document.title = `${userId} | GIFTLIST`;
         $("#displayTitle").text(`${userId}'s list`);
     } else {
