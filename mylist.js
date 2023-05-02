@@ -589,12 +589,16 @@ function addCardBorderi(card) {
 
 function setInitialTitle() {
     var selectedUser = $.cookie('selectedUser');
-    document.title = selectedUser + " | " + "GIFTLIST";
-    $("#displayTitle").text(selectedUser + "'s list");
+    if (selectedUser === un) {
+        document.title = `${selectedUser} | GIFTLIST`;
+        $("#displayTitle").text(`${selectedUser}'s list`);
+    } else {
+        document.title = `to ${selectedUser} | GIFTLIST`;
+        $("#displayTitle").text(`to ${selectedUser}'s list`);
+    }
 }
 
 function setTitlesForUser(userId) {
-    var selectedUser = $.cookie('selectedUser');
     if (userId === un) {
         document.title = `${userId} | GIFTLIST`;
         $("#displayTitle").text(`${userId}'s list`);
