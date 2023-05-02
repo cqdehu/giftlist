@@ -575,9 +575,9 @@ let lastClickedInviteCard = null;
 
 function addCardBorderi(card) {
     if (lastClickedInviteCard) {
-        lastClickedInviteCard.removeClass("custom-border last-clickedi");
+        lastClickedInviteCard.removeClass("custom-borderi last-clickedi");
     }
-    card.addClass("custom-border last-clickedi");
+    card.addClass("custom-borderi last-clickedi");
     lastClickedInviteCard = card;
     console.log("Kiválasztott tétel: " + lastClickedInviteCard.attr("id"));
 }
@@ -590,7 +590,7 @@ $(document).on('click', '.invite-card', function (event) {
     }
     var selectedUser = $.cookie("selectedUser", userto)
 
-    if (un = userto) {
+    if (un = selectedUser) {
         addCardBorderi(card);
         $("#listItems").empty();
         userto = lastClickedInviteCard.attr("id")
