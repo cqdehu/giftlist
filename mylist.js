@@ -586,17 +586,6 @@ function addCardBorderi(card) {
 }
 
 
-function setTitle(un) {
-    if (currentUserId === un) {
-        document.title = `${currentUserId} | GIFTLIST`;
-        $("#displayTitle").text(`${currentUserId}'s list`);
-    } else {
-        document.title = `to ${currentUserId} | GIFTLIST`;
-        $("#displayTitle").text(`to ${currentUserId}'s list`);
-    }
-}
-
-
 $(document).ready(function () {
     $(document).on('click', '.invite-card', function (event) {
         const card = $(event.target).closest('.invite-card');
@@ -615,7 +604,13 @@ $(document).ready(function () {
         console.log(un + "//////" + userto);
         
 
-        setTitle(un)
+        if (currentUserId === un) {
+            document.title = `${currentUserId} | GIFTLIST`;
+            $("#displayTitle").text(`${currentUserId}'s list`);
+        } else {
+            document.title = `to ${currentUserId} | GIFTLIST`;
+            $("#displayTitle").text(`to ${currentUserId}'s list`);
+        }
         
 
         loadItem(currentUserId)
