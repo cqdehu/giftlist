@@ -419,6 +419,7 @@ $("#updateItemIcon").click(function () {
 });
 
 
+
 // updateItem
 $(document).ready(function () {
     $("#updateItemBtn").click(function () {
