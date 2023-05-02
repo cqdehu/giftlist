@@ -130,6 +130,8 @@ function auth() {
                         un = username
                         userto = selectedUser
 
+                        setTitle(userto,un)
+
                         $("#username").text(username)
                         $("#id").text(id)
 
