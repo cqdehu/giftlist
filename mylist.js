@@ -587,20 +587,15 @@ function addCardBorderi(card) {
 
 
 
-function setInitialTitle() {
-    var selectedUser = $.cookie('selectedUser');
-    document.title = selectedUser + " | " + "GIFTLIST";
-    $("#displayTitle").text(selectedUser + "'s list");
-}
 
-function setTitlesForUser() {
+function setTitlesForUser(userId) {
     var selectedUser = $.cookie('selectedUser');
     if (selectedUser === un) {
-        document.title = `${selectedUser} | GIFTLIST`;
-        $("#displayTitle").text(`${selectedUser}'s list`);
+        document.title = `${userId} | GIFTLIST`;
+        $("#displayTitle").text(`${userId}'s list`);
     } else {
-        document.title = `to ${selectedUser} | GIFTLIST`;
-        $("#displayTitle").text(`to ${selectedUser}'s list`);
+        document.title = `to ${userId} | GIFTLIST`;
+        $("#displayTitle").text(`to ${userId}'s list`);
     }
 }
 
@@ -608,7 +603,7 @@ $(document).ready(function () {
     // A kiválasztott felhasználó betöltése cookie-ból
     var selectedUser = $.cookie('selectedUser');
     if (selectedUser) {
-        setInitialTitle();
+        setTitlesForUser(selectedUser)
     }
 
     // Az eseménykezelő a dokumentumra van kötve
@@ -620,7 +615,7 @@ $(document).ready(function () {
 
         const loggedInUserId = un;
         const currentUserId = card.attr("id");
-        setTitlesForUser();
+        setTitlesForUser(currentUserId);
 
         addCardBorderi(card);
         $("#listItems").empty();
