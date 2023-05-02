@@ -593,14 +593,14 @@ function setInitialTitle() {
     $("#displayTitle").text(selectedUser + "'s list");
 }
 
-function setTitlesForUser(userId) {
+function setTitlesForUser() {
     var selectedUser = $.cookie('selectedUser');
-    if (userId === un) {
-        document.title = `${userId} | GIFTLIST`;
-        $("#displayTitle").text(`${userId}'s list`);
+    if (selectedUser === un) {
+        document.title = `${selectedUser} | GIFTLIST`;
+        $("#displayTitle").text(`${selectedUser}'s list`);
     } else {
-        document.title = `to ${userId} | GIFTLIST`;
-        $("#displayTitle").text(`to ${userId}'s list`);
+        document.title = `to ${selectedUser} | GIFTLIST`;
+        $("#displayTitle").text(`to ${selectedUser}'s list`);
     }
 }
 
@@ -620,7 +620,7 @@ $(document).ready(function () {
 
         const loggedInUserId = un;
         const currentUserId = card.attr("id");
-        setTitlesForUser(currentUserId);
+        setTitlesForUser();
 
         addCardBorderi(card);
         $("#listItems").empty();
