@@ -423,7 +423,18 @@ $("#updateItemIcon").click(function () {
 // updateItem
 $(document).ready(function () {
     $("#updateItemBtn").click(function () {
-        // Elküldjük az adatokat a PHP szkriptnek Jquery Ajax segítségével
+        
+        if (enterEditItemName.value.trim() === '') {
+            toastText.innerHTML = 'Please enter a name';
+            alertToast.show();
+            return;
+        }
+        if (enterNewItemStatus.value.trim() === '') {
+            toastText.innerHTML = 'Please enter a status';
+            alertToast.show();
+            return;
+        }
+
         $.ajax({
             type: "POST",
             url: "updateitem.php",
@@ -435,7 +446,7 @@ $(document).ready(function () {
                 userto: userto,
             },
             success: function (result) {
-                if (result != "") {
+                if (result) {
                     // Az adatbázisból visszakapott name érték beállítása
                     var itemName = result;
 
