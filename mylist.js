@@ -591,14 +591,15 @@ function setInitialTitle() {
     var selectedUser = $.cookie('selectedUser');
     if (selectedUser) {
         if (selectedUser !== un) {
-            document.title = `to ${selectedUser} | GIFTLIST`;
-            $("#displayTitle").text(`to ${selectedUser}'s list`);
+            document.title = `to ${un} | GIFTLIST`;
+            $("#displayTitle").text(`to ${un}'s list`);
         } else {
-            document.title = `${selectedUser} | GIFTLIST`;
-            $("#displayTitle").text(`${selectedUser}'s list`);
+            document.title = `${un} | GIFTLIST`;
+            $("#displayTitle").text(`${un}'s list`);
         }
     }
 }
+
 
 
 function setTitlesForUser(userId) {
