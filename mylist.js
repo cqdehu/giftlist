@@ -591,7 +591,9 @@ function setInitialTitle() {
     $("#displayTitle").text(selectedUser + "'s list");
 }
 
-function setTitlesForUser(userId, selectedUser) {
+var selectedUser = $.cookie('selectedUser');
+
+function setTitlesForUser(userId) {
     if (userId === selectedUser) {
         document.title = `${userId} | GIFTLIST`;
         $("#displayTitle").text(`${userId}'s list`);
@@ -600,6 +602,7 @@ function setTitlesForUser(userId, selectedUser) {
         $("#displayTitle").text(`to ${userId}'s list`);
     }
 }
+
 
 
 $(document).ready(function () {
