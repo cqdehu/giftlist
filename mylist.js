@@ -16,6 +16,8 @@ if (day < 10) {
 }
 var createDate = year + "-" + month + "-" + day;
 
+
+
 //selectedItem
 let lastClickedCard = null;
 
@@ -68,7 +70,7 @@ $(document).on('dblclick', '.item-card', function (event) {
             success: function (result) {
                 if (result === "success") {
                     toastText.innerHTML = "The selected item can be modified!";
-                    successToast.show();
+                    alertToast.show();
                 } else {
                     toastText.innerHTML = result;
                     alertToast.show();
