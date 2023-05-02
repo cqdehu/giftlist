@@ -589,12 +589,14 @@ function addCardBorderi(card) {
 
 
 function setInitialTitle() {
+    console.log(un)
     var selectedUser = $.cookie('selectedUser');
     document.title = selectedUser + " | " + "GIFTLIST";
     $("#displayTitle").text(selectedUser + "'s list");
 }
 
 function setTitlesForUser(userId) {
+    console.log(un)
     if (userId === un) {
         document.title = `${userId} | GIFTLIST`;
         $("#displayTitle").text(`${userId}'s list`);
