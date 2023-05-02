@@ -585,11 +585,11 @@ function addCardBorderi(card) {
     console.log("Kiválasztott tétel: " + lastClickedInviteCard.attr("id"));
 }
 
-function setInitialTitle() {
-    var selectedUser = $.cookie('selectedUser');
-    document.title = selectedUser + " | " + "GIFTLIST";
-    $("#displayTitle").text(selectedUser + "'s list");
-}
+//function setInitialTitle() {
+//    var selectedUser = $.cookie('selectedUser');
+//    document.title = selectedUser + " | " + "GIFTLIST";
+//    $("#displayTitle").text(selectedUser + "'s list");
+//}
 
 var selectedUser = $.cookie('selectedUser');
 
