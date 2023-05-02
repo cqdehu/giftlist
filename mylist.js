@@ -596,9 +596,10 @@ $(document).on('click', '.invite-card', function (event) {
     var selectedUser = $.cookie("selectedUser", userto)
     console.log(un + "//////" + userto)
     loadItem(selectedUser)
-    document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
+    document.title = "to "+lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
     $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
     $('#offcanvasMenu').offcanvas('hide');
+
 
 });
 
