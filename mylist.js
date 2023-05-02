@@ -623,9 +623,8 @@ $(document).ready(function () {
 
         addCardBorderi(card);
         $("#listItems").empty();
-        $.cookie("selectedUser", userto);
         console.log(un + "//////" + userto);
-        loadItem(userto);
+        loadItem(selectedUser);
         $('#offcanvasMenu').offcanvas('hide');
         console.log(selectedUser+" AND "+loggedInUserId)
     });
