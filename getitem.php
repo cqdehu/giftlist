@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "SELECT `name`, `status`, `user`, `createDate`, `id`, `userto`, `itemid` 
     FROM `items` 
     WHERE `user` = '$user' AND `userto` = '$userto' OR `user`='$userto' AND `userto` = '$userto' 
-    ORDER BY (`user` = '$userto' ) DESC, `items`.`status` DESC
+    ORDER BY (`user` = '$userto' ) DESC, `items`.`status` ASC
      
     ";
     $result = mysqli_query($conn, $sql);
