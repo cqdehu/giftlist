@@ -601,8 +601,9 @@ function setTitlesForUser(userId) {
 
 $(document).ready(function () {
     // A kiválasztott felhasználó betöltése cookie-ból
+    const loggedInUserId = un
     var selectedUser = $.cookie('selectedUser');
-    if (selectedUser === un) {
+    if (selectedUser === loggedInUserId) {
         document.title = `${userId} | GIFTLIST`;
         $("#displayTitle").text(`${userId}'s list`);
     } else {
