@@ -605,6 +605,7 @@ $(document).ready(function () {
         userto = currentUserId;
         $.cookie("selectedUser", userto);
         console.log(un + "//////" + userto);
+        loadItem(selectedUser)
         $('#offcanvasMenu').offcanvas('hide');
     });
 });
