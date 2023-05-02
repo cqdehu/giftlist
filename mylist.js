@@ -614,6 +614,7 @@ $(document).on('click', '.invite-card', function (event) {
 
 
 
+
 //getinvite
 
 function getInvite() {
