@@ -586,7 +586,7 @@ function addCardBorderi(card) {
 }
 
 
-function setTitle() {
+function setTitle(un) {
     if (currentUserId === un) {
         document.title = `${currentUserId} | GIFTLIST`;
         $("#displayTitle").text(`${currentUserId}'s list`);
@@ -615,7 +615,7 @@ $(document).ready(function () {
         console.log(un + "//////" + userto);
         
 
-        setTitle()
+        setTitle(un)
         
 
         loadItem(currentUserId)
