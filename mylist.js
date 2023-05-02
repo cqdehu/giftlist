@@ -434,7 +434,7 @@ $(document).ready(function () {
                 userto: userto,
             },
             success: function (result) {
-                if (result) {
+                if (result == "") {
                     // Az adatbázisból visszakapott name érték beállítása
                     var itemName = result;
 
