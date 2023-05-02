@@ -594,7 +594,9 @@ $(document).ready(function () {
             return;
         }
 
-        console.log(lastClickedInviteCard.attr("id"))
+        const currentUserId = card.attr("id");
+
+        console.log(currentUserId);
         
         addCardBorderi(card);
         $("#listItems").empty();
