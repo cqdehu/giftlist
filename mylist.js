@@ -590,7 +590,7 @@ $(document).on('click', '.invite-card', function (event) {
     }
     var selectedUser = $.cookie("selectedUser", userto)
 
-    if (selectedUser == un) {
+    if (un = userto) {
         addCardBorderi(card);
         $("#listItems").empty();
         userto = lastClickedInviteCard.attr("id")
