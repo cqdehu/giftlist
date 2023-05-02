@@ -44,5 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       echo "It is already on the list once.";
     }
     mysqli_close($conn);
+  } else {
+    echo ":C";
   }
 }
