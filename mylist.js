@@ -607,6 +607,7 @@ $(document).ready(function () {
 
         addCardBorderi(card);
         $("#listItems").empty();
+        auth()
         userto = currentUserId;
         $.cookie("selectedUser", userto);
         console.log(un + "//////" + userto);
