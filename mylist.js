@@ -69,11 +69,11 @@ $(document).on('dblclick', '.item-card', function (event) {
             },
             success: function (result) {
                 if (result === "success") {
-                    toastText.innerHTML = "The selected item can be modified!";
-                    alertToast.show();
+                    $('#deleteItemBtn').fadeIn()
+                    $('#updateItemIcon').fadeIn()
                 } else {
-                    toastText.innerHTML = result;
-                    alertToast.show();
+                    $('#deleteItemBtn').fadeOut()
+                    $('#updateItemIcon').fadeOut()
                 }
             }
         });
