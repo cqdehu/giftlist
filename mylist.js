@@ -605,21 +605,22 @@ $(document).ready(function () {
         userto = currentUserId;
         $.cookie("selectedUser", userto);
         console.log(un + "//////" + userto);
+        
+
+        if (currentUserId === un) {
+            document.title = `${currentUserId} | GIFTLIST`;
+            $("#displayTitle").text(`${currentUserId}'s list`);
+        } else {
+            document.title = `to ${currentUserId} | GIFTLIST`;
+            $("#displayTitle").text(`to ${currentUserId}'s list`);
+        }
+
         loadItem(currentUserId)
+
         $('#offcanvasMenu').offcanvas('hide');
     });
 });
 
-
-//var selectedUser = $.cookie('selectedUser');
-//
-//if (selectedUser === un) {
-//    document.title = `${userId} | GIFTLIST`;
-//    $("#displayTitle").text(`${userId}'s list`);
-//} else {
-//    document.title = `to ${userId} | GIFTLIST`;
-//    $("#displayTitle").text(`to ${userId}'s list`);
-//}
 
 
 
