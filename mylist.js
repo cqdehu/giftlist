@@ -591,25 +591,19 @@ $(document).on('click', '.invite-card', function (event) {
     var selectedUser = $.cookie("selectedUser", userto)
 
     if (un == selectedUser) {
-        addCardBorderi(card);
-        $("#listItems").empty();
-        userto = lastClickedInviteCard.attr("id")
-        console.log(un + "//////" + userto)
-        loadItem(selectedUser)
         document.title =lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
         $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
-        $('#offcanvasMenu').offcanvas('hide');
-
     } else {
-        addCardBorderi(card);
-        $("#listItems").empty();
-        userto = lastClickedInviteCard.attr("id")
-        console.log(un + "//////" + userto)
-        loadItem(selectedUser)
         document.title = "to " + lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
         $("#displayTitle").text("to " + lastClickedInviteCard.attr("id") + "'s list")
-        $('#offcanvasMenu').offcanvas('hide');
     }
+
+    addCardBorderi(card);
+    $("#listItems").empty();
+    userto = lastClickedInviteCard.attr("id")
+    console.log(un + "//////" + userto)
+    loadItem(selectedUser)
+    $('#offcanvasMenu').offcanvas('hide');
 
 
 
