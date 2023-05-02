@@ -614,11 +614,11 @@ $(document).ready(function () {
 
         var selectedUser = $.cookie('selectedUser');
         if (loggedInUserId === selectedUser) {
-            document.title = `${userId} | GIFTLIST`;
-            $("#displayTitle").text(`${userId}'s list`);
+            document.title = `${selectedUser} | GIFTLIST`;
+            $("#displayTitle").text(`${selectedUser}'s list`);
         } else {
-            document.title = `to ${userId} | GIFTLIST`;
-            $("#displayTitle").text(`to ${userId}'s list`);
+            document.title = `to ${selectedUser} | GIFTLIST`;
+            $("#displayTitle").text(`to ${selectedUser}'s list`);
         }
 
         addCardBorderi(card);
