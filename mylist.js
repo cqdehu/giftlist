@@ -60,6 +60,8 @@ $(document).on('dblclick', '.item-card', function (event) {
 
     if (card.is(lastClickedCard)) {
         removeCardBorder();
+        $('#deleteSection').fadeOut()
+        $('#updateSection').fadeOut()
     } else {
         addCardBorder(card);
         $.ajax({
