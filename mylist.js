@@ -586,39 +586,12 @@ function addCardBorderi(card) {
 
 
 
-
-function setInitialTitle() {
-    var selectedUser = $.cookie('selectedUser');
-    if (selectedUser) {
-        document.title = selectedUser + " | " + "GIFTLIST";
-        $("#displayTitle").text(selectedUser + "'s list");
-    }
-}
-
-function setTitlesForUser(userId) {
-
-}
-
 $(document).ready(function () {
-    // A kiválasztott felhasználó betöltése cookie-ból
-    setInitialTitle();
-
     // Az eseménykezelő a dokumentumra van kötve
     $(document).on('click', '.invite-card', function (event) {
         const card = $(event.target).closest('.invite-card');
         if (!card.length) {
             return;
-        }
-
-        const loggedInUserId = un;
-
-        var selectedUser = $.cookie('selectedUser');
-        if (loggedInUserId === selectedUser) {
-            document.title = `${selectedUser} | GIFTLIST`;
-            $("#displayTitle").text(`${selectedUser}'s list`);
-        } else {
-            document.title = `to ${selectedUser} | GIFTLIST`;
-            $("#displayTitle").text(`to ${selectedUser}'s list`);
         }
 
         addCardBorderi(card);
