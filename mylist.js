@@ -663,6 +663,8 @@ function getInvite() {
 
 
 $('#myList').on('click', function () {
+    document.title =lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
+    $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
     $("#listItems").empty();
     auth()
 })
