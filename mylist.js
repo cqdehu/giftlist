@@ -623,7 +623,6 @@ $(document).ready(function () {
 
         addCardBorderi(card);
         $("#listItems").empty();
-        userto = currentUserId;
         $.cookie("selectedUser", userto);
         console.log(un + "//////" + userto);
         loadItem(userto);
