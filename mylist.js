@@ -425,12 +425,7 @@ $(document).ready(function () {
     $("#updateItemBtn").click(function () {
         
         if (enterEditItemName.value.trim() === '') {
-            toastText.innerHTML = 'Please enter a name';
-            alertToast.show();
-            return;
-        }
-        if (enterNewItemStatus.value.trim() === '') {
-            toastText.innerHTML = 'Please enter a status';
+            toastText.innerHTML = 'The element name cannot be empty!';
             alertToast.show();
             return;
         }
