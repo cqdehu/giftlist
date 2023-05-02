@@ -600,8 +600,7 @@ $(document).ready(function () {
         
         addCardBorderi(card);
         $("#listItems").empty();
-        //console.log(un + "//////" + userto);
-        //loadItem(selectedUser);
+        loadItem(currentUserId);
         //$('#offcanvasMenu').offcanvas('hide');
         //console.log(selectedUser)
     });
