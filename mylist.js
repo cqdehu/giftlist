@@ -585,11 +585,15 @@ function addCardBorderi(card) {
     console.log("Kiválasztott tétel: " + lastClickedInviteCard.attr("id"));
 }
 
-//function setInitialTitle() {
-//    var selectedUser = $.cookie('selectedUser');
-//    document.title = selectedUser + " | " + "GIFTLIST";
-//    $("#displayTitle").text(selectedUser + "'s list");
-//}
+
+
+
+
+function setInitialTitle() {
+    var selectedUser = $.cookie('selectedUser');
+    document.title = selectedUser + " | " + "GIFTLIST";
+    $("#displayTitle").text(selectedUser + "'s list");
+}
 
 var selectedUser = $.cookie('selectedUser');
 
@@ -606,8 +610,13 @@ function setTitlesForUser(userId) {
 
 
 $(document).ready(function () {
-    setInitialTitle();
+    // A kiválasztott felhasználó betöltése cookie-ból
+    var selectedUser = $.cookie('selectedUser');
+    if (selectedUser) {
+        setInitialTitle();
+    }
 
+    // Az eseménykezelő a dokumentumra van kötve
     $(document).on('click', '.invite-card', function (event) {
         const card = $(event.target).closest('.invite-card');
         if (!card.length) {
@@ -627,6 +636,7 @@ $(document).ready(function () {
         $('#offcanvasMenu').offcanvas('hide');
     });
 });
+
 
 
 
