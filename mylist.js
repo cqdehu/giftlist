@@ -125,6 +125,9 @@ function auth() {
                         var username = data[i].username;
                         var id = data[i].id;
 
+                        un = username
+                        userto = selectedUser
+
                         const loggedInUserId = un;
                         const currentUserId = card.attr("id");
                         const isCurrentUser = currentUserId === loggedInUserId;
@@ -140,8 +143,7 @@ function auth() {
                         $("#username").text(username)
                         $("#id").text(id)
 
-                        un = username
-                        userto = selectedUser
+                        
 
                         console.log(un + "/////" + userto)
 
