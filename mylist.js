@@ -591,22 +591,20 @@ $(document).on('click', '.invite-card', function (event) {
 
     addCardBorderi(card);
     $("#listItems").empty();
-    userto = card.attr("id"); // frissítjük a userto változót
-    $.cookie("selectedUser", userto); // beállítjuk a sütit
+    var userto = lastClickedInviteCard.attr("id");
+    var selectedUser = $.cookie("selectedUser", userto);
     console.log(un + "//////" + userto);
     loadItem(selectedUser);
-    var pageTitle, displayTitle;
-    if (un === userto) { // ha a felhasználó a saját fiókját nézi
-        pageTitle = userto + " | " + "GIFTLIST";
-        displayTitle = userto + "'s list";
-    } else { // ha valaki más fiókját nézi
-        pageTitle = "to " + userto + " | " + "GIFTLIST";
-        displayTitle = "to " + userto + "'s list";
+    if (un == userto) {
+        document.title = lastClickedInviteCard.attr("id") + " | " + "GIFTLIST";
+        $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list");
+    } else {
+        document.title = "to " + lastClickedInviteCard.attr("id") + " | " + "GIFTLIST";
+        $("#displayTitle").text("to " + lastClickedInviteCard.attr("id") + "'s list");
     }
-    document.title = pageTitle;
-    $("#displayTitle").text(displayTitle);
     $('#offcanvasMenu').offcanvas('hide');
 });
+
 
 
 
