@@ -596,6 +596,22 @@ $(document).ready(function () {
 });
 
 
+var selectedUser = $.cookie('selectedUser');
+
+function setTitlesForUser(userId) {
+    if (userId === selectedUser) {
+        document.title = `${userId} | GIFTLIST`;
+        $("#displayTitle").text(`${userId}'s list`);
+    } else {
+        document.title = `to ${userId} | GIFTLIST`;
+        $("#displayTitle").text(`to ${userId}'s list`);
+    }
+}
+
+$(document).ready(function () {
+    setInitialTitle();
+});
+
 $(document).on('click', '.invite-card', function (event) {
     const card = $(event.target).closest('.invite-card');
     if (!card.length) {
@@ -604,24 +620,17 @@ $(document).on('click', '.invite-card', function (event) {
 
     const loggedInUserId = un;
     const currentUserId = card.attr("id");
-    const isCurrentUser = currentUserId === loggedInUserId;
-
-    if (isCurrentUser) {
-        document.title = `${currentUserId} | GIFTLIST`;
-        $("#displayTitle").text(`${currentUserId}'s list`);
-    } else {
-        document.title = `to ${currentUserId} | GIFTLIST`;
-        $("#displayTitle").text(`to ${currentUserId}'s list`);
-    }
+    setTitlesForUser(currentUserId);
 
     addCardBorderi(card);
     $("#listItems").empty();
     userto = currentUserId;
-    var selectedUser = $.cookie("selectedUser", userto);
+    $.cookie("selectedUser", userto);
     console.log(un + "//////" + userto);
-    loadItem(selectedUser);
+    loadItem(userto);
     $('#offcanvasMenu').offcanvas('hide');
 });
+
 
 
 
