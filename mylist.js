@@ -588,27 +588,25 @@ $(document).on('click', '.invite-card', function (event) {
     if (!card.length) {
         return;
     }
-    var selectedUser = $.cookie("selectedUser", userto)
-
-    if (un == selectedUser) {
-        document.title =lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
-        $("#displayTitle").text(lastClickedInviteCard.attr("id") + "'s list")
-    } else {
-        document.title = "to " + lastClickedInviteCard.attr("id") + " | " + "GIFTLIST"
-        $("#displayTitle").text("to " + lastClickedInviteCard.attr("id") + "'s list")
-    }
 
     addCardBorderi(card);
     $("#listItems").empty();
-    userto = lastClickedInviteCard.attr("id")
-    console.log(un + "//////" + userto)
-    loadItem(selectedUser)
+    userto = card.attr("id");
+    $.cookie("selectedUser", userto);
+    console.log(un + "//////" + userto);
+    loadItem(selectedUser);
+    
+    if (userto == un) {
+        document.title = userto + " | GIFTLIST";
+        $("#displayTitle").text(userto + "'s list");
+    } else {
+        document.title = "to " + userto + " | GIFTLIST";
+        $("#displayTitle").text("to " + userto + "'s list");
+    }
+    
     $('#offcanvasMenu').offcanvas('hide');
-
-
-
-
 });
+
 
 
 
