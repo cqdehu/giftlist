@@ -589,18 +589,9 @@ function addCardBorderi(card) {
 
 function setInitialTitle() {
     var selectedUser = $.cookie('selectedUser');
-    if (selectedUser) {
-        if (selectedUser !== un) {
-            document.title = `to ${un} | GIFTLIST`;
-            $("#displayTitle").text(`to ${un}'s list`);
-        } else {
-            document.title = `${un} | GIFTLIST`;
-            $("#displayTitle").text(`${un}'s list`);
-        }
-    }
+    document.title = selectedUser + " | " + "GIFTLIST";
+    $("#displayTitle").text(selectedUser + "'s list");
 }
-
-
 
 function setTitlesForUser(userId) {
     if (userId === un) {
