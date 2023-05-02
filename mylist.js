@@ -589,19 +589,6 @@ function addCardBorderi(card) {
 
 
 
-
-
-function setTitlesForUser(userId) {
-    var selectedUser = $.cookie('selectedUser');
-    if (userId === selectedUser) {
-        document.title = `${userId} | GIFTLIST`;
-        $("#displayTitle").text(`${userId}'s list`);
-    } else {
-        document.title = `to ${userId} | GIFTLIST`;
-        $("#displayTitle").text(`to ${userId}'s list`);
-    }
-}
-
 $(document).ready(function () {
     // Az eseménykezelő a dokumentumra van kötve
     $(document).on('click', '.invite-card', function (event) {
@@ -610,9 +597,6 @@ $(document).ready(function () {
             return;
         }
 
-        const loggedInUserId = un;
-        const currentUserId = card.attr("id");
-        setTitlesForUser(currentUserId);
 
         addCardBorderi(card);
         $("#listItems").empty();
