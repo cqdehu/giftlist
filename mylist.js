@@ -1,7 +1,6 @@
 $('#deleteSection').hide()
 $('#updateSection').hide()
 
-var originalTitle = document.title;
 
 const toast = document.querySelector('#alertToast')
 var alertToast = bootstrap.Toast.getOrCreateInstance(toast)
@@ -589,7 +588,30 @@ function addCardBorderi(card) {
 
 
 
+function setInitialTitle() {
+    var selectedUser = $.cookie('selectedUser');
+    document.title = selectedUser + " | " + "GIFTLIST";
+    $("#displayTitle").text(selectedUser + "'s list");
+}
+
+function setTitlesForUser(userId) {
+    var selectedUser = $.cookie('selectedUser');
+    if (userId === selectedUser) {
+        document.title = `${userId} | GIFTLIST`;
+        $("#displayTitle").text(`${userId}'s list`);
+    } else {
+        document.title = `to ${userId} | GIFTLIST`;
+        $("#displayTitle").text(`to ${userId}'s list`);
+    }
+}
+
 $(document).ready(function () {
+    // A kiválasztott felhasználó betöltése cookie-ból
+    var selectedUser = $.cookie('selectedUser');
+    if (selectedUser) {
+        setInitialTitle();
+    }
+
     // Az eseménykezelő a dokumentumra van kötve
     $(document).on('click', '.invite-card', function (event) {
         const card = $(event.target).closest('.invite-card');
@@ -597,6 +619,9 @@ $(document).ready(function () {
             return;
         }
 
+        const loggedInUserId = un;
+        const currentUserId = card.attr("id");
+        setTitlesForUser(currentUserId);
 
         addCardBorderi(card);
         $("#listItems").empty();
