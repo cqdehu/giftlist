@@ -18,16 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Az elem nevének lekérdezése az adatbázisból
     $selectedItem = $_POST['selectedItem'];
     $userto = $_POST['userto'];
-    $query = "SELECT name FROM items WHERE itemid = '$selectedItem' AND userto = '$userto'";
+    $query = "SELECT name, status FROM items WHERE itemid = '$selectedItem' AND userto = '$userto'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        echo $row['name'];
+        echo $row['name'] . '|' . $row['status'];
     } else {
         echo "Nem sikerült lekérni az elem nevét!";
     }
 
     mysqli_close($conn);
 }
-?>

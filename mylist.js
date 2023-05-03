@@ -401,10 +401,15 @@ $("#updateItemIcon").click(function () {
                             selectedItem: lastClickedCard.attr("id"),
                             userto: userto,
                         },
-                        success: function (itemName) {
+                        success: function (result) {
+                            var parts = result.split("|");
+                            var itemName = parts[0];
+                            var itemStatus = parts[1];
+
                             $("#updateItemModal").modal('show');
                             // Az elem nevének beállítása az enterEditItemName mezőbe
                             enterEditItemName.value = itemName;
+                            enterNewItemStatus.value = itemStatus
                         }
                     });
                 } else {
@@ -424,7 +429,7 @@ $("#updateItemIcon").click(function () {
 // updateItem
 $(document).ready(function () {
     $("#updateItemBtn").click(function () {
-        
+
         if (enterEditItemName.value.trim() === '') {
             toastText.innerHTML = 'The element name cannot be empty!';
             alertToast.show();
