@@ -349,6 +349,7 @@ $(document).ready(function () {
 //////////////////////////////////////////////////////////////////////////////////
 $("#addItemIcon").click(function () {
     $("#addItemModal").modal('show')
+    enterItemStatus.value = 4
 })
 
 
