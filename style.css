@@ -228,3 +228,7 @@ a {
 .item-card {
   transition: all 0.3s ease-in-out;
 }
+
+.custom-progress{
+  background-color: #E48900;
+}
