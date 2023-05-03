@@ -366,6 +366,7 @@ $(document).ready(function () {
                     toastText.innerHTML = enterItemName.value + " item has been added to the list!";
                     alertToast.show()
                     enterItemName.value = ""
+                    enterItemStatus.value = 4
                 } else {
                     // hibaüzenet megjelenítése
                     toastText.innerHTML = response;
