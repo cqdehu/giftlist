@@ -250,12 +250,20 @@
                                 <option value="2">🟠</option>
                                 <option value="3">🔵</option>
                             </select>
-                            <div class="row">
-                                <div class="col">⚪️</div>
-                                <div class="col">🟢</div>
-                                <div class="col">🟠</div>
-                                <div class="col">🔵</div>
-                            </div>
+                            <div class="progress-stacked">
+                                <div class="progress" role="progressbar" aria-label="Segment one" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+                                  <div class="progress-bar"></div>
+                                </div>
+                                <div class="progress" role="progressbar" aria-label="Segment two" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+                                  <div class="progress-bar bg-success"></div>
+                                </div>
+                                <div class="progress" role="progressbar" aria-label="Segment three" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+                                  <div class="progress-bar bg-warning"></div>
+                                </div>
+                                <div class="progress" role="progressbar" aria-label="Segment four" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+                                    <div class="progress-bar bg-primary"></div>
+                                  </div>
+                              </div>
                         </div>
                     </div>
 
