@@ -353,29 +353,13 @@ $("#addItemIcon").click(function () {
 })
 
 
-
-
 //addItem
 $(document).ready(function () {
-    var selectedStatus = 4;
-
-    $('#status4').on('click', function () {
-        selectedStatus = 4
-    })
-    $('#status1').on('click', function () {
-        selectedStatus = 1
-    })
-    $('#status2').on('click', function () {
-        selectedStatus = 2
-    })
-    $('#status3').on('click', function () {
-        selectedStatus = 3
-    })
     $("#addItemBtn").click(function () {
         $.ajax({
             type: "POST",
             url: "additem.php",
-            data: { name: enterItemName.value, status: selectedStatus, createDate: createDate, userto: userto },
+            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, userto: userto },
             success: function (response) {
                 if (response == "success") {
                     $("#listItems").empty();
