@@ -273,19 +273,19 @@ function loadItem(username) {
                     newItemStatus.className = "icon_status"
 
                     if (status == 1) {
-                        newItemStatus.src = "surce/3.svg"
+                        newItemStatus.src = "surce/1.svg"
                     }
                     if (status == 2) {
                         newItemStatus.src = "surce/2.svg"
                     }
                     if (status == 3) {
-                        newItemStatus.src = "surce/1.svg"
+                        newItemStatus.src = "surce/3.svg"
                     }
                     if (status == 4) {
                         newItemStatus.src = ""
                     }
 
-                    
+
                     if (user == userto) {
                         newCardDiv.className += "bg-white"
                     } else {
