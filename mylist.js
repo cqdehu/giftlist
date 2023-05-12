@@ -262,7 +262,7 @@ function loadItem(username) {
                     newItemNameDiv.className = "col p-3 "
 
                     const newItemName = document.createElement("h5")
-                    newItemName.className = "TiltWrap m-0 user-select-none "
+                    newItemName.className = "TiltWrap m-0 "
                     newItemName.innerHTML = name
 
                     const newItemStatusDiv = document.createElement("div")
