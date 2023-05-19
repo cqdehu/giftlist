@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $_SESSION['username'];
     $userto = $_POST['userto'];
 
-    $sql = "SELECT `name`, `status`, `user`, `createDate`, `id`, `userto`, `itemid` 
+    $sql = "SELECT `name`, `status`, `link`, `user`, `createDate`, `id`, `userto`, `itemid` 
     FROM `items` 
     WHERE `user` = '$user' AND `userto` = '$userto' OR `user`='$userto' AND `userto` = '$userto' 
     ORDER BY (`user` = '$userto' ) DESC, `items`.`status` ASC
