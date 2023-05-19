@@ -271,7 +271,7 @@ function loadItem(username) {
 
 
                     const newItemStatus = document.createElement("img")
-                    newItemStatus.className = "icon_status mx-1 p-0 "
+                    newItemStatus.className = "icon_status mx-2 p-0 "
 
                     if (status == 1) {
                         newItemStatus.src = "surce/1.svg"
