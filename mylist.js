@@ -250,6 +250,7 @@ function loadItem(username) {
                     var id = data[i].id;
                     var userto = data[i].userto;
                     var itemid = data[i].itemid;
+                    var linkUrl = data[i].link;
 
                     //Kiírás
                     console.log(name + ", " + status + ", " + user + ", " + userto + ", " + createDate + ", " + id + "," + itemid)
@@ -293,11 +294,22 @@ function loadItem(username) {
                     }
 
 
-                    //OldItem
-                    //var today = new Date();
-                    //if (today.getFullYear() - createDate.getFullYear() >= 3){
-                    //    console.log("Régi elem szerepel a listán.")
-                    //}
+                    //Link
+                    const linkA = document.createElement("a")
+                    
+                    const linkImg = document.createElement("img")
+
+
+
+                    if (linkUrl != "") {
+                        linkA.target = "_blank"
+                        linkA.href = linkUrl
+                        linkImg.src = "surce/Link.svg"
+                        linkA.appendChild(linkImg)
+                        newItemStatusDiv.appendChild(linkA)
+                    }
+
+                    
 
 
                     listItems.appendChild(newCardDiv)
@@ -305,6 +317,7 @@ function loadItem(username) {
                     newItemNameDiv.appendChild(newItemName)
                     newCardDiv.appendChild(newItemStatusDiv)
                     newItemStatusDiv.appendChild(newItemStatus)
+                    
 
                 }
             } else {
@@ -359,7 +372,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "additem.php",
-            data: { name: enterItemName.value, status: enterItemStatus.value, createDate: createDate, userto: userto },
+            data: { name: enterItemName.value, status: enterItemStatus.value, link: enterLinkUrl.value, createDate: createDate, userto: userto },
             success: function (response) {
                 if (response == "success") {
                     $("#listItems").empty();
@@ -368,6 +381,7 @@ $(document).ready(function () {
                     alertToast.show()
                     enterItemName.value = ""
                     enterItemStatus.value = 4
+                    enterLinkUrl.value = ""
                 } else {
                     // hibaüzenet megjelenítése
                     toastText.innerHTML = response;
