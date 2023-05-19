@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        echo $row['name'] . '|' . $row['status'];
+        echo $row['name'] . '|' . $row['status'] . '|' . $row['link'];
     } else {
         echo "Nem sikerült lekérni az elem nevét!";
     }
