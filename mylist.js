@@ -414,6 +414,7 @@ $(document).ready(function () {
                     enterItemName.value = ""
                     enterItemStatus.value = 4
                     enterLinkUrl.value = ""
+                    $("#addItemModal").modal('hide')
                 } else {
                     // hibaüzenet megjelenítése
                     toastText.innerHTML = response;
@@ -425,7 +426,7 @@ $(document).ready(function () {
                 $("#message").html("Hiba történt az AJAX hívás során.");
             }
         })
-        $("#addItemModal").modal('hide')
+        
     })
 })
 
