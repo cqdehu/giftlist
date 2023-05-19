@@ -267,7 +267,7 @@ function loadItem(username) {
                     newItemName.innerHTML = name
 
                     const newItemStatusDiv = document.createElement("div")
-                    newItemStatusDiv.className = "col-2 text-end me-4 p-0 "
+                    newItemStatusDiv.className = "col-2 text-end me-5 p-0 "
 
 
                     const newItemStatus = document.createElement("img")
