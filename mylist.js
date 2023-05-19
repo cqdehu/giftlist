@@ -271,7 +271,7 @@ function loadItem(username) {
 
 
                     const newItemStatus = document.createElement("img")
-                    newItemStatus.className = "icon_status"
+                    newItemStatus.className = "icon_status mx-1 p-0 "
 
                     if (status == 1) {
                         newItemStatus.src = "surce/1.svg"
@@ -296,8 +296,10 @@ function loadItem(username) {
 
                     //Link
                     const linkA = document.createElement("a")
+                    linkA.className = "mx-1 p-0"
                     
                     const linkImg = document.createElement("img")
+                    linkImg.className = "m-0 p-0"
 
 
 
