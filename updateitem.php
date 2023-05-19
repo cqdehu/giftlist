@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $selectedItem = $_POST['selectedItem'];
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $status = mysqli_real_escape_string($conn, $_POST['status']);
+        $link = $_POST['link'];
 
         $query = "SELECT * FROM `items` WHERE `itemid` = '$selectedItem' AND `user` = '$user' AND `userto` = '$userto'";
         $result = mysqli_query($conn, $query);
@@ -30,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_num_rows($result) != 1) {
             echo "Only your elements can be modified!";
         } else {
-            $query = "UPDATE `items` SET `name` = '$name', `status` = '$status' WHERE `itemid` = '$selectedItem'";
+            $query = "UPDATE `items` SET `name` = '$name', `status` = '$status', `link` = '$link' WHERE `itemid` = '$selectedItem'";
             if (mysqli_query($conn, $query)) {
                 // Sikeres módosítás esetén visszaküldjük az új nevet a JavaScriptnek
                 echo $name;

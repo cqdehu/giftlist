@@ -421,11 +421,13 @@ $("#updateItemIcon").click(function () {
                             var parts = result.split("|");
                             var itemName = parts[0];
                             var itemStatus = parts[1];
+                            var link = parts[2]
 
                             $("#updateItemModal").modal('show');
                             // Az elem nevének beállítása az enterEditItemName mezőbe
                             enterEditItemName.value = itemName;
-                            enterNewItemStatus.value = itemStatus
+                            enterNewItemStatus.value = itemStatus;
+                            enterEditLinkUrl.value = link
                         }
                     });
                 } else {
@@ -458,6 +460,7 @@ $(document).ready(function () {
             data: {
                 name: enterEditItemName.value,
                 status: enterNewItemStatus.value,
+                link: enterEditLinkUrl.value,
                 createDate: createDate,
                 selectedItem: lastClickedCard.attr("id"),
                 userto: userto,
