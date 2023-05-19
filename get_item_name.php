@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Az elem nevének lekérdezése az adatbázisból
     $selectedItem = $_POST['selectedItem'];
     $userto = $_POST['userto'];
-    $query = "SELECT name, status FROM items WHERE itemid = '$selectedItem' AND userto = '$userto'";
+    $query = "SELECT name, status, link FROM items WHERE itemid = '$selectedItem' AND userto = '$userto'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 1) {
