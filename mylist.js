@@ -398,6 +398,37 @@ $(document).ready(function () {
     })
 })
 
+//addItem
+$(document).ready(function () {
+    $("#addItemCloseBtn").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "additem.php",
+            data: { name: enterItemName.value, status: enterItemStatus.value, link: enterLinkUrl.value, createDate: createDate, userto: userto },
+            success: function (response) {
+                if (response == "success") {
+                    $("#listItems").empty();
+                    loadItem(un)
+                    toastText.innerHTML = enterItemName.value + " item has been added to the list!";
+                    alertToast.show()
+                    enterItemName.value = ""
+                    enterItemStatus.value = 4
+                    enterLinkUrl.value = ""
+                } else {
+                    // hibaüzenet megjelenítése
+                    toastText.innerHTML = response;
+                    alertToast.show()
+                }
+            },
+            error: function () {
+                // Hibás AJAX hívás esetén kezeljük a hibát
+                $("#message").html("Hiba történt az AJAX hívás során.");
+            }
+        })
+        $("#addItemModal").modal('hide')
+    })
+})
+
 
 //////////////////////////////////////////////////////////////////////////////////
 $("#updateItemIcon").click(function () {
