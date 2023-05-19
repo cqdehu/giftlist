@@ -253,7 +253,7 @@ function loadItem(username) {
                     var linkUrl = data[i].link;
 
                     //Kiírás
-                    console.log(name + ", " + status + ", " + user + ", " + userto + ", " + createDate + ", " + id + "," + itemid)
+                    console.log(name + ", " + status + ", " + linkUrl + ", " + user + ", " + userto + ", " + createDate + ", " + id + "," + itemid)
 
                     const newCardDiv = document.createElement("div")
                     newCardDiv.className = "row ms-4 mb-4 rounded-start-4 align-items-center item-card ";
