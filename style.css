@@ -1,6 +1,8 @@
 /*body*/
 body {
-  background: #1c1c1c;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(36deg, rgba(0, 0, 0, 1) 0%, rgba(40, 40, 40, 1) 44%, rgba(60, 60, 60, 1) 77%, rgba(54, 54, 54, 1) 100%);
+  height: 100vh;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -99,20 +101,20 @@ body {
 
 /**************************************************************************************/
 
-.gc{
+.gc {
   color: #08FFBC;
 }
 
-.bgc{
-  background:#08FFBC;
+.bgc {
+  background: #08FFBC;
 }
 
-.btn-gc{
-  background:#08FFBC;
+.btn-gc {
+  background: #08FFBC;
 }
 
-.btn-gc:hover{
-  background:#0aca97;
+.btn-gc:hover {
+  background: #0aca97;
 }
 
 
@@ -221,7 +223,7 @@ a {
   border-width: 5px 5px 5px 5px;
 }
 
-.other-card{
+.other-card {
   background: linear-gradient(92.77deg, #08FFBC 13.19%, #FFFFFF 52.31%);
 }
 
@@ -229,6 +231,6 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-.custom-progress{
+.custom-progress {
   background-color: #E48900;
 }
